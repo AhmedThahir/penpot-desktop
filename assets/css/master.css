@@ -1,4 +1,4 @@
-webview, .splash {
+webview#penpot, .splash {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -29,8 +29,39 @@ webview, .splash {
     to {transform: translate(-50%, -50%) scale(1);}
 }
 
-/* Settings */
-.settings {
+/* Loading Indicator */
+.loading-indicator {
+    background: white;
+    border: 2px gray solid;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 6px;
+    border-radius: 60px;
+    display: flex;
+    z-index: 10;
+}
+.loading-indicator::after {
+    content: "Loading...";
+    font-size: 14px;
+    margin: -2px 10px 0px 10px;
+}
+.loading-indicator svg {color: gray;}
+
+
+.modalSidebar-header .loading-indicator {
+    position: absolute;
+    right: 42px;
+    left: inherit;
+    transform: inherit;
+    top: 0px;
+    bottom: inherit;
+    margin: 19px;
+}
+
+/* Modals */
+.modal .settings, .modal .update {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -42,17 +73,17 @@ webview, .splash {
     height: max-content;
     display: none;
 }
-.settings-header svg {width: 14px;height: 14px;position: absolute;right: 22px;top: 20px;cursor: pointer;background: #dedeff;padding: 8px 8px;border-radius: 35px;}
+.modal-header svg, body > div.sidebarModals > div > div > svg {width: 14px;height: 14px;position: absolute;right: 22px;top: 20px;cursor: pointer;background: #dedeff;padding: 8px 8px;border-radius: 35px;}
 
-.settings-header {border-bottom: 1px black solid;display: flex;}
+.modal-header, .modalSidebar-header {border-bottom: 1px black solid;display: flex;}
 
-.settings-header h1 {font-size: 24px;padding: 0px 0px 0px 24px;}
+.modal-header h1, .modalSidebar-header h1 {font-size: 24px;padding: 0px 0px 0px 24px;}
 
-.settings-content {padding: 0px 24px;overflow: scroll;height: calc(100% - 66px);}
+.modal-content, .modalSidebar-content {padding: 0px 24px;overflow: scroll;height: calc(100% - 66px);}
 
-.settings-content::-webkit-scrollbar {background: transparent;width: 22px;;;;}
+.modal-content::-webkit-scrollbar {background: transparent;width: 22px;;;;}
 
-.settings-content::-webkit-scrollbar-thumb {background: rgb(0 0 0 / 25%);border-radius: 50px;border: 8px white solid;}
+.modal-content::-webkit-scrollbar-thumb {background: rgb(0 0 0 / 25%);border-radius: 50px;border: 8px white solid;}
 
 h2 {font-size: 18px;}
 
@@ -60,7 +91,24 @@ input {border-radius: 6px;border: none;background: #deddfe;color: black;padding:
 
 button {border: none;background: #9b98ff;padding: 8px 12px;color: white;border-radius: 6px;cursor: pointer;}
 
-blur#for-settings {
+.sidebarModals .changelog {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background: white;
+    border: 2px black solid;
+    border-radius: 10px 10px 0px 0px;
+    margin: 14px;
+    height: calc(100% - 32px);
+    display: none;
+}
+
+.changelog webview {
+    height: calc(100% - 66px);
+    width: 500px;
+}
+
+#modalBlur {
     display: none;
     position: fixed;
     top: 0px;

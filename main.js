@@ -1,4 +1,4 @@
-const {app, BrowserWindow, dialog, Menu, MenuItem} = require('electron')
+const {app, BrowserWindow, dialog, Menu, MenuItem, shell} = require('electron')
 const {autoUpdater} = require("electron-updater");
 const log = require('electron-log');
 autoUpdater.logger = log;
@@ -34,6 +34,7 @@ const launch = () => {
     width: 1200,
     height: 800,
     autoHideMenuBar: true,
+    darkTheme: true,
     transparent: true,
     frame: global.frame,
     titleBarStyle: global.titleBarStyle,
@@ -43,7 +44,10 @@ const launch = () => {
       symbolColor: 'white'
     },
     webPreferences: {
-      webviewTag: true
+      webviewTag: true,
+      enableBlinkFeatures: false,
+      experimentalFeatures: false,
+      sandbox: true,
     }
   })
 
@@ -53,28 +57,34 @@ const launch = () => {
   menu.append(new MenuItem({
     label: 'Penpot',
       submenu: [
-      {
-        label: 'Open Settings',
-        accelerator: process.platform === 'darwin' ? 'Cmd+.' : 'Ctrl+.',
-        click: () => {
-          mainWindow.webContents.executeJavaScript(`
-            document.querySelector('#for-settings').style.display = 'inherit'; document.querySelector('body > div.settings').style.display = 'inherit';
-          `)
+        {
+          label: "What's New",
+          click: () => {
+            mainWindow.webContents.executeJavaScript(`showChangelogs()`)
+          }
+        },
+        {
+          label: 'Open Settings',
+          accelerator: process.platform === 'darwin' ? 'Cmd+.' : 'Ctrl+.',
+          click: () => {
+            mainWindow.webContents.executeJavaScript(`
+              document.querySelector("#modalBlur").style.display = 'inherit'; document.querySelector('body > div.modal > div.settings').style.display = 'inherit';
+            `)
+          }
+        },
+        { type: 'separator'},
+        { role: 'reload' },
+        { role: 'toggleDevTools' },
+        { role: 'resetZoom' },
+        { role: 'zoomIn' },
+        { role: 'zoomOut' },
+        { type: 'separator'},
+        {
+          label: 'Quit',
+          accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
+          hide: true,
+          click: () => { app.quit() }
         }
-      },
-      { type: 'separator'},
-      { role: 'reload' },
-      { role: 'toggleDevTools' },
-      { role: 'resetZoom' },
-      { role: 'zoomIn' },
-      { role: 'zoomOut' },
-      { type: 'separator'},
-      {
-        label: 'Quit',
-        accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
-        hide: true,
-        click: () => { app.quit() }
-      }
     ],
   }))
 
