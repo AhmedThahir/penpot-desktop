@@ -1,5 +1,6 @@
 webview = document.querySelector('webview')
 var penpotEmbed = document.getElementById('penpot');
+var changelog = document.getElementById('changelog');
 
 
 // CSS Injection
@@ -11,6 +12,7 @@ penpotEmbed.addEventListener('dom-ready', function () {
     `
 )})
 
+// JavaScript Detection
 function inc() {
     setTimeout(() => {
         penpotEmbed.executeJavaScript(`
@@ -37,5 +39,19 @@ function inc() {
 
 inc()
 
-
-
+// Loading Indicator
+onload = () => {
+    const loadingWV = document.querySelector('.IndicatorWV')
+    const loadingCL = document.querySelector('.IndicatorCL')
+  
+    const loadstartWV = () => {document.getElementById('IndicatorWV').style.display='flex'}
+    const loadstopWV = () => {setTimeout(function(){document.getElementById('IndicatorWV').style.display='none'}, 500);}
+  
+    const loadstartCL = () => {document.getElementById('IndicatorCL').style.display='flex'}
+    const loadstopCL = () => {setTimeout(function(){document.getElementById('IndicatorCL').style.display='none'}, 500);}
+  
+    penpotEmbed.addEventListener('did-start-loading', loadstartWV)
+    penpotEmbed.addEventListener('did-stop-loading', loadstopWV)
+    changelog.addEventListener('did-start-loading', loadstartCL)
+    changelog.addEventListener('did-stop-loading', loadstopCL)
+  }
