@@ -1,3 +1,4 @@
+# Changelog
 ## v0.0.4 Alpha (In Progress)
  - Add a loading indicator to show if the WebView is loading
  - Add "What's New" option in menu items
