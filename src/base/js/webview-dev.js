@@ -5,18 +5,14 @@ var changelog = document.getElementById('changelog');
 // CSS Injection - Including Dark Mode
 penpotEmbed.addEventListener('dom-ready', function () {
     penpotEmbed.insertCSS(`
-    html.windows [data-for-os=mac], html.windows [data-for-os=linux] {display: none;}
-    html.mac [data-for-os=windows], html.mac [data-for-os=linux] {display: none;}
-    html.linux [data-for-os=mac], html.linux [data-for-os=windows] {display: none;}
-
     /* Bringing dark mode, to the dashboard */
     /* It's what we want, so let's add it! */
-
+    
     :root {
         --primary: #343434;
         --secondary: #2e2e2e;
     }
-
+    
     .dashboard-layout {background: var(--primary) !important}
     .dashboard-layout h1,
     .dashboard-layout h2,
@@ -27,20 +23,45 @@ penpotEmbed.addEventListener('dom-ready', function () {
     .dashboard-layout i,
     .dashboard-layout svg
     {color: white !important}
-
+    
     /* Login Screen */
     .auth-content {background: var(--secondary) !important}
-
+    
     .auth-content h1,
     .auth-content h2,
     .auth-content span,
     .auth-content p
     {color: white !important}
-
+    
+    /** Sign Up **/
+    .form-container .notification-icon svg, .generic-form .notification-icon svg {
+        fill: white !important;
+    }
+    .form-container .subtitle, .generic-form .subtitle, .form-container .notification-text, .generic-form .notification-text, .af-dropdown-text, .af-step-previous button {
+        color: white !important;
+    }
+    .custom-input.with-icon input, .custom-input.empty input, .custom-input.valid input, input#af_uid_409, .af-dropdown, input#af_uid_424, input#af_uid_430 {
+        padding-right: 50px;
+        background: var(--primary) !important;
+        border: 2px #484848 solid !important;
+        border-radius: 6px !important;
+        color: white !important;
+        height: 52px !important;
+    }
+    .questions-form .modal-container, .questions-form .modal-container .af-form {
+        background: var(--primary) !important;
+    }
+    .af-html-block, .af-rich-text-block {
+        color: #a599c6 !important;
+    }
+    .af-choice-option label:hover, .af-boolean-option label:hover {
+        background-color: #404040 !important;
+    }
+    
     /* Dashboard */
     /** Sidebar **/
     .dashboard-sidebar {background-color: var(--primary) !important}
-
+    
     .dashboard-sidebar .sidebar-team-switch .switch-content {
         border: 2px #484848 solid !important;
     }
@@ -54,15 +75,15 @@ penpotEmbed.addEventListener('dom-ready', function () {
         border: 2px #484848 solid !important;
         border-radius: 6px !important;
     }
-
+    
     .profile-section .dropdown span {
         color: black !important;
     }
-
+    
     ul.sidebar-nav.no-overflow svg {
         fill: white !important;
     }
-
+    
     form.profile-form input, form.password-form input {
         background: var(--primary) !important;
         border: 2px #484848 solid !important;
@@ -70,20 +91,20 @@ penpotEmbed.addEventListener('dom-ready', function () {
         color: white !important;
         height: 52px !important;
     }
-
+    
     label {
         color: white !important;
     }
-
+    
     /** Modals **/
-    .modal-container.onboarding.feature .btn-secondary {
+    .modal-container.onboarding button {
         color: black !important;
     }
-
+    
     /** Content **/
     .dashboard-container {background: var(--secondary) !important}
     .dashboard-header {background: transparent !important}
-
+    
     /*** Projects ***/
     .project {background: var(--primary) !important}
     .btn-secondary {
@@ -101,36 +122,6 @@ penpotEmbed.addEventListener('dom-ready', function () {
     }
     `
 )})
-
-
-
-
-// JavaScript Detection
-function inc() {
-    setTimeout(() => {
-        penpotEmbed.executeJavaScript(`
-        var OS="Unknown";
-        if (navigator.userAgent.indexOf("Win")!=-1) OS="Windows";
-        if (navigator.userAgent.indexOf("Mac")!=-1) OS="MacOS";
-        if (navigator.userAgent.indexOf("X11")!=-1) OS="UNIX";
-        if (navigator.userAgent.indexOf("Linux")!=-1) OS="Linux";
-    
-        if (navigator.userAgent.indexOf == 'MacOS') { // Move away from traffic light buttons
-            document.querySelector("#app > section > div.dashboard-sidebar > div > div.sidebar-content > div.sidebar-team-switch").style.marginTop = '54px';
-            document.querySelector("#workspace > header > div.left-area").style.marginLeft = '100px'
-        }
-        else if (navigator.userAgent.indexOf == 'Windows'){ // Move away from titlebar buttons
-            document.querySelector("#app > section > div.dashboard-content > header > a").style.marginRight = '150px';
-        }
-        else {}
-        `
-    )}, 2500);
-    setTimeout(() => {
-        inc()
-    }, 5000);
-}
-
-inc()
 
 // Loading Indicator
 onload = () => {
