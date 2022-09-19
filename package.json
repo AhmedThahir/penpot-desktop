@@ -1,7 +1,7 @@
 {
   "name": "penpot-desktop",
-  "version": "0.0.4",
-  "main": "main.js",
+  "version": "0.0.5",
+  "main": "src/process/index.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder build"
