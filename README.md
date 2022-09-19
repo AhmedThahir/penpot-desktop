@@ -8,6 +8,8 @@ This is very new, so it's not perfect, but it works(at least).
 
 ## Features
 - Use Penpot Desktop on your own server if you're self-hosting
+- Dark mode on the Dashboard
+- Auto updates (macOS is currently not supported)
 
 ## Downloads
 [Windows](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop%20Setup%200.0.3.exe) (Auto update included)
