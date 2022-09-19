@@ -1,3 +1,8 @@
+html.windows [data-for-os=mac], html.windows [data-for-os=linux] {display: none;}
+html.mac [data-for-os=windows], html.mac [data-for-os=linux] {display: none;}
+html.linux [data-for-os=mac], html.linux [data-for-os=windows] {display: none;}
+
+/**/
 webview#penpot, .splash {
     position: fixed;
     top: 0px;
@@ -6,12 +11,24 @@ webview#penpot, .splash {
     height: 100%;
 }
 
+/* Titlebar */
+.titlebar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    background: #343434;
+    -webkit-app-region: drag;
+    z-index: 10;
+    display: none;
+}
+
 /* Splash */
 .splash {
     align-items: center;
     text-align: center;
-    background: rgb(255 255 255 / 50%);
-    backdrop-filter: blur(20px) brightness(0.7);
+    background: #2e2e2e;
     transition: 1s opacity;
     opacity: 1;
 }
@@ -20,6 +37,7 @@ webview#penpot, .splash {
     position: fixed;
     top: 50%;
     left: 50%;
+    fill: white;
     transform: translate(-50%, -50%);
     animation: 1s svgZoom ease;
 }
