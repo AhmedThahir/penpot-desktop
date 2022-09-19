@@ -1,4 +1,8 @@
 # Changelog
+## v0.0.6 Alpha
+ - Fix UI/UX on Sign Up page
+ - Add dragging area to allow Windows/macOS users to drag the window
+
 ## v0.0.5 Alpha
  - Replace update dialog with a HTML modal
  - Enforce dark mode for Penpot Dashboard
