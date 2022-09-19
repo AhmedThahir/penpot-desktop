@@ -31,7 +31,8 @@ const launch = () => {
     trafficLightPosition: { x: 10, y: 10 },
     titleBarOverlay: {
       color: '#303136',
-      symbolColor: 'white'
+      symbolColor: 'white',
+      height: 30,
     },
     webPreferences: {
       preload: path.join(__dirname, "./preload.js"),
