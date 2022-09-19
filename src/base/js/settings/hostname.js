@@ -25,3 +25,12 @@ if(!localStorage.getItem("firstTime")){
   localStorage.setItem('customHostname', 'https://design.penpot.app/') // If not set, by default on first launch, the app will be blank (to fix issue #3)
   localStorage.setItem("firstTime","true");
 }else{}
+
+function hostnameSaved() {
+  document.querySelector("#cswU").style.backgroundColor = '#00af00'
+  document.querySelector("#cswU").innerHTML = 'Saved'
+  setTimeout(() => {
+    document.querySelector("#cswU").style.backgroundColor = '#9b98ff'
+    document.querySelector("#cswU").innerHTML = 'Save'
+  }, 2300);
+}

@@ -1,6 +1,7 @@
-const {app, BrowserWindow, dialog, Menu, MenuItem, shell} = require('electron')
+const {app, BrowserWindow, dialog, ipcMain, ipcRenderer, Menu, MenuItem} = require('electron')
 const {autoUpdater} = require("electron-updater");
 const log = require('electron-log');
+const path = require('path');
 autoUpdater.logger = log;
 
 if (process.platform == 'darwin') {
@@ -18,17 +19,6 @@ else{
     global.frame = true;
 })}
 
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-  const dialogOpts = {
-    type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Update Ready',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new update is ready!'
-  }
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {if (returnValue.response === 0) autoUpdater.quitAndInstall()})
-})
-
 const launch = () => {
   const mainWindow = new BrowserWindow({
     width: 1200,
@@ -44,14 +34,20 @@ const launch = () => {
       symbolColor: 'white'
     },
     webPreferences: {
+      preload: path.join(__dirname, "./preload.js"),
       webviewTag: true,
       enableBlinkFeatures: false,
       experimentalFeatures: false,
-      sandbox: true,
+      sandbox: false, // Breaks "path" module in Preload
+      contextIsolation: true,
+      nodeIntegration: false
     }
   })
 
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('src/index.html')
+
+  autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {mainWindow.webContents.executeJavaScript(`showUpdateAvailable()`)})
+  ipcMain.on('updateApp',  () => {autoUpdater.quitAndInstall()})
 
   const menu = new Menu()
   menu.append(new MenuItem({
@@ -68,7 +64,7 @@ const launch = () => {
           accelerator: process.platform === 'darwin' ? 'Cmd+.' : 'Ctrl+.',
           click: () => {
             mainWindow.webContents.executeJavaScript(`
-              document.querySelector("#modalBlur").style.display = 'inherit'; document.querySelector('body > div.modal > div.settings').style.display = 'inherit';
+              showSettings()
             `)
           }
         },
