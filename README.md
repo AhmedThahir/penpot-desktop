@@ -16,6 +16,12 @@ This is very new, so it's not perfect, but it works(at least).
 
 [Linux](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.6.AppImage) (Auto update included)
 
+Optionally for Linux users, if you want to add Penpot Desktop to your application, run this in your console:
+```
+bash <(curl -s https://cdn.korbsstudio.com/files/sh/penpot-desktop.sh)
+```
+*Tested on Fedora 36*
+
 ## First launch
 
 ### MacOS
