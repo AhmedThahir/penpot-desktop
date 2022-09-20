@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Penpot Desktop
+Comment=Design Freedom for Teams
+Exec=sh /usr/share/korbs-studio/penpot-desktop/app/penpot-desktop.sh
+Icon=/usr/share/korbs-studio/penpot-desktop/icon.png
+Type=Application
+StartupNotify=false
+Categories=Graphics;
+Actions=new-empty-window;
+Keywords=penpot;
