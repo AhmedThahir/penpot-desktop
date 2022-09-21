@@ -1,0 +1,35 @@
+<div class="welcome">
+    <div class="modal-header">
+        <h1>Welcome to Penpot Desktop</h1>
+    </div>
+    <div class="modal-content">
+        <div>
+            <img src="https://design.penpot.app/images/login-pink.svg">
+        </div>
+        <div>
+            <div id="welcome-intro">
+                <h2>Hi there stranger!</h2>
+                <p>Welcome to Penpot Desktop, communtiy software for you and for your team to design and prototype with. From designing amazing concepts for apps and websites, to collabrating with others and creating amazing products.</p>
+                <p>If you're selfhosting Penpot, it's possible for Penpot Desktop to switch to it by changing the Hostname in the app settings, which can be accessed by pressing "Ctrl/Command" + "."</p>
+                <p>Penpot Desktop is currently in alpha stages, so do expect some issues if any occur. If you do by any chance find an issue, please submit them to Penpot Desktop's GitHub. You can also contribute to Penpot Desktop by improving it's quaily or adding new features for everyone to enjoy, by creating a PR on the GitHub repo.</p>
+            </div>
+            <div style="display: none;" id="welcome-faq">
+                <h3>Is this official software by Penpot?</h3>
+                <p>No, this is considered community software. Although we're looking forwarded to becoming official software if possible.</p>
+                <h3>Can I trust Penpot Desktop since it's not official software?</h3>
+                <p>Sure you can! It's open source and the code is public for everyone to see and to investigate if they're suspicious.</p>
+                <h3>Who created Penpot Desktop?</h3>
+                <p>Penpot Desktop was created by Korbs Studio and with the help of contributors.</p>
+                <h3>What if I'm selfhosting Penpot?</h3>
+                <p>As already mentioned on the welcome page you just clicked out of, you can by changing the host name in the app settings. The app settings can be accessed by pressing "Ctrl/Command" + "."</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="actions">
+            <button id="welcome-on-greetings" style="color: white; background: rgb(23, 23, 23);" onclick="document.querySelector('.modal .welcome #welcome-intro').style.display = 'none'; document.querySelector('.modal .welcome #welcome-faq').style.display = 'inherit'; document.querySelector('.modal .welcome #welcome-on-greetings').style.display = 'none';  document.querySelector('.modal .welcome #welcome-on-faq').style.display = 'initial'; ">FAQ</button>
+            <button id="welcome-on-faq" style="color: black; background: white; display: none;" onclick="document.querySelector('.modal .welcome #welcome-intro').style.display = 'inherit'; document.querySelector('.modal .welcome #welcome-faq').style.display = 'none';  document.querySelector('.modal .welcome #welcome-on-greetings').style.display = 'initial';  document.querySelector('.modal .welcome #welcome-on-faq').style.display = 'none';  ">Back</button>
+            <button onclick="hideWelcome()">Get Started</button>
+        </div>
+    </div>
+</div>

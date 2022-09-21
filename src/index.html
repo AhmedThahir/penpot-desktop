@@ -10,32 +10,29 @@
 
     <webview id="penpot" src="#"></webview>
 
-    <div id="IndicatorWV" class="loading-indicator">
-      <i class="fa-solid fa-circle-notch fa-spin" style="--fa-animation-duration: 0.5s;"></i>
-    </div>
+    <div id="IndicatorWV" class="loading-indicator"><i class="fa-solid fa-circle-notch fa-spin" style="--fa-animation-duration: 0.5s;"></i></div>
     
     <div id="modalBlur"></div>
 
-    <div class="sidebarModals">
-      <div add-component="./components/modals/whats-new.html"></div>
-    </div>
-
+    <div class="sidebarModals"><div add-component="./components/modals/whats-new.html"></div></div>
 
     <div class="modal">
       <div add-component="./components/modals/settings.html"></div>
       <div add-component="./components/modals/update-available.html"></div>
+      <div say-hello="./components/modals/welcome.html"></div>
     </div>
   </body>
   <script src="./base/js/add-components.js"></script>
   <script src="./base/js/settings/hostname.js"></script>
-  <script src="./base/js/titlebar.js"></script>
   <script src="./base/js/views.js"></script>
   <script src="./base/js/webview-dev.js"></script>
+  <script src="./base/js/welcome.js"></script>
 </html>
 <script>
 setTimeout(() => {
   document.querySelector('.splash').style.opacity = '0';
   document.querySelector('.splash').style.pointerEvents = 'none';
+  document.querySelector('webview#penpot').style.opacity = '1';
 }, 2500);
 </script>
 <script>addComponent()</script>
