@@ -39,17 +39,17 @@ penpotEmbed.addEventListener('dom-ready', function () {
     }
     
     html.Mac .sidebar-team-switch {
-        margin-top: 30px !important;
+        margin-top: 54px !important;
     }
     html.Mac .left-area {
-        margin-left: 76px !important;
+        margin-left: 113px !important;
     }
-
+    
     /* Bringing dark mode, to the dashboard */
     /* It's what we want, so let's add it! */
     :root {
         --primary: #303136;
-        --secondary: #1f1f1f;
+        --secondary: #2A2A2A;
     }
 
     .dashboard-layout {background: var(--primary) !important}

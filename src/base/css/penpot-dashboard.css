@@ -7,10 +7,10 @@ html.Windows .dashboard-header {
 }
 
 html.Mac .sidebar-team-switch {
-    margin-top: 30px !important;
+    margin-top: 54px !important;
 }
 html.Mac .left-area {
-    margin-left: 76px !important;
+    margin-left: 113px !important;
 }
 
 /* Bringing dark mode, to the dashboard */
