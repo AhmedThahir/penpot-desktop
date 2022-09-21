@@ -1,5 +1,5 @@
 # Penpot Desktop
-![Board-1](https://user-images.githubusercontent.com/51213244/190878571-7789bfe9-7203-4f63-9502-b4d4324de0ef.png)
+![Penpot Desktop on Windows 11](https://user-images.githubusercontent.com/51213244/191418938-551f28fc-19c8-49fe-876b-22b2900f9286.png)
 
 ## About Penpot Desktop
 Mostly an embed using a WebView, but I plan to add more onto it later on.
@@ -8,6 +8,10 @@ This is very new, so it's not perfect, but it works(at least).
 
 ## Features
 - Use Penpot Desktop on your own server if you're self-hosting
+- Dark mode in Dashboard
+
+## Features Planned for the Future
+ - Tabs
 
 ## Downloads
 [Windows](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop%20Setup%200.0.6.exe) (Auto update included)
@@ -35,3 +39,6 @@ You may see an error message saying Penpot-Desktop "...cannot Be Opened Because 
 3. Confirm in the dialog which will be shown
 
 The Penpot-Desktop app is now saved as an exception to your security settings, and you can open it in the future by double-clicking it just as you can any registered app.
+
+---
+> This is community software and not official software by Penpot. 
