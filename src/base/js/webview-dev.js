@@ -2,17 +2,56 @@ webview = document.querySelector('webview')
 var penpotEmbed = document.getElementById('penpot');
 var changelog = document.getElementById('changelog');
 
+function inc() {
+    setTimeout(() => {
+        penpotEmbed.executeJavaScript(`
+        var htmlElement = document.documentElement;
+        if (navigator.platform.match(/(Mac)/i)) {
+          htmlElement.className = 'Mac'
+        }
+        if (navigator.platform.match(/(Linux)/i)) {
+          htmlElement.className = 'Linux'
+        } else {
+          htmlElement.className = 'Windows'
+        }
+        document.addEventListener('click', function(event) {
+          var target = event.target;
+          if (target.getAttribute && target.getAttribute('data-action') === 'switch-os') {
+            event.preventDefault();
+            htmlElement.className = target.getAttribute('data-os')
+          }
+        })
+        `
+    )}, 2500);
+}
+
+inc()
+
 // CSS Injection - Including Dark Mode
 penpotEmbed.addEventListener('dom-ready', function () {
     penpotEmbed.insertCSS(`
-    /* Bringing dark mode, to the dashboard */
-    /* It's what we want, so let's add it! */
-    
-    :root {
-        --primary: #343434;
-        --secondary: #2e2e2e;
+    /** Move stuff around away from titlebar button overlays (Needed for macOS and Windows) **/
+    html.Windows .right-area {
+        margin-right: 174px;
+    }
+    html.Windows .dashboard-header {
+        width: calc(100% - 178px);
     }
     
+    html.Mac .sidebar-team-switch {
+        margin-top: 30px !important;
+    }
+    html.Mac .left-area {
+        margin-left: 76px !important;
+    }
+
+    /* Bringing dark mode, to the dashboard */
+    /* It's what we want, so let's add it! */
+    :root {
+        --primary: #303136;
+        --secondary: #1f1f1f;
+    }
+
     .dashboard-layout {background: var(--primary) !important}
     .dashboard-layout h1,
     .dashboard-layout h2,
@@ -23,16 +62,16 @@ penpotEmbed.addEventListener('dom-ready', function () {
     .dashboard-layout i,
     .dashboard-layout svg
     {color: white !important}
-    
+
     /* Login Screen */
     .auth-content {background: var(--secondary) !important}
-    
+
     .auth-content h1,
     .auth-content h2,
     .auth-content span,
     .auth-content p
     {color: white !important}
-    
+
     /** Sign Up **/
     .form-container .notification-icon svg, .generic-form .notification-icon svg {
         fill: white !important;
@@ -57,11 +96,35 @@ penpotEmbed.addEventListener('dom-ready', function () {
     .af-choice-option label:hover, .af-boolean-option label:hover {
         background-color: #404040 !important;
     }
-    
+
+    .input-container {
+        background: var(--primary) !important;
+        border: 2px #484848 solid !important;
+        border-radius: 6px !important;
+        color: white !important;
+        height: 52px !important;
+    }
+
     /* Dashboard */
     /** Sidebar **/
     .dashboard-sidebar {background-color: var(--primary) !important}
-    
+
+    ul.dropdown.teams-dropdown {
+        border: 2px #484848 solid !important;
+        border-radius: 6px !important;
+    }
+
+    ul.dropdown.teams-dropdown li {
+        background: var(--primary) !important;
+        color: white !important;
+    }
+    ul.dropdown.teams-dropdown li:hover {
+        background: var(--secondary) !important;
+    }
+    .dashboard-sidebar .sidebar-content hr {
+        display: none !important;
+    }
+
     .dashboard-sidebar .sidebar-team-switch .switch-content {
         border: 2px #484848 solid !important;
     }
@@ -75,15 +138,15 @@ penpotEmbed.addEventListener('dom-ready', function () {
         border: 2px #484848 solid !important;
         border-radius: 6px !important;
     }
-    
+
     .profile-section .dropdown span {
         color: black !important;
     }
-    
+
     ul.sidebar-nav.no-overflow svg {
         fill: white !important;
     }
-    
+
     form.profile-form input, form.password-form input {
         background: var(--primary) !important;
         border: 2px #484848 solid !important;
@@ -91,20 +154,20 @@ penpotEmbed.addEventListener('dom-ready', function () {
         color: white !important;
         height: 52px !important;
     }
-    
+
     label {
         color: white !important;
     }
-    
+
     /** Modals **/
     .modal-container.onboarding button {
         color: black !important;
     }
-    
+
     /** Content **/
     .dashboard-container {background: var(--secondary) !important}
     .dashboard-header {background: transparent !important}
-    
+
     /*** Projects ***/
     .project {background: var(--primary) !important}
     .btn-secondary {
@@ -119,6 +182,25 @@ penpotEmbed.addEventListener('dom-ready', function () {
     }
     .dashboard-grid .grid-item .grid-item-th {
         border-radius: 6px 6px 0px 0px !important;
+    }
+
+    /*** Fonts ***/
+    .dashboard-fonts .dashboard-fonts-hero, .dashboard-fonts .installed-fonts-header {
+        background: var(--secondary);
+        color: white;
+    }
+    .dashboard-fonts .font-item {
+        background: var(--secondary);
+        color: white;
+        border: none !important;
+        fill: white !important;
+    }
+    .dashboard-fonts .font-item input {
+        background: var(--primary) !important;
+        border: 2px #484848 solid !important;
+        border-radius: 6px !important;
+        color: white !important;
+        height: 42px !important;
     }
     `
 )})
