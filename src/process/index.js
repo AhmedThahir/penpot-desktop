@@ -9,7 +9,7 @@ if (process.platform == 'darwin') {
   app.whenReady().then(() => {
     mainWindow.webContents.executeJavaScript('isMac()')
     global.frame = false;
-    global.titleBarStyle = 'default';
+    global.titleBarStyle = 'hiddenInset';
     global.blurType = 'vibrancy';
 })}
 else if(process.platform == 'win32'){
