@@ -1,4 +1,11 @@
 # Changelog
+## v0.0.7 Alpha
+ - Add drag button for Windows and macOS (Still buggy)
+ - Improve UI/UX for Fonts section and Switch Team dropdown
+ - Add a new welcome window
+ - Add Glasstron and add blur to splash
+ - Blur is disabled after 5 seconds to reduce CPU usage
+
 ## v0.0.6 Alpha
  - Fix UI/UX on Sign Up page
  - Add dragging area to allow Windows/macOS users to drag the window
