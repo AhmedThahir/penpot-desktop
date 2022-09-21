@@ -7,20 +7,21 @@ autoUpdater.logger = log;
 
 if (process.platform == 'darwin') {
   app.whenReady().then(() => {
+    mainWindow.webContents.executeJavaScript('isMac()')
     global.frame = false;
-    global.titleBarStyle = 'hiddenInset';
-    global.blurType = 'vibrancy'
+    global.titleBarStyle = 'default';
+    global.blurType = 'vibrancy';
 })}
 else if(process.platform == 'win32'){
   app.whenReady().then(() => {
     global.frame = false;
     global.titleBarStyle = 'hidden';
-    global.blurType = 'blurbehind' // Acrylic won't be used as there is a pully issue: https://github.com/KorbsStudio/glasstron-quick-start#there-is-mouse-latency-on-windows
+    global.blurType = 'blurbehind'; // Acrylic won't be use here as there is a pully issue: https://github.com/KorbsStudio/glasstron-quick-start#there-is-mouse-latency-on-windows
 })}
 else{
   app.whenReady().then(() => {
     global.frame = true;
-    global.blurType = 'blurbehind'
+    global.blurType = 'blurbehind';
 })}
 
 const launch = () => {
@@ -52,11 +53,12 @@ const launch = () => {
     }
   })
 
-  mainWindow.loadFile('src/index.html')
-  setTimeout(() => {
-    mainWindow.maximize() // Use max size by default
-  }, 2850); // Wait until Splash is gone
+  if (process.platform == 'darwin') {app.whenReady().then(() => {mainWindow.webContents.executeJavaScript('isMac()')})} // Don't maximize window: #13 https://github.com/KorbsStudio/Penpot-Desktop/issues/13#issuecomment-1253246535
+  else if(process.platform == 'win32'){app.whenReady().then(() => {mainWindow.webContents.executeJavaScript('isWindows()'); setTimeout(() => {mainWindow.maximize()}, 2850);})}
+  else {setTimeout(() => {mainWindow.maximize()}, 2850)}
 
+  mainWindow.loadFile('src/index.html')
+  
   // While the blur looks nice on the splash, it's mostly hidden by the WebView until I can add transparency at some point (was possible in Electron v18 and broke in v19 and up).
   // So to reduce CPU usage, let's disable the blur using Glasstron after about 5 seconds.
   setTimeout(() => {mainWindow.setBlur(false)}, 5000);
@@ -101,7 +103,5 @@ const launch = () => {
 
   Menu.setApplicationMenu(menu)
 }
-
-
 
 app.whenReady().then(() => {launch();autoUpdater.checkForUpdatesAndNotify();})

@@ -1,16 +1,14 @@
-var htmlElement = document.documentElement;
-if (navigator.platform.match(/(Mac)/i)) {
-  htmlElement.className = 'Mac'
+function isWindows() {
+  setTimeout(() => {
+    document.querySelector('.titlebar').style.display = 'inherit';
+    document.querySelector('.titlebar button#drag-me').style.right = '137px';
+  }, 1000);
+  setTimeout(() => {document.querySelector('.titlebar').style.opacity = '1'}, 2580);
 }
-if (navigator.platform.match(/(Linux)/i)) {
-  htmlElement.className = 'Linux'
-} else {
-  htmlElement.className = 'Windows'
+function isMac() {
+  setTimeout(() => {
+    document.querySelector('.titlebar').style.display = 'inherit';
+    document.querySelector('.titlebar button#drag-me').style.right = '76px';
+  }, 1000);
+  setTimeout(() => {document.querySelector('.titlebar').style.opacity = '1'}, 2580);
 }
-document.addEventListener('click', function(event) {
-  var target = event.target;
-  if (target.getAttribute && target.getAttribute('data-action') === 'switch-os') {
-    event.preventDefault();
-    htmlElement.className = target.getAttribute('data-os')
-  }
-})

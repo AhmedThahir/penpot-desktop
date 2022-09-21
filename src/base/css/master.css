@@ -30,6 +30,9 @@ webview#penpot {
 
 /* Titlebar */
 .titlebar {
+    display: none;
+    opacity: 0;
+    transition: 1s opacity;
     position: fixed;
     top: 0px;
     z-index: 10;
@@ -47,8 +50,8 @@ button#drag-me:focus {
     filter: brightness(1.2);
 }
 
-html.Windows button#drag-me {right: 137px}
-html.Mac button#drag-me {left: 76px}
+/* html.Windows button#drag-me {right: 137px}
+html.Mac button#drag-me {left: 76px} */
 
 /* Splash */
 .splash {
