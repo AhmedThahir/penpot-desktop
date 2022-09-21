@@ -37,7 +37,6 @@ webview#penpot {
 
 button#drag-me {
     position: fixed;
-    right: 137px;
     border-radius: 0px;
     background: #303136;
     height: 48px;
@@ -47,6 +46,9 @@ button#drag-me:focus {
     outline: none;
     filter: brightness(1.2);
 }
+
+html.Windows button#drag-me {right: 137px}
+html.Mac button#drag-me {left: 76px}
 
 /* Splash */
 .splash {
