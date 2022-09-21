@@ -8,7 +8,7 @@ function isWindows() {
 function isMac() {
   setTimeout(() => {
     document.querySelector('.titlebar').style.display = 'inherit';
-    document.querySelector('.titlebar button#drag-me').style.right = '76px';
+    document.querySelector('.titlebar button#drag-me').style.left = '76px';
   }, 1000);
   setTimeout(() => {document.querySelector('.titlebar').style.opacity = '1'}, 2580);
 }
