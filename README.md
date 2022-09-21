@@ -14,11 +14,11 @@ This is very new, so it's not perfect, but it works(at least).
  - Tabs
 
 ## Downloads
-[Windows](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop%20Setup%200.0.6.exe) (Auto update included)
+[Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe) (Auto update included)
 
-[macOS](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.6.dmg) (No auto updates)
+[macOS](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.7.dmg) (No auto updates)
 
-[Linux](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.6.AppImage) (Auto update included)
+[Linux](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.7.AppImage) (Auto update included)
 
 Optionally for Linux users, if you want to add Penpot Desktop to your applications menu, run this in your console:
 ```
