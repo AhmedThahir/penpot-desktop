@@ -1,6 +1,6 @@
 {
   "name": "penpot-desktop",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "src/process/index.js",
   "scripts": {
     "start": "electron .",
@@ -25,6 +25,18 @@
       "synopsis": "Use PenPot, right from your desktop",
       "description": "Use PenPot, right from your desktop"
     },
+    "nsis": {
+      "shortcutName": "Penpot Desktop",
+      "uninstallDisplayName": "Penpot Desktop",
+      "artifactName": "Penpot Desktop - Setup.exe",
+      "installerSidebar": "build/installerSidebar.bmp",
+      "oneClick": false,
+      "displayLanguageSelector": true,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": false,
+      "deleteAppDataOnUninstall": true
+    },
     "publish": [
       {
         "provider": "generic",
@@ -35,6 +47,7 @@
   },
   "dependencies": {
     "electron-log": "^4.4.8",
-    "electron-updater": "^5.2.1"
+    "electron-updater": "^5.2.1",
+    "glasstron": "^0.1.1"
   }
 }
