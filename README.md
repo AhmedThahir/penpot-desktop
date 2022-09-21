@@ -26,7 +26,13 @@ bash <(curl -s https://cdn.korbsstudio.com/files/sh/penpot-desktop.sh)
 ```
 *Tested on Fedora 36*
 
-## First launch
+## Installation
+## Windows
+After downloading the setup file for Penpot Desktop, you'll notice a [pop up](https://i.imgur.com/yNjUYg7.png) when opening the setup file.
+
+The pop up should be Smartscreen saying "Windows protected your PC" and "Microsoft Defender SmartScreen prevented an unrecoginzed app from start...". This is because the setup file for Penpot Desktop is unsigned and Windows will do this for all unsigned files, whether if the file is actually safe to use or not. 
+
+Just click "Show More" and then "Run anyway".
 
 ### MacOS
 (This is a temporary work-around until the issue is resolved.)
