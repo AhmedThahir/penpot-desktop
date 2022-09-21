@@ -13,3 +13,11 @@ function showUpdateAvailable() {
 function hideUpdateAvailable() {
     document.querySelector("#modalBlur").style.display = 'none'; document.querySelector('.update#available').style.display = 'none';
 }
+function showWelcome() {
+    document.querySelector("#modalBlur").style.display = 'inherit';
+    document.querySelector(".modal .welcome").style.display = 'inherit'
+}
+function hideWelcome() {
+    document.querySelector("#modalBlur").style.display = 'none';
+    document.querySelector(".modal .welcome").style.display = 'none'
+}
