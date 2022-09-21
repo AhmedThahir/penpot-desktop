@@ -1,4 +1,5 @@
 const {app, BrowserWindow, dialog, ipcMain, ipcRenderer, Menu, MenuItem} = require('electron')
+const glasstron = require('glasstron')
 const {autoUpdater} = require("electron-updater");
 const log = require('electron-log');
 const path = require('path');
@@ -8,31 +9,37 @@ if (process.platform == 'darwin') {
   app.whenReady().then(() => {
     global.frame = false;
     global.titleBarStyle = 'hiddenInset';
+    global.blurType = 'vibrancy'
 })}
 else if(process.platform == 'win32'){
   app.whenReady().then(() => {
     global.frame = false;
     global.titleBarStyle = 'hidden';
+    global.blurType = 'blurbehind' // Acrylic won't be used as there is a pully issue: https://github.com/KorbsStudio/glasstron-quick-start#there-is-mouse-latency-on-windows
 })}
 else{
   app.whenReady().then(() => {
     global.frame = true;
+    global.blurType = 'blurbehind'
 })}
 
 const launch = () => {
-  const mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
+  const mainWindow = new glasstron.BrowserWindow({
+    width: 1300,
+    height: 900,
+    minWidth: 1240,
+    minHeight: 400,
     autoHideMenuBar: true,
     darkTheme: true,
-    transparent: true,
     frame: global.frame,
+    blur: true,
+    blurType: global.blurType,
     titleBarStyle: global.titleBarStyle,
     trafficLightPosition: { x: 10, y: 10 },
     titleBarOverlay: {
       color: '#303136',
       symbolColor: 'white',
-      height: 30,
+      height: 48,
     },
     webPreferences: {
       preload: path.join(__dirname, "./preload.js"),
@@ -46,6 +53,13 @@ const launch = () => {
   })
 
   mainWindow.loadFile('src/index.html')
+  setTimeout(() => {
+    mainWindow.maximize() // Use max size by default
+  }, 2850); // Wait until Splash is gone
+
+  // While the blur looks nice on the splash, it's mostly hidden by the WebView until I can add transparency at some point (was possible in Electron v18 and broke in v19 and up).
+  // So to reduce CPU usage, let's disable the blur using Glasstron after about 5 seconds.
+  setTimeout(() => {mainWindow.setBlur(false)}, 5000);
 
   autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {mainWindow.webContents.executeJavaScript(`showUpdateAvailable()`)})
   ipcMain.on('updateApp',  () => {autoUpdater.quitAndInstall()})
