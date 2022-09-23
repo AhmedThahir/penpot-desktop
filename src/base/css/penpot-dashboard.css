@@ -1,18 +1,3 @@
-/** Move stuff around away from titlebar button overlays (Needed for macOS and Windows) **/
-html.Windows .right-area {
-    margin-right: 174px;
-}
-html.Windows .dashboard-header {
-    width: calc(100% - 178px);
-}
-
-html.Mac .sidebar-team-switch {
-    margin-top: 54px !important;
-}
-html.Mac .left-area {
-    margin-left: 113px !important;
-}
-
 /* Bringing dark mode, to the dashboard */
 /* It's what we want, so let's add it! */
 :root {
@@ -154,12 +139,12 @@ label {
 
 /*** Fonts ***/
 .dashboard-fonts .dashboard-fonts-hero, .dashboard-fonts .installed-fonts-header {
-    background: var(--secondary);
-    color: white;
+    background: var(--secondary) !important;
+    color: white !important;
 }
 .dashboard-fonts .font-item {
-    background: var(--secondary);
-    color: white;
+    background: var(--secondary) !important;
+    color: white !important;
     border: none !important;
     fill: white !important;
 }

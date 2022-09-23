@@ -2,20 +2,17 @@
   <head>
     <title>PenPot Desktop</title>
     <link rel="stylesheet" href="./base/css/master.css">
-    <script src="https://kit.fontawesome.com/fc093d7fbf.js" crossorigin="anonymous"></script>
+    <script src="./base/fonts/fontawesome-pro-6.2.0-web/js/all.js"></script>
   </head>
   <body>
     <div add-component="./components/titlebar.html"></div>
     <div add-component="./components/splash.html"></div>
 
-    <webview id="penpot" src="#"></webview>
-
+    <webview id="penpot" src="#" allowpopups webpreferences="sandbox=true, frame: false "></webview>
     <div id="IndicatorWV" class="loading-indicator"><i class="fa-solid fa-circle-notch fa-spin" style="--fa-animation-duration: 0.5s;"></i></div>
     
     <div id="modalBlur"></div>
-
     <div class="sidebarModals"><div add-component="./components/modals/whats-new.html"></div></div>
-
     <div class="modal">
       <div add-component="./components/modals/settings.html"></div>
       <div add-component="./components/modals/update-available.html"></div>
@@ -23,11 +20,13 @@
     </div>
   </body>
   <script src="./base/js/add-components.js"></script>
-  <script src="./base/js/settings/hostname.js"></script>
   <script src="./base/js/os-css.js"></script>
   <script src="./base/js/views.js"></script>
   <script src="./base/js/webview-dev.js"></script>
   <script src="./base/js/welcome.js"></script>
+
+  <script src="./base/js/settings/hostname.js"></script>
+  <script src="./base/js/settings/theme.js"></script>
 </html>
 <script>
 setTimeout(() => {
