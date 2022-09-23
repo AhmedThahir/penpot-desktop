@@ -1,6 +1,6 @@
 {
   "name": "penpot-desktop",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "src/process/index.js",
   "scripts": {
     "start": "electron .",
@@ -48,6 +48,7 @@
   "dependencies": {
     "electron-log": "^4.4.8",
     "electron-updater": "^5.2.1",
-    "glasstron": "^0.1.1"
+    "glasstron": "^0.1.1",
+    "x11": "github:KorbsStudio/node-x11"
   }
 }
