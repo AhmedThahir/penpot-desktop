@@ -20,7 +20,7 @@
       "target": "dmg"
     },
     "linux": {
-      "target": "AppImage",
+      "target": ["AppImage", "snap"],
       "category": "Network",
       "synopsis": "Use PenPot, right from your desktop",
       "description": "Use PenPot, right from your desktop"
