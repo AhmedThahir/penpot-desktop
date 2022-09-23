@@ -1,4 +1,3 @@
-# Penpot Desktop
 ![Penpot Desktop on Windows 11](https://user-images.githubusercontent.com/51213244/191418938-551f28fc-19c8-49fe-876b-22b2900f9286.png)
 
 ## About Penpot Desktop
@@ -12,6 +11,7 @@ This is very new, so it's not perfect, but it works(at least).
 
 ## Features Planned for the Future
  - Tabs
+ - Login via Web Browser
 
 ## Downloads
 > macOS does not include auto update, you'll need to manually update the app.
@@ -27,7 +27,7 @@ This is very new, so it's not perfect, but it works(at least).
 [Linux](https://cdn.korbsstudio.com/files/sh/penpot-desktop.sh) (Command Line)
 
 ## Installation
-## Windows
+### Windows
 After downloading the setup file for Penpot Desktop, you'll notice a [pop up](https://i.imgur.com/yNjUYg7.png) when opening the setup file.
 
 The pop up should be Smartscreen saying "Windows protected your PC" and "Microsoft Defender SmartScreen prevented an unrecoginzed app from start...". This is because the setup file for Penpot Desktop is unsigned and Windows will do this for all unsigned files, whether if the file is actually safe to use or not. 
@@ -47,4 +47,4 @@ You may see an error message saying Penpot-Desktop "...cannot Be Opened Because 
 The Penpot-Desktop app is now saved as an exception to your security settings, and you can open it in the future by double-clicking it just as you can any registered app.
 
 ---
-> This is community software and not official software by Penpot. 
+> This is community software and not official software by Penpot.
