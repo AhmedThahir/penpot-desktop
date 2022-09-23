@@ -16,7 +16,7 @@ else if(process.platform == 'win32'){
   app.whenReady().then(() => {
     global.frame = false;
     global.titleBarStyle = 'hidden';
-    global.blurType = 'blurbehind'; // Acrylic won't be use here as there is a pully issue: https://github.com/KorbsStudio/glasstron-quick-start#there-is-mouse-latency-on-windows
+    global.blurType = 'acrylic'; // Acrylic won't be use here as there is a pully issue: https://github.com/KorbsStudio/glasstron-quick-start#there-is-mouse-latency-on-windows
 })}
 else{
   app.whenReady().then(() => {
@@ -65,6 +65,7 @@ const launch = () => {
 
   autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {mainWindow.webContents.executeJavaScript(`showUpdateAvailable()`)})
   ipcMain.on('updateApp',  () => {autoUpdater.quitAndInstall()})
+  ipcMain.on('restartApp',  () => {app.relaunch(); app.quit();})
 
   const menu = new Menu()
   menu.append(new MenuItem({
@@ -105,3 +106,29 @@ const launch = () => {
 }
 
 app.whenReady().then(() => {launch();autoUpdater.checkForUpdatesAndNotify();})
+
+app.on('web-contents-created', function (webContentsCreatedEvent, contents) {
+  if (contents.getType() === 'webview') {
+    contents.setWindowOpenHandler(() => ({
+      action: "allow",
+      overrideBrowserWindowOptions: {
+        width: 1300,
+        height: 900,
+        minWidth: 1240,
+        minHeight: 400,
+        autoHideMenuBar: true,
+        darkTheme: true,
+        frame: global.frame,
+        blur: true,
+        blurType: global.blurType,
+        titleBarStyle: global.titleBarStyle,
+        trafficLightPosition: { x: 10, y: 10 },
+        titleBarOverlay: {
+          color: '#303136',
+          symbolColor: 'white',
+          height: 48,
+        }
+      }
+    }))
+  }
+});
