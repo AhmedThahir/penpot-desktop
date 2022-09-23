@@ -1,4 +1,12 @@
 # Changelog
+## v0.0.8
+ - Includes Font Awesome Pro icons for offline usage (Duotone & Light)
+ - Theme Setting (Light & Dark for Dashboard) [#4](https://github.com/KorbsStudio/Penpot-Desktop/issues/15)
+ - Updated backdrop blur to be darker
+ - Improve UI/UX for Fonts section (Added `!important` for background color to override) [#17](https://github.com/KorbsStudio/Penpot-Desktop/issues/16)
+ - Fixed Preview issues that caused "Internal Error" [#16](https://github.com/KorbsStudio/Penpot-Desktop/issues/16)
+ - Added custom Node X11 package from Korbs Studio to remove annoying error message [Glasstron/#199](https://github.com/NyaomiDEV/Glasstron/issues/199)
+
 ## v0.0.7 Alpha
  - Add drag button for Windows and macOS (Still buggy)
  - Improve UI/UX for Fonts section and Switch Team dropdown

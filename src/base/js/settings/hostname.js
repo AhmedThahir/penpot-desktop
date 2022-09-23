@@ -19,7 +19,8 @@ setTimeout(() => {
       textHN.textContent = hostname;
       document.querySelector('#penpot').setAttribute('src', hostname);
     }
-}, 1000); // Wait a moment
+    document.querySelector("#hostField").value = document.querySelector("#hostField").value + hostname
+}, 0750); // Wait a moment
 
 if(!localStorage.getItem("firstTime")){
   localStorage.setItem('customHostname', 'https://design.penpot.app/') // If not set, by default on first launch, the app will be blank (to fix issue #3)
@@ -32,6 +33,7 @@ if(!localStorage.getItem("firstTime")){
 function hostnameSaved() {
   document.querySelector("#cswU").style.backgroundColor = '#00af00'
   document.querySelector("#cswU").innerHTML = 'Saved'
+  document.querySelector("body > div.modal > div:nth-child(1) > div.settings > div.modal-footer").style.display = 'flex';
   setTimeout(() => {
     document.querySelector("#cswU").style.backgroundColor = '#9b98ff'
     document.querySelector("#cswU").innerHTML = 'Save'

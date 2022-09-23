@@ -6,13 +6,30 @@
     <div class="modal-content">
         <h2>About</h2>
         <p>Penpot Desktop v0.0.7 Alpha</p>
-        <h2>Configuration</h2>
-        <p><strong>Hostname</strong></p>
+
+        <p><strong>Hostname</strong> <i onmouseover="noteHostnameShow()" onmouseout="noteHostnameHide()" id="note-hostname" class="fa-duotone fa-circle-question"></i></p>
         <label hidden>Hostname</label>
-        <input type="text" class="appUsername" id="hostField">
+        <input style="width: calc(100% - 60px)" type="text" class="appUsername" id="hostField">
         <p class="lead mt-3 setName" style="display: none;"></p>
         <button onclick="hostnameSaved()" id="cswU" class="btn btn-secondary save">Save</button>
-        <p id="note">If you're self-hosting Penpot on your own server, you can add it here. (Example: "http://localhost:9001")</p>
-        <p id="note">(You're required to reload the app if you set a hostname.)</p>
+
+        <p><strong>Theme</strong></p>
+        <label hidden for="theme">Theme</label>
+        <select id="theme" name="theme" onchange="changeTheme(event)">
+            <option value="">Select a theme</option>
+            <option value="Light">Light</option>
+            <option value="Dark">Dark</option>
+        </select>
+    </div>
+    <div style="display: none;" class="modal-footer">
+        <div id="reload-required" class="actions">
+            <button onclick="window.api.send('restartApp')">Reload App</button>
+        </div>
+    </div>
+</div>
+<div class="popup-notes">
+    <div id="pn-hostname">
+        <p>If you're self-hosting Penpot on your own server, you can add it here. (Example: "http://localhost:9001")</p>
+        <p>(You're required to reload the app if you set a hostname.)</p>
     </div>
 </div>

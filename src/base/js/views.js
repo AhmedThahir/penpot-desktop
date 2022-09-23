@@ -1,3 +1,4 @@
+// Modals
 function showChangelogs() {
     document.querySelector(".sidebarModals .changelog").style.display = 'inherit'
 }
@@ -20,4 +21,12 @@ function showWelcome() {
 function hideWelcome() {
     document.querySelector("#modalBlur").style.display = 'none';
     document.querySelector(".modal .welcome").style.display = 'none'
+}
+
+// Notes
+function noteHostnameShow() {
+    document.querySelector(".popup-notes #pn-hostname").style.display = 'inherit'
+}
+function noteHostnameHide() {
+    document.querySelector(".popup-notes #pn-hostname").style.display = 'none'
 }
