@@ -14,17 +14,17 @@ This is very new, so it's not perfect, but it works(at least).
  - Tabs
 
 ## Downloads
-[Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe) (Auto update included)
+> macOS does not include auto update, you'll need to manually update the app.
 
-[macOS](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.7.dmg) (No auto updates)
+[Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe)
 
-[Linux](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.7.AppImage) (Auto update included)
+[macOS](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.7.dmg)
 
-Optionally for Linux users, if you want to add Penpot Desktop to your applications menu, run this in your console:
-```
-bash <(curl -s https://cdn.korbsstudio.com/files/sh/penpot-desktop.sh)
-```
-*Tested on Fedora 36*
+[Linux](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.7.AppImage) (AppImage)
+
+[Linux](https://snapcraft.io/penpot-desktop) (Snap)
+
+[Linux](https://cdn.korbsstudio.com/files/sh/penpot-desktop.sh) (Command Line)
 
 ## Installation
 ## Windows
