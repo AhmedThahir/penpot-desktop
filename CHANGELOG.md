@@ -4,6 +4,9 @@
  - Removed loading indicators
  - Anchor links with target blank will now open in new tabs
  - Preivews will now open in new tabs
+ - Removed Glasstron
+ - Removed blur composition
+ - Updated splash
 
 ## v0.0.8 Alpha
  - Includes Font Awesome Pro icons for offline usage (Duotone & Light)
