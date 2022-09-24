@@ -1,0 +1,45 @@
+<tab-group new-tab-button="true" sortable="true">
+    <style>
+      :host {
+          --tabgroup-background: #1f1f1f !important;
+          --tab-background: #1f1f1f !important;
+          --tab-color: #ffffff !important;
+          --tab-border-color: transparent !important;
+          --tab-active-background: #303236 !important;
+          --tag-hover-background: #f1f3f4 !important;
+          --button-font-size: 15px !important;
+          --button-background: none !important;
+          --button-color: #696a6c !important;
+          --button-hover-background: #dadce0 !important;
+          --button-hover-color: #383a3e !important;
+          --button-border-radius: 50% !important;
+          --button-cursor: pointer !important;
+          --badge-background: #383a3e !important;
+          --badge-color: #fff !important;
+          --close-button-visibility: visible !important;
+      }
+      .nav {
+          color: white !important;
+          display: flex !important;
+          position: fixed !important;
+          top: 0px !important;
+          z-index: 10 !important;
+          left: -1px !important;
+          border: none !important;
+          height: 40px;
+      }
+      .buttons {
+          border-left: 1px solid #1f1f1f !important;
+          padding: 5px !important;
+          display: flex !important;
+          align-items: center !important;
+      }
+      webview {
+          height: calc(100% - 40px) !important;
+          position: fixed !important;
+          bottom: 0px !important;
+          z-index: 20 !important;
+          left: 0px !important;
+      }
+    </style>
+  </tab-group>

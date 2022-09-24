@@ -20,7 +20,10 @@
       "target": "dmg"
     },
     "linux": {
-      "target": ["AppImage", "snap"],
+      "target": [
+        "AppImage",
+        "snap"
+      ],
       "category": "Network",
       "synopsis": "Use PenPot, right from your desktop",
       "description": "Use PenPot, right from your desktop"
@@ -47,6 +50,7 @@
   },
   "dependencies": {
     "electron-log": "^4.4.8",
+    "electron-tabs": "^1.0.1",
     "electron-updater": "^5.2.1",
     "glasstron": "^0.1.1",
     "x11": "github:KorbsStudio/node-x11"
