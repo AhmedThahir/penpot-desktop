@@ -1,5 +1,5 @@
 webview = document.querySelector('webview')
-var penpotEmbed = document.getElementById('penpot');
+var penpotEmbed = document.querySelectorAll('.tab-view');
 var changelog = document.getElementById('changelog');
 
 // JavaScript Injection

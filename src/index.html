@@ -5,7 +5,6 @@
     <script src="./base/fonts/fontawesome-pro-6.2.0-web/js/all.js"></script>
   </head>
   <body>
-    <div add-component="./components/titlebar.html"></div>
     <div add-component="./components/splash.html"></div>
     <div add-component="./components/tabs.html"></div>
     
@@ -28,16 +27,13 @@
   
     <script src="./base/js/settings/hostname.js"></script>
     <script src="./base/js/settings/theme.js"></script>
-    <script>
-
-    </script>
   </body>
 </html>
 <script>
 setTimeout(() => {
   document.querySelector('.splash').style.opacity = '0';
   document.querySelector('.splash').style.pointerEvents = 'none';
-  document.querySelector('webview#penpot').style.opacity = '1';
+  document.querySelector('tab-group').style.opacity = '1';
 }, 2500);
 </script>
 <script>addComponent()</script>
