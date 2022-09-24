@@ -1,15 +1,12 @@
 <html>
   <head>
-    <title>PenPot Desktop</title>
+    <title>Penpot Desktop</title>
     <link rel="stylesheet" href="./base/css/master.css">
     <script src="./base/fonts/fontawesome-pro-6.2.0-web/js/all.js"></script>
   </head>
   <body>
-    <div add-component="./components/titlebar.html"></div>
     <div add-component="./components/splash.html"></div>
-
-    <webview id="penpot" src="#" allowpopups webpreferences="sandbox=true, frame: false "></webview>
-    <div id="IndicatorWV" class="loading-indicator"><i class="fa-solid fa-circle-notch fa-spin" style="--fa-animation-duration: 0.5s;"></i></div>
+    <div add-component="./components/tabs.html"></div>
     
     <div id="modalBlur"></div>
     <div class="sidebarModals"><div add-component="./components/modals/whats-new.html"></div></div>
@@ -18,21 +15,25 @@
       <div add-component="./components/modals/update-available.html"></div>
       <div say-hello="./components/modals/welcome.html"></div>
     </div>
-  </body>
-  <script src="./base/js/add-components.js"></script>
-  <script src="./base/js/os-css.js"></script>
-  <script src="./base/js/views.js"></script>
-  <script src="./base/js/webview-dev.js"></script>
-  <script src="./base/js/welcome.js"></script>
 
-  <script src="./base/js/settings/hostname.js"></script>
-  <script src="./base/js/settings/theme.js"></script>
+    <script src="../node_modules/electron-tabs/dist/electron-tabs.js"></script>
+    <script src="./base/js/add-components.js"></script>
+    <script src="./base/js/os-css.js"></script>
+  
+    <script src="./base/js/view/tabs.js"></script>
+    <script src="./base/js/view/views.js"></script>
+    <script src="./base/js/view/webview-dev.js"></script>
+    <script src="./base/js/view/welcome.js"></script>
+  
+    <script src="./base/js/settings/hostname.js"></script>
+    <script src="./base/js/settings/theme.js"></script>
+  </body>
 </html>
 <script>
 setTimeout(() => {
   document.querySelector('.splash').style.opacity = '0';
   document.querySelector('.splash').style.pointerEvents = 'none';
-  document.querySelector('webview#penpot').style.opacity = '1';
+  document.querySelector('tab-group').style.opacity = '1';
 }, 2500);
 </script>
 <script>addComponent()</script>
