@@ -17,10 +17,9 @@ setTimeout(() => {
   
     if (customHostname) {
       textHN.textContent = hostname;
-      document.querySelector('#penpot').setAttribute('src', hostname);
     }
     document.querySelector("#hostField").value = document.querySelector("#hostField").value + hostname
-}, 0750); // Wait a moment
+}, 0500); // Wait a moment
 
 if(!localStorage.getItem("firstTime")){
   localStorage.setItem('customHostname', 'https://design.penpot.app/') // If not set, by default on first launch, the app will be blank (to fix issue #3)
