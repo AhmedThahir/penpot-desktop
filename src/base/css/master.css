@@ -62,7 +62,7 @@ html.Mac button#drag-me {left: 76px} */
 .splash {
     align-items: center;
     text-align: center;
-    background: rgb(46 46 46 / 75%);
+    background: #1f1f1f;
     transition: 1s opacity;
     opacity: 1;
 }
