@@ -8,9 +8,9 @@ This is very new, so it's not perfect, but it works(at least).
 ## Features
 - Use Penpot Desktop on your own server if you're self-hosting
 - Dark mode in Dashboard
+- Tabs
 
 ## Features Planned for the Future
- - Tabs (Now in progress)
  - Login via Web Browser
 
 ## Downloads
