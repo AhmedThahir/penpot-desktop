@@ -38,9 +38,9 @@ const launch = () => {
     titleBarStyle: global.titleBarStyle,
     trafficLightPosition: { x: 10, y: 10 },
     titleBarOverlay: {
-      color: '#303136',
+      color: '#1f1f1f',
       symbolColor: 'white',
-      height: 48,
+      height: 40,
     },
     webPreferences: {
       preload: path.join(__dirname, "./preload.js"),
@@ -55,7 +55,9 @@ const launch = () => {
 
   if (process.platform == 'darwin') {app.whenReady().then(() => {mainWindow.webContents.executeJavaScript('isMac()')})} // Don't maximize window: #13 https://github.com/KorbsStudio/Penpot-Desktop/issues/13#issuecomment-1253246535
   else if(process.platform == 'win32'){app.whenReady().then(() => {mainWindow.webContents.executeJavaScript('isWindows()'); setTimeout(() => {mainWindow.maximize()}, 2850);})}
-  else {setTimeout(() => {mainWindow.maximize()}, 2850)}
+  else {setTimeout(() => {
+    mainWindow.maximize();
+  }, 2850)}
 
   mainWindow.loadFile('src/index.html')
   
@@ -109,26 +111,9 @@ app.whenReady().then(() => {launch();autoUpdater.checkForUpdatesAndNotify();})
 
 app.on('web-contents-created', function (webContentsCreatedEvent, contents) {
   if (contents.getType() === 'webview') {
-    contents.setWindowOpenHandler(() => ({
-      action: "allow",
-      overrideBrowserWindowOptions: {
-        width: 1300,
-        height: 900,
-        minWidth: 1240,
-        minHeight: 400,
-        autoHideMenuBar: true,
-        darkTheme: true,
-        frame: global.frame,
-        blur: true,
-        blurType: global.blurType,
-        titleBarStyle: global.titleBarStyle,
-        trafficLightPosition: { x: 10, y: 10 },
-        titleBarOverlay: {
-          color: '#303136',
-          symbolColor: 'white',
-          height: 48,
-        }
-      }
-    }))
+    contents.on('new-window', function (newWindowEvent, url) {
+      console.log('block');
+      newWindowEvent.preventDefault();
+    });
   }
 });
