@@ -10,7 +10,7 @@ This is very new, so it's not perfect, but it works(at least).
 - Dark mode in Dashboard
 
 ## Features Planned for the Future
- - Tabs
+ - Tabs (Now in progress)
  - Login via Web Browser
 
 ## Downloads
