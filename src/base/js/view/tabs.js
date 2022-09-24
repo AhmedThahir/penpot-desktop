@@ -22,6 +22,7 @@ setTimeout(() => {
   tab.webview.addEventListener('close', () => t.close())
 
   // Change Titlebar Automatically
+  // Change Title Automatically
   const webview = tab.webview;
   webview.addEventListener('page-title-updated', () => {
     const newTitle = webview.getTitle();
