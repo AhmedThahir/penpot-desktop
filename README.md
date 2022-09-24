@@ -11,7 +11,6 @@ This is very new, so it's not perfect, but it works(at least).
 - Tabs
 
 ## Features Planned for the Future
- - Tabs (Now in progress)
  - Login via Web Browser
 
 ## Downloads
