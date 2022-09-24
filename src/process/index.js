@@ -99,7 +99,7 @@ app.on('web-contents-created', function (webContentsCreatedEvent, contents) {
   if (contents.getType() === 'webview') {
     contents.on('new-window', function (newWindowEvent, url) {
       console.log('block');
-      newWindowEvent.preventDefault();
+      newWindowEvent.preventDefault(); // When allowing popups for WebViews, anchor links with target blank will open new windows. However, tabs have been setup for this. So we're gonna prevent duplicates from appearing, by preventing popup windows
     });
   }
 });

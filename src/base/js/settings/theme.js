@@ -8,11 +8,6 @@ if (theme == null) {
 }
 
 function setTheme(theme) {
-  if (theme == 'Light') {
-    // Don't do anything, light mode is default in Penpot Dashboard
-  } else if (theme == 'Dark') {
-    applyDarkTheme()
-  }
   localStorage.setItem('theme', theme);
 }
 
