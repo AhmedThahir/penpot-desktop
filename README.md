@@ -1,4 +1,4 @@
-![Penpot Desktop on Windows 11](https://user-images.githubusercontent.com/51213244/191418938-551f28fc-19c8-49fe-876b-22b2900f9286.png)
+![Penpot Desktop on Windows 11](https://user-images.githubusercontent.com/51213244/192091484-62d8e0b3-5011-41df-8a97-38306e3d84d0.png)
 
 ## About Penpot Desktop
 Mostly an embed using a WebView, but I plan to add more onto it later on.
