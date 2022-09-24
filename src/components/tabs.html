@@ -19,6 +19,7 @@
           --close-button-visibility: visible !important;
       }
       .nav {
+          -webkit-app-region: drag;
           color: white !important;
           display: flex !important;
           position: fixed !important;
@@ -28,7 +29,9 @@
           border: none !important;
           height: 40px;
       }
+      .tab {-webkit-app-region: no-drag}
       .buttons {
+          -webkit-app-region: no-drag;
           border-left: 1px solid #1f1f1f !important;
           padding: 5px !important;
           display: flex !important;
