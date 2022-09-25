@@ -1,4 +1,7 @@
 # Changelog
+## v0.0.91 Alpha
+ - Move tabs `80px` over to the left for macOS
+
 ## v0.0.9 Alpha
  - Added Tabs at the top of the window
  - Removed loading indicators

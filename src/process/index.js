@@ -53,8 +53,14 @@ const launch = () => {
 
   autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {mainWindow.webContents.executeJavaScript(`showUpdateAvailable()`)})
   ipcMain.on('updateApp',  () => {autoUpdater.quitAndInstall()})
-  ipcMain.on('restartApp',  () => {app.relaunch(); app.quit();})
-
+  ipcMain.on('restartApp',  () => {app.relaunch(); app.quit()})
+  
+  if (process.platform === 'darwin') { // Move tabs over so that the traffic light buttons don't overlay the first tab
+    setTimeout(() => {
+      mainWindow.webContents.executeJavaScript(`document.querySelector("body > div:nth-child(2) > tab-group").shadowRoot.querySelector("div > nav").style.transform = 'translate(80px, 0px)'`) // Use Transform, Left doesn't work
+    }, 3025);
+  }
+  
   const menu = new Menu()
   menu.append(new MenuItem({
     label: 'Penpot',

@@ -18,9 +18,9 @@ This is very new, so it's not perfect, but it works(at least).
 
 [Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe)
 
-[macOS](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.9.dmg)
+[macOS](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.91.dmg)
 
-[Linux](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.9.AppImage) (AppImage)
+[Linux](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.91.AppImage) (AppImage)
 
 [Linux](https://snapcraft.io/penpot-desktop) (Snap)
 
