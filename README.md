@@ -1,10 +1,5 @@
 ![Penpot Desktop on Windows 11](https://user-images.githubusercontent.com/51213244/192091484-62d8e0b3-5011-41df-8a97-38306e3d84d0.png)
 
-## About Penpot Desktop
-Mostly an embed using a WebView, but I plan to add more onto it later on.
-
-This is very new, so it's not perfect, but it works(at least).
-
 ## Features
 - Use Penpot Desktop on your own server if you're self-hosting
 - Dark mode in Dashboard
