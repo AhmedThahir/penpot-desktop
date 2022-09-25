@@ -39,4 +39,47 @@ You may see an error message saying Penpot-Desktop "...cannot Be Opened Because 
 The Penpot-Desktop app is now saved as an exception to your security settings, and you can open it in the future by double-clicking it just as you can any registered app.
 
 ---
+
+# Building and Development
+## Prerequisites
+You'll need to have NodeJS already installed before working with Penpot Desktop, since it's built on ElectronJS.
+
+[Download for Windows](https://nodejs.org/en/download/)
+
+[Download for macOS](https://nodejs.org/en/download/)
+
+For Linux, the installation is:
+```
+# Debian/Ubuntu/Chrome OS
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Fedora/CentOS/RHEL
+sudo dnf module install nodejs:16
+
+# Arch
+sudo pacman -S nodejs npm
+```
+
+> The prerequisites will have more requirements in the future like Python and more. In the meantime, only NodeJS is required.
+
+## Cloning and Starting
+To clone the project, we'll use `git` and use `npm start` to start the app in development mode.
+```
+git clone KorbsStudio/Penpot-Desktop
+cd Penpot-Desktop/
+npm i
+npm start
+```
+
+## Building
+Penpot Desktop uses `electron-builder` package to build an executable file/setup for all operating systems.
+
+To build, run:
+```
+npm run build
+```
+If you're unable to build, use the `build` workflow provided and use GitHub Actions, it's free to use.
+
+---
 > This is community software and not official software by Penpot.
