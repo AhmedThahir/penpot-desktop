@@ -5,6 +5,9 @@
 - Dark mode in Dashboard
 - Tabs
 
+## In Progress
+ - Chrome OS support
+
 ## Downloads
 > macOS does not include auto update, you'll need to manually update the app.
 
