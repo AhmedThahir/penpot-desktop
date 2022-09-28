@@ -11,7 +11,9 @@
 ## Downloads
 > macOS does not include auto update, you'll need to manually update the app.
 
-[Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe)
+[Windows](https://apps.microsoft.com/store/detail/penpot-desktop/9P1G47CXJKR2) (Microsoft Store)
+
+[Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe) (EXE)
 
 [macOS](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.91.dmg)
 
