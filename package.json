@@ -1,6 +1,6 @@
 {
   "name": "penpot-desktop",
-  "version": "0.0.91",
+  "version": "0.0.92",
   "main": "src/process/index.js",
   "scripts": {
     "start": "electron .",

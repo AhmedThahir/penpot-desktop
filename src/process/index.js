@@ -57,7 +57,7 @@ const launch = () => {
   
   if (process.platform === 'darwin') { // Move tabs over so that the traffic light buttons don't overlay the first tab
     setTimeout(() => {
-      mainWindow.webContents.executeJavaScript(`document.querySelector("body > div:nth-child(2) > tab-group").shadowRoot.querySelector("div > nav").style.transform = 'translate(80px, 0px)'`) // Use Transform, Left doesn't work
+      mainWindow.webContents.executeJavaScript(`document.querySelector("body > div:nth-child(2) > tab-group").shadowRoot.querySelector("div > nav").style.paddingLeft = '80px'`)
     }, 3025);
   }
   
