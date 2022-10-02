@@ -1,4 +1,4 @@
-⚠️ This repo is being moved off of GitHub to [Korbs Studio Code](https://code.korbsstudio.com/) on October 9th!
+⚠️ This repo is being moved off of GitHub to [Korbs Studio Code](https://code.korbsstudio.com/KorbsStudio/) on October 9th!
 
 ___
 
