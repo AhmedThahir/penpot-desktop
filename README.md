@@ -10,9 +10,6 @@ ___
 - Dark mode in Dashboard
 - Tabs
 
-## In Progress
- - Chrome OS support
-
 ## Downloads
 > macOS does not include auto update, you'll need to manually update the app.
 
@@ -20,9 +17,9 @@ ___
 
 [Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe) (EXE)
 
-[macOS](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.91.dmg)
+[macOS](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.1.0.dmg)
 
-[Linux](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.0.91.AppImage) (AppImage)
+[Linux](https://updates.korbsstudio.com/penpot-desktop/penpot-desktop-0.1.0.AppImage) (AppImage)
 
 [Linux](https://snapcraft.io/penpot-desktop) (Snap)
 
