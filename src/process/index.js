@@ -1,24 +1,21 @@
-const {app, BrowserWindow, dialog, ipcMain, ipcRenderer, Menu, MenuItem} = require('electron')
+const {app, BrowserWindow, Menu, MenuItem} = require('electron')
 const {autoUpdater} = require("electron-updater");
 const log = require('electron-log');
 const path = require('path');
 autoUpdater.logger = log;
 
 if (process.platform == 'darwin') {
-  app.whenReady().then(() => {
-    global.frame = false;
-    global.titleBarStyle = 'hiddenInset';
-})}
+  global.frame = false;
+  global.titleBarStyle = 'hiddenInset';
+}
 else if(process.platform == 'win32'){
-  app.whenReady().then(() => {
-    global.frame = false;
-    global.titleBarStyle = 'hidden';
-})}
+  global.frame = false;
+  global.titleBarStyle = 'hidden';
+}
 else{
-  app.whenReady().then(() => {
-    global.frame = true;
-    global.titleBarStyle = 'default';
-})}
+  global.frame = true;
+  global.titleBarStyle = 'default';
+}
 
 const launch = () => {
   const mainWindow = new BrowserWindow({
@@ -38,11 +35,10 @@ const launch = () => {
       height: 40,
     },
     webPreferences: {
-      preload: path.join(__dirname, "./preload.js"),
       webviewTag: true,
       enableBlinkFeatures: false,
       experimentalFeatures: false,
-      sandbox: false, // Breaks "path" module in Preload
+      sandbox: true,
       contextIsolation: true,
       nodeIntegration: false
     }
@@ -50,36 +46,16 @@ const launch = () => {
   mainWindow.maximize();
   mainWindow.show();
   mainWindow.loadFile('src/index.html')
-
-  autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {mainWindow.webContents.executeJavaScript(`showUpdateAvailable()`)})
-  ipcMain.on('updateApp',  () => {autoUpdater.quitAndInstall()})
-  ipcMain.on('restartApp',  () => {app.relaunch(); app.quit()})
   
-  if (process.platform === 'darwin') { // Move tabs over so that the traffic light buttons don't overlay the first tab
-    setTimeout(() => {
-      mainWindow.webContents.executeJavaScript(`document.querySelector("body > div:nth-child(2) > tab-group").shadowRoot.querySelector("div > nav").style.paddingLeft = '80px'`)
-    }, 3025);
-  }
+  autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {mainWindow.webContents.executeJavaScript(`document.querySelector("#available").style.opacity = '1'; setTimeOut(() => {document.querySelector("#available").style.opacity = '0'}, 5000)`)})
+  
+  if (process.platform === 'darwin') {setTimeout(() => {mainWindow.webContents.executeJavaScript(`document.querySelector("body > div:nth-child(2) > tab-group").shadowRoot.querySelector("div > nav").style.paddingLeft = '80px'`)}, 1500)}
+  if (process.platform === 'win32') {setTimeout(() => {mainWindow.webContents.executeJavaScript(`document.querySelector("#available").style.right = '137px'`)}, 1500)}
   
   const menu = new Menu()
   menu.append(new MenuItem({
     label: 'Penpot',
       submenu: [
-        {
-          label: "What's New",
-          click: () => {
-            mainWindow.webContents.executeJavaScript(`showChangelogs()`)
-          }
-        },
-        {
-          label: 'Open Settings',
-          accelerator: process.platform === 'darwin' ? 'Cmd+.' : 'Ctrl+.',
-          click: () => {
-            mainWindow.webContents.executeJavaScript(`
-              showSettings()
-            `)
-          }
-        },
         { type: 'separator'},
         { role: 'reload' },
         { role: 'toggleDevTools' },

@@ -127,6 +127,11 @@ setTimeout(() => {
   .dashboard-header {background: transparent !important}
   
   /*** Projects ***/
+  .project {
+      margin-left: 20px !important;
+      padding-left: 10px !important;
+      width: calc(100% - 40px) !important;
+  }
   .project {background: var(--primary) !important}
   .btn-secondary {
       background: transparent !important;
@@ -141,6 +146,27 @@ setTimeout(() => {
   .dashboard-grid .grid-item .grid-item-th {
       border-radius: 6px 6px 0px 0px !important;
   }
+  .hero-projects .tutorial .text .title, .hero-projects .walkthrough .text .title {color: white !important}
+  .dashboard-templates-section .content .template-card .img-container {
+      color: white !important;
+      border: 2px solid #64666a !important;
+  }
+  
+  .dashboard-templates-section .content {
+      background: #303236 !important;
+      border: none !important;
+      margin-left: 0px !important;
+      padding-left: 5px !important;
+      border-top: 2px #64666a solid !important;
+  }
+  .dashboard-templates-section .title div {
+      background: #303236 !important;
+      margin-left: 0px !important;
+      padding-left: 5px !important;
+      border: 2px #64666a solid !important;
+      fill: white !important;
+  }
+  
   
   /*** Fonts ***/
   .dashboard-fonts .dashboard-fonts-hero, .dashboard-fonts .installed-fonts-header {
@@ -160,13 +186,26 @@ setTimeout(() => {
       color: white !important;
       height: 42px !important;
   }
+
+  /* In Project */
+  /** Internal Error **/
+  .exception-content {
+    background: black;
+    fill: white !important;
+  }
+  .exception-content * {
+      color: white !important;
+  }
+  a.btn-primary.btn-small {
+    color: black !important;
+    font-weight: bold;
+  }
   `
-
-
+  
   // Default Tab (Home)
   const tab = tabGroup.addTab({
     active: true,
-    src: hostname,
+    src: 'tabs/home.html',
     closable: false,
     webviewAttributes: {
       class: "tab-view",
@@ -177,9 +216,7 @@ setTimeout(() => {
       webview.addEventListener('page-title-updated', () => {
         const newTitle = webview.getTitle();
         tab.setTitle(newTitle);
-      });
-      if (theme === 'Dark') {setTimeout(() => {webview.insertCSS( darkModeCSS )}, 1500)}
-      else if (theme === 'Light') {}
+      })
     }
   });
   tab.webview.addEventListener('close', () => t.close())
@@ -197,8 +234,8 @@ setTimeout(() => {
       webview.addEventListener('page-title-updated', () => {
         const newTitle = webview.getTitle();
         tab.setTitle(newTitle);
-      });
-      if (theme === 'Dark') {setTimeout(() => {webview.insertCSS( darkModeCSS )}, 0200)}
+      })
+      if (theme === 'Dark') {setTimeout(() => {webview.insertCSS( darkModeCSS )}, 0350)}
       else if (theme === 'Light') {}
     }
   });

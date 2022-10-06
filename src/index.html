@@ -2,36 +2,67 @@
   <head>
     <title>Penpot Desktop</title>
     <link rel="stylesheet" href="./base/css/master.css">
+    <link rel="stylesheet" href="./base/css/fonts.css">
     <script src="./base/fonts/fontawesome-pro-6.2.0-web/js/all.js"></script>
   </head>
   <body>
     <div add-component="./components/splash.html"></div>
-    <div add-component="./components/tabs.html"></div>
-    
-    <div id="modalBlur"></div>
-    <div class="sidebarModals"><div add-component="./components/modals/whats-new.html"></div></div>
-    <div class="modal">
-      <div add-component="./components/modals/settings.html"></div>
-      <div add-component="./components/modals/update-available.html"></div>
-      <div say-hello="./components/modals/welcome.html"></div>
+
+    <div id="available" class="update">
+      <p>Update Ready - Restart Required</p>
     </div>
 
+    <tab-group new-tab-button="true" sortable="true">
+      <style>
+        :host {
+            --tabgroup-background: #1f1f1f !important;
+            --tab-background: #1f1f1f !important;
+            --tab-color: #ffffff !important;
+            --tab-border-color: transparent !important;
+            --tab-active-background: #303236 !important;
+            --tag-hover-background: #f1f3f4 !important;
+            --button-font-size: 15px !important;
+            --button-background: none !important;
+            --button-color: #696a6c !important;
+            --button-hover-background: #dadce0 !important;
+            --button-hover-color: #383a3e !important;
+            --button-border-radius: 50% !important;
+            --button-cursor: pointer !important;
+            --badge-background: #383a3e !important;
+            --badge-color: #fff !important;
+            --close-button-visibility: visible !important;
+        }
+        .nav {
+            -webkit-app-region: drag;
+            color: white !important;
+            display: flex !important;
+            position: fixed !important;
+            top: 0px !important;
+            z-index: 10 !important;
+            left: -1px !important;
+            border: none !important;
+            height: 40px;
+        }
+        .tab {-webkit-app-region: no-drag}
+        .buttons {
+            -webkit-app-region: no-drag;
+            border-left: 1px solid #1f1f1f !important;
+            padding: 5px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        webview {
+            height: calc(100% - 40px) !important;
+            position: fixed !important;
+            bottom: 0px !important;
+            z-index: 20 !important;
+            left: 0px !important;
+        }
+      </style>
+    </tab-group>
     <script src="../node_modules/electron-tabs/dist/electron-tabs.js"></script>
-    <script src="./base/js/add-components.js"></script>
-  
     <script src="./base/js/view/tabs.js"></script>
-    <script src="./base/js/view/views.js"></script>
-    <script src="./base/js/view/welcome.js"></script>
-  
     <script src="./base/js/settings/hostname.js"></script>
     <script src="./base/js/settings/theme.js"></script>
   </body>
 </html>
-<script>
-setTimeout(() => {
-  document.querySelector('.splash').style.opacity = '0';
-  document.querySelector('.splash').style.pointerEvents = 'none';
-  document.querySelector('tab-group').style.opacity = '1';
-}, 2500);
-</script>
-<script>addComponent()</script>

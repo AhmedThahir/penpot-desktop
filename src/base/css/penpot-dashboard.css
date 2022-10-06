@@ -1,6 +1,7 @@
-/* Bringing dark mode, to the dashboard */
-/* It's what we want, so let's add it! */
-:root {
+
+  /* Bringing dark mode, to the dashboard */
+  /* It's what we want, so let's add it! */
+  :root {
     --primary: #303136;
     --secondary: #1f1f1f;
 }
@@ -122,6 +123,11 @@ label {
 .dashboard-header {background: transparent !important}
 
 /*** Projects ***/
+.project {
+    margin-left: 20px !important;
+    padding-left: 10px !important;
+    width: calc(100% - 40px) !important;
+}
 .project {background: var(--primary) !important}
 .btn-secondary {
     background: transparent !important;
@@ -136,6 +142,27 @@ label {
 .dashboard-grid .grid-item .grid-item-th {
     border-radius: 6px 6px 0px 0px !important;
 }
+.hero-projects .tutorial .text .title, .hero-projects .walkthrough .text .title {color: white !important}
+.dashboard-templates-section .content .template-card .img-container {
+    color: white !important;
+    border: 2px solid #64666a !important;
+}
+
+.dashboard-templates-section .content {
+    background: #303236 !important;
+    border: none !important;
+    margin-left: 0px !important;
+    padding-left: 5px !important;
+    border-top: 2px #64666a solid !important;
+}
+.dashboard-templates-section .title div {
+    background: #303236 !important;
+    margin-left: 0px !important;
+    padding-left: 5px !important;
+    border: 2px #64666a solid !important;
+    fill: white !important;
+}
+
 
 /*** Fonts ***/
 .dashboard-fonts .dashboard-fonts-hero, .dashboard-fonts .installed-fonts-header {
