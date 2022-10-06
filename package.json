@@ -1,6 +1,6 @@
 {
-  "name": "penpot-desktop",
-  "version": "0.0.92",
+  "name": "penpotdesktop",
+  "version": "0.1.0",
   "main": "src/process/index.js",
   "scripts": {
     "start": "electron .",
@@ -8,13 +8,17 @@
   },
   "author": "KorbsStudio",
   "devDependencies": {
-    "electron": "^20.1.4",
+    "electron": "^21.1.0",
     "electron-builder": "^23.3.3"
   },
   "build": {
+    "productName": "Penpot Desktop",
     "appId": "com.korbsstudio.penpot",
     "win": {
-      "target": "nsis"
+      "target": [
+        "nsis",
+        "appx"
+      ]
     },
     "mac": {
       "target": "dmg"
