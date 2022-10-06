@@ -1,0 +1,216 @@
+<html>
+    <head>
+        <title>Settings</title>
+        <link rel="stylesheet" href="../base/css/fonts.css">
+        <script src="../base/js/settings/hostname.js"></script>
+        <script src="../base/js/view/settings-sidebar.js"></script>
+        <script src="../base/fonts/fontawesome-pro-6.2.0-web/js/all.js"></script>
+    </head>
+    <body>
+        <div id="settings" class="tab">
+            <div class="tab-sidebar">
+                <div>
+                    <h1>Settings</h1>
+                </div>
+                <div>
+                    <button id="About" onclick="showAboutTab(); sbsDE(); document.querySelector('button#About').setAttribute('class', 'tab-selected')"><i class="fa-light fa-circle-info"></i> About</button>
+                    <button id="Hostname" onclick="showHostnameTab(); sbsDE(); document.querySelector('button#Hostname').setAttribute('class', 'tab-selected')"><i class="fa-light fa-link-simple"></i> Hostname</button>
+                    <button id="Theme" onclick="showThemeTab(); sbsDE(); document.querySelector('button#Theme').setAttribute('class', 'tab-selected')"><i class="fa-light fa-moon-over-sun"></i> Theme</button>
+                    <button id="Release" onclick="showReleaseTab(); sbsDE(); document.querySelector('button#Release').setAttribute('class', 'tab-selected')"><i class="fa-light fa-pen"></i> Release Notes</button>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="About" class="tab-content-sub">
+                    <h2>About</h2>
+                    <div class="sub-content">
+                        <p>Penpot Desktop v0.1.0 Beta</p>
+                    </div>
+                </div>
+                
+                <div id="Hostname" class="tab-content-sub">
+                    <h2>Hostname</h2>
+                    <div class="sub-content">
+                        <label hidden>Hostname</label>
+                        <input type="text" class="appUsername" id="hostField">
+                        <p class="lead mt-3 setName" style="display: none;"></p>
+                        <button onclick="hostnameSaved()" id="cswU" class="btn btn-secondary save">Save</button>
+                        <hr>
+                        <p>If you're self-hosting Penpot on your own server, you can add it here. (Example: "http://localhost:9001")</p>
+                        <p>(You're required to reload the app if you set a hostname.)</p>
+                    </div>
+                </div>
+
+                <div id="Theme" class="tab-content-sub">
+                    <h2>Theme</h2>
+                    <div class="sub-content">
+                        <label hidden for="theme">Theme</label>
+                        <select id="theme" name="theme" onchange="changeTheme(event)">
+                            <option value="">Select a theme</option>
+                            <option value="Light">Light</option>
+                            <option value="Dark">Dark</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="Release" class="tab-content-sub">
+                    <h2>Release Notes</h2>
+                    <div class="sub-content">
+                        
+                        <iframe class="myIframe" src="https://korbsstudio.com/penpot-desktop/release-notes.html" width="100%" height="1000px" style="border:none;" sandbox="allow-scripts allow-same-origin allow-popups" onload="iFrameResize([{log:false}],'.myIframe')"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none;" class="tab-footer">
+                <div id="reload-required" class="actions">
+                    <button onclick="window.api.send('restartApp')">Reload App</button>
+                </div>
+            </div>
+        </div>
+        <div class="popup-notes">
+            <div id="pn-hostname">
+                <p>If you're self-hosting Penpot on your own server, you can add it here. (Example: "http://localhost:9001")</p>
+                <p>(You're required to reload the app if you set a hostname.)</p>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+// Select the About tab as default
+setTimeout(() => {document.querySelector("#About").click()}, 0500);
+
+// Selecting Tabs
+function hideAllTabs() {
+    document.querySelector('.tab-content-sub#About').style.display = 'none';
+    document.querySelector('.tab-content-sub#Hostname').style.display = 'none';
+    document.querySelector('.tab-content-sub#Theme').style.display = 'none';
+    document.querySelector('.tab-content-sub#Release').style.display = 'none';
+}
+
+function showAboutTab() {hideAllTabs(); document.querySelector('.tab-content-sub#About').style.display = 'inherit';}
+function showHostnameTab() {hideAllTabs(); document.querySelector('.tab-content-sub#Hostname').style.display = 'inherit';}
+function showThemeTab() {hideAllTabs(); document.querySelector('.tab-content-sub#Theme').style.display = 'inherit';}
+function showReleaseTab() {hideAllTabs(); document.querySelector('.tab-content-sub#Release').style.display = 'inherit';}
+
+function sbsDE() {
+    document.querySelector('button#About').setAttribute('class', 'tab-not-selected')
+    document.querySelector('button#Hostname').setAttribute('class', 'tab-not-selected')
+    document.querySelector('button#Theme').setAttribute('class', 'tab-not-selected')
+    document.querySelector('button#Release').setAttribute('class', 'tab-not-selected')
+}
+</script>
+
+<style>
+body {
+    color: white;
+    background: #1f1f1f;
+    font-family: 'Source Sans Pro';
+}
+p {font-size: 14px}
+iframe {margin-top: -24px}
+
+.tab-sidebar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #303236;
+    width: 200px;
+    height: 100%;
+    padding: 0px 50px;
+    display: grid;
+    grid-template-rows: 90px auto;
+}
+.tab-sidebar div h1 {
+    font-size: 24px;
+    margin: 24px 0px 0px 0px;
+}
+.tab-sidebar button {
+    display: block;
+    width: 100%;
+    color: white;
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+.tab-sidebar .tab-selected::before {
+    content: "";
+    background: #31efb8;
+    border-radius: 6px;
+    height: 26px;
+    width: 4px;
+    position: absolute;
+    margin: -7px 0px 0px -10px;
+}
+.tab-sidebar button svg {
+    width: 30px;
+}
+
+.tab-content {
+    position: absolute;
+    top: 76px;
+    left: 300px;
+    margin: 24px;
+}
+.tab-content h2 {
+    background: #303236;
+    position: fixed;
+    top: -20px;
+    width: 100%;
+    padding: 24px;
+    font-size: 24px;
+    margin-left: -24px;
+}
+.tab-content-sub {
+    position: fixed;
+    width: calc(100% - 300px);
+}
+.sub-content {
+    position: absolute;
+    left: 50%;
+    width: 500px;
+    transform: translate(-50%);
+}
+input, select {
+    font-size: 0.875rem;
+    margin: 0;
+    padding: 15px 15px 0 15px;
+    width: 100%;
+    color: white !important;
+    height: 52px !important;
+    background: #303136 !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-color: rgb(72, 72, 72) !important;
+    border-image: initial !important;
+    border-radius: 6px !important;
+    padding-top: 0;
+    padding-right: 50px;
+}
+button#cswU, button#save {
+    width: 100%;
+    color: black;
+    height: 52px !important;
+    background: #31efb8 !important;
+    border-image: initial !important;
+    border-radius: 6px !important;
+    text-align: center;
+    margin-top: 14px;
+    cursor: pointer;
+}
+label {
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    vertical-align: baseline;
+    font-weight: 300;
+    line-height: 1.15;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+}
+</style>

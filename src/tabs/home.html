@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Penpot Desktop</title>
+        <link rel="stylesheet" href="../base/css/fonts.css">
+        <script src="../base/fonts/fontawesome-pro-6.2.0-web/js/all.js"></script>
+    </head>
+    <body>
+        <div class="dh">
+            <h1>Penpot Desktop</h1>
+            <div class="menu">
+                <!-- <button onclick="window.open(hostname, '_blank');"><i style="color: #31efb8" class="fa-duotone fa-plus fa-swap-opacity"></i></button> -->
+                <button class="selected"><i class="fa-duotone fa-house-blank"></i> Home</button>
+                <button onclick="window.open('https://community.penpot.app/', '_blank');"><i class="fa-duotone fa-arrow-up-right-from-square"></i> Community</button>
+                <button onclick="window.open('https://penpot.app/dev-diaries.html', '_blank');"><i class="fa-duotone fa-arrow-up-right-from-square"></i> Dev Dairy</button>
+                <button onclick="window.open('./settings.html', '_blank');"><i class="fa-duotone fa-arrow-up-right-from-square"></i> Settings</button>
+            </div>
+            <div class="content">
+                <div id="home" class="content-sub">
+                    <h2>Events and Announcements</h2>
+                    <iframe src="https://rss.app/embed/v1/wall/7px1hClRDaMSD5T3" scrolling="no" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- <a href="./settings.html" target="_blanks"><i class="fa-light fa-sliders-simple"></i></a> -->
+    </body>
+</html>
+
+<style>
+body {
+    background: #1f1f1f;
+    color: white;
+    font-family: 'Source Sans Pro';
+}
+.dh {
+    position: absolute;
+    width: 600px;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.menu {
+    margin-bottom: 16px;
+}
+.menu button {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+.menu button svg {
+    margin-right: 4px;
+    font-size: 16px;
+}
+.menu button.selected::before {
+    content: "";
+    border-radius: 6px;
+    height: 4px;
+    position: absolute;
+    width: 20px;
+    margin: 30px 0px 0px 0px;
+    background: #31efb8;
+}
+
+iframe {
+    width: 620px;
+    height: 383px;
+}
+</style>
