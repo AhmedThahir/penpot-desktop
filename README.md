@@ -1,8 +1,3 @@
-⚠️ **This repo is being moved off of GitHub to [Korbs Studio Code](https://code.korbsstudio.com/KorbsStudio/) on October 9th!**
-
-___
-
-
 ![Penpot Desktop on Windows 11](https://user-images.githubusercontent.com/51213244/192091484-62d8e0b3-5011-41df-8a97-38306e3d84d0.png)
 
 ## Features
