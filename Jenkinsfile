@@ -1,9 +1,20 @@
 pipeline {
-    node("winvm") {
-        timeout(unit: 'SECONDS', time: 5) {
-            stage("One"){
-                sleep 10
-                echo 'hello'
+    agent { label 'winvm'}
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
