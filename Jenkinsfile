@@ -1,20 +1,17 @@
 pipeline {
-    agent { label 'winvm'}
+    agent none
 
     stages {
-        stage('Build') {
+        stage('Run on Windows') {
             steps {
-                echo 'Building..'
+                agent { label 'winvm'}
+                echo 'I'm running on the Windows VM...'
             }
         }
-        stage('Test') {
+        stage('Run on Server') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                agent any
+                echo 'I'm running on the server...'
             }
         }
     }
