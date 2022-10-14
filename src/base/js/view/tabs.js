@@ -244,6 +244,7 @@ setTimeout(() => {
   tab.webview.addEventListener('new-window', (e) => {
     tabGroup.addTab(
       {
+        active: true,
         src: e.url,
         ready: function (tab) {
           const webview = tab.webview;
