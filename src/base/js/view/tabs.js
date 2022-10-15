@@ -205,7 +205,9 @@ setTimeout(() => {
   // Default Tab (Home)
   const tab = tabGroup.addTab({
     active: true,
+    title: '',
     src: 'tabs/home.html',
+    iconURL: './base/images/house-solid.png',
     closable: false,
     webviewAttributes: {
       class: "tab-view",
