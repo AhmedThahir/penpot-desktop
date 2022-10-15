@@ -1,19 +1,17 @@
-const {app, BrowserWindow, Menu, MenuItem} = require('electron')
+
+const {app, BrowserWindow, dialog, ipcMain, ipcRenderer, Menu, MenuItem} = require('electron')
 const {autoUpdater} = require("electron-updater");
 const log = require('electron-log');
 const path = require('path');
 autoUpdater.logger = log;
 
 if (process.platform == 'darwin') {
-  global.frame = false;
   global.titleBarStyle = 'hiddenInset';
 }
 else if(process.platform == 'win32'){
-  global.frame = false;
   global.titleBarStyle = 'hidden';
 }
 else{
-  global.frame = true;
   global.titleBarStyle = 'default';
 }
 
@@ -26,7 +24,7 @@ const launch = () => {
     show: false,
     autoHideMenuBar: true,
     darkTheme: true,
-    frame: global.frame,
+    frame: false,
     titleBarStyle: global.titleBarStyle,
     trafficLightPosition: { x: 10, y: 10 },
     titleBarOverlay: {
@@ -51,6 +49,7 @@ const launch = () => {
   
   if (process.platform === 'darwin') {setTimeout(() => {mainWindow.webContents.executeJavaScript(`document.querySelector("body > div:nth-child(2) > tab-group").shadowRoot.querySelector("div > nav").style.paddingLeft = '80px'`)}, 1500)}
   if (process.platform === 'win32') {setTimeout(() => {mainWindow.webContents.executeJavaScript(`document.querySelector("#available").style.right = '137px'`)}, 1500)}
+  if (process.platform === 'linux') {setTimeout(() => {mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-titlebar-buttons").style.display = 'inherit'`)}, 1500)}
   
   const menu = new Menu()
   menu.append(new MenuItem({
