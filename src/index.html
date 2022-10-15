@@ -8,9 +8,7 @@
   <body>
     <div add-component="./components/splash.html"></div>
 
-    <div id="available" class="update">
-      <p>Update Ready - Restart Required</p>
-    </div>
+    <div id="available" class="update"><p>Update Ready - Restart Required</p></div>
 
     <tab-group new-tab-button="true" sortable="true">
       <style>
@@ -60,8 +58,88 @@
         }
       </style>
     </tab-group>
+
+    <div style="display: none" id="gtk" class="linux-titlebar-buttons">
+      <!-- <button><i class="fa-duotone fa-circle-minus"></i></button>
+      <button><i style="transform: rotate(45deg);" class="fa-duotone fa-circle-xmark"></i></button> -->
+      <button onclick="window.close()"><i class="fa-duotone fa-circle-xmark"></i></button>
+    </div>
+
+    <div style="display: none;" class="onboarding">
+      <div id="one" class="slide">
+        <div class="onboarding-sidebar"><img src="./base/images/login-on.jpg"></div>
+        <div class="onboarding-content">
+          <h2>Welcome to Penpot Desktop</h2>
+          <p>Welcome to Penpot Desktop, communtiy software for you and for your team to design and prototype with. From designing amazing concepts for apps and websites, to collabrating with others and creating amazing products.</p>
+          <p>Penpot Desktop is currently in alpha stages, so do expect some issues if any occur. If you do by any chance find an issue, please submit them to Korbs Studio Code. You can also contribute to Penpot Desktop by improving it's quaily or adding new features for everyone to enjoy, by creating a PR on the repo.</p>
+          <div class="onboarding-content-action">
+            <button onclick="hideAllSlides(); onboardingSlide2();">Continue</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: none" id="two" class="slide">
+        <div class="onboarding-sidebar"><i class="fa-duotone fa-face-thinking"></i></div>
+        <div class="onboarding-content">
+          <h2>FAQ</h2>
+          <div id="faq-scroll">
+            
+            <p><strong>Is this official software by Penpot?</strong></p>
+            <p>No, this is considered community software. Although we're looking forwarded to becoming official software if possible.</p>
+
+            <p><strong>Can I trust Penpot Desktop since it's not official software?</strong></p>
+            <p>Sure you can! It's open source and the code is public for everyone to see and to investigate if they're suspicious.</p>
+
+            <p><strong>Who created Penpot Desktop?</strong></p>
+            <p>Penpot Desktop was created by Korbs Studio and with the help of contributors.</p>
+
+          </div>
+          <div class="onboarding-content-action">
+            <button onclick="hideAllSlides(); onboardingSlide3();">Continue</button>
+          </div>
+        </div>
+      </div>
+      <div style="display: none" id="three" class="slide">
+        <div class="onboarding-sidebar"><i class="fa-light fa-link-simple"></i></div>
+        <div class="onboarding-content">
+          <h2>Set a Hostname</h2>
+          <p>If you're selfhosting Penpot, it's possible for Penpot Desktop to switch to it by changing the Hostname in the app settings. By default, Penpot Desktop will use <code>https://design.penpot.app/</code>.</p>
+          <p>Actually while we're at it, you can change it right now if you want to:</p>
+
+          <label hidden>Hostname</label>
+          <input type="text" class="appUsername" id="hostField">
+          <p class="lead mt-3 setName" style="display: none;"></p>
+          <button style="height: 0px !important;opacity: 0;pointer-events: none;" onclick="hostnameSaved()" id="cswU" class="btn btn-secondary save">Save</button>
+
+          <div class="onboarding-content-action">
+            <button onclick="document.querySelector('.onboarding #cswU').click(); hideAllSlides(); onboardingSlide4();">Continue</button>
+          </div>
+        </div>
+      </div>
+      <div style="display: none" id="four" class="slide">
+        <div class="onboarding-sidebar"><i class="fa-duotone fa-moon-over-sun"></i></div>
+        <div class="onboarding-content">
+          <h2>Set a Theme</h2>
+          <p>A dark mode is also included for the Dashboard in Penpot, but you still have the option to change it back to the default light theme. By default, dark mode is enabled.</p>
+
+          <label hidden for="theme">Theme</label>
+          <select id="theme" name="theme" onchange="changeTheme(event)">
+              <option value="">Select a theme</option>
+              <option value="Light">Light</option>
+              <option value="Dark">Dark</option>
+          </select>
+
+          <div class="onboarding-content-action">
+            <button onclick="hideAllSlides();">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="../node_modules/electron-tabs/dist/electron-tabs.js"></script>
+    <script src="./base/js/view/ob.js"></script>
     <script src="./base/js/view/tabs.js"></script>
+    <script src="./base/js/view/welcome.js"></script>
     <script src="./base/js/settings/hostname.js"></script>
     <script src="./base/js/settings/theme.js"></script>
   </body>
