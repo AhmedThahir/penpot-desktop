@@ -16,7 +16,7 @@
 
 [macOS](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.0.dmg)
 
-[Linux](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.0.AppImage) (AppImage)
+[Linux](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.2.AppImage) (AppImage)
 
 [Linux](https://snapcraft.io/penpot-desktop) (Snap)
 
