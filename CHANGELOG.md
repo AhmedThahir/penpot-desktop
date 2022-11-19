@@ -1,4 +1,10 @@
 # Changelog
+## v0.1.2
+ - Added Newsletter to homepage
+ - Added banner to homepage
+ - Added Font Awesome kit from Korbs Studio
+ - Remove Font Awesome Pro files
+
 ## v0.1.1
  - Add custom titlebar overlay for Linux (Mocking GTK)
  - Frame set to `false` for Linux
