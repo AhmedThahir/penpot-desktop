@@ -205,9 +205,7 @@ setTimeout(() => {
   // Default Tab (Home)
   const tab = tabGroup.addTab({
     active: true,
-    title: '',
     src: 'tabs/home.html',
-    iconURL: './base/images/house-solid.png',
     closable: false,
     webviewAttributes: {
       class: "tab-view",
@@ -215,6 +213,26 @@ setTimeout(() => {
     },
     ready: function (tab) {
       const webview = tab.webview;
+
+      tab.webview.addEventListener('new-window', (e) => {
+        console.log('New tab triggered') // Debugging :)
+        tabGroup.addTab(
+          {
+            active: true,
+            src: e.url,
+            ready: function (tab) {
+              const webview = tab.webview;
+              webview.addEventListener('page-title-updated', () => {
+                const newTitle = webview.getTitle();
+                tab.setTitle(newTitle);
+              });
+              if (theme === 'Dark') {setTimeout(() => {webview.insertCSS( darkModeCSS )}, 0200)}
+              else if (theme === 'Light') {}
+            }
+          }
+        );
+      });
+
       webview.addEventListener('page-title-updated', () => {
         const newTitle = webview.getTitle();
         tab.setTitle(newTitle);
@@ -233,32 +251,33 @@ setTimeout(() => {
     },
     ready: function (tab) {
       const webview = tab.webview;
+
+      tab.webview.addEventListener('new-window', (e) => {
+        console.log('New tab triggered') // Debugging :)
+        tabGroup.addTab(
+          {
+            active: true,
+            src: e.url,
+            ready: function (tab) {
+              const webview = tab.webview;
+              webview.addEventListener('page-title-updated', () => {
+                const newTitle = webview.getTitle();
+                tab.setTitle(newTitle);
+              });
+              if (theme === 'Dark') {setTimeout(() => {webview.insertCSS( darkModeCSS )}, 0200)}
+              else if (theme === 'Light') {}
+            }
+          }
+        );
+      });
+
       webview.addEventListener('page-title-updated', () => {
         const newTitle = webview.getTitle();
         tab.setTitle(newTitle);
       })
-      if (theme === 'Dark') {setTimeout(() => {webview.insertCSS( darkModeCSS )}, 0350)}
-      else if (theme === 'Light') {}
     }
   });
+  tab.webview.addEventListener('close', () => t.close())
   
-  // If you open link that contains "target='_blank'"
-  tab.webview.addEventListener('new-window', (e) => {
-    tabGroup.addTab(
-      {
-        active: true,
-        src: e.url,
-        ready: function (tab) {
-          const webview = tab.webview;
-          webview.addEventListener('page-title-updated', () => {
-            const newTitle = webview.getTitle();
-            tab.setTitle(newTitle);
-          });
-          if (theme === 'Dark') {setTimeout(() => {webview.insertCSS( darkModeCSS )}, 0200)}
-          else if (theme === 'Light') {}
-        }
-      }
-    );
-  });
+  // Open new tab when requested by webview
 }, 1000)
-
