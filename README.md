@@ -7,6 +7,9 @@
 - Dark mode in Dashboard
 - Tabs
 
+## References of Penpot Desktop
+[Is there a Desktop app option for Penpot?](https://community.penpot.app/t/is-there-a-desktop-app-option-for-penpot/2038) (Penpot Community)
+
 ## Downloads
 > macOS does not include auto update, you'll need to manually update the app.
 
