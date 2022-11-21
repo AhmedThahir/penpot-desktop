@@ -14,7 +14,7 @@
 
 [Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe) (EXE)
 
-[macOS](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.0.dmg)
+[macOS](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.2.dmg)
 
 [Linux](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.2.AppImage) (AppImage)
 
@@ -84,6 +84,9 @@ To build, run:
 npm run build
 ```
 If you're unable to build, use the `build` workflow provided and use GitHub Actions, it's free to use.
+
+## Credits
+[Electron Tabs](https://github.com/brrd/electron-tabs)
 
 ---
 > This is community software and not official software by Penpot.
