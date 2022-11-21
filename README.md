@@ -17,9 +17,9 @@
 
 [Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe) (EXE)
 
-[macOS](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.2.dmg)
+[macOS](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.3.dmg)
 
-[Linux](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.2.AppImage) (AppImage)
+[Linux](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.3.AppImage) (AppImage)
 
 [Linux](https://snapcraft.io/penpot-desktop) (Snap)
 
