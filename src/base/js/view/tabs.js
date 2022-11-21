@@ -237,9 +237,6 @@ setTimeout(() => {
         const newTitle = webview.getTitle();
         tab.setTitle(newTitle);
       })
-      webview.addEventListener('enter-html-full-screen', (e) => {
-        console.log('Guest page logged a message:')
-      })
       if (theme === 'Dark') {setTimeout(() => {webview.insertCSS( darkModeCSS )}, 0350)}
       else if (theme === 'Light') {}
     }
