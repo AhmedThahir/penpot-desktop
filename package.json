@@ -21,8 +21,7 @@
     "appId": "com.korbsstudio.penpot",
     "win": {
       "target": [
-        "nsis",
-        "appx"
+        "nsis"
       ]
     },
     "mac": {

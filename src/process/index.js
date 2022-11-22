@@ -12,8 +12,8 @@ else{global.titleBarStyle = 'default'}
 
 const launch = () => {
   const mainWindow = new BrowserWindow({
-    width: 1300,
-    height: 900,
+    width: 2250,
+    height: 1500,
     minWidth: 1240,
     minHeight: 400,
     show: false,
@@ -21,6 +21,7 @@ const launch = () => {
     darkTheme: true,
     frame: false,
     fullscreenable: true,
+    skipTaskbar: true,
     titleBarStyle: global.titleBarStyle,
     trafficLightPosition: { x: 10, y: 10 }, // for macOS
     titleBarOverlay: { // For Windows
@@ -37,7 +38,6 @@ const launch = () => {
       nodeIntegration: false
     }
   })
-  mainWindow.maximize()
   mainWindow.show()
   mainWindow.loadFile('src/index.html')
   mainWindow.on('enter-html-full-screen', (event, input) => {console.log('Penpot Desktop has entered fullscreen mode.')})
