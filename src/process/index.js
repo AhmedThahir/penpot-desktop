@@ -12,8 +12,8 @@ else{global.titleBarStyle = 'default'}
 
 const launch = () => {
   const mainWindow = new BrowserWindow({
-    width: 2250,
-    height: 1500,
+    width: 1300,
+    height: 900,
     minWidth: 1240,
     minHeight: 400,
     show: false,
@@ -39,6 +39,7 @@ const launch = () => {
     }
   })
   mainWindow.show()
+  mainWindow.maximize()
   mainWindow.loadFile('src/index.html')
   mainWindow.on('enter-html-full-screen', (event, input) => {console.log('Penpot Desktop has entered fullscreen mode.')})
   mainWindow.on('exit-html-full-screen', (event, input) => {console.log('Penpot Desktop has exit fullscreen mode.')}) // This is being triggered, even when exiting without breaking things, concerning...
