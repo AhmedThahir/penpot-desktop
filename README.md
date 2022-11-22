@@ -1,6 +1,6 @@
 > Quick note: This is not offical software of Penpot or Kaleidos, this is created and maintained by Korbs Studio.
 
-![Penpot Desktop](https://cdn.korbsstudio.com/images/penpot-desktop-pr-gi.png)
+![Penpot Desktop](https://cdn.korbsstudio.com/images/Promo%20-%20Dark%20Background%20-%20Surface%20Pro.png)
 
 ## Features
 - Use Penpot Desktop on your own server if you're self-hosting
