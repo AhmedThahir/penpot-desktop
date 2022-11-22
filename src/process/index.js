@@ -6,9 +6,9 @@ autoUpdater.logger = log
 console.log = log.log // Override "console.log" and use log everywhere
 
 // Use native titlebar from the OS on Windows and macOS, hide the titlebar completely on Linux
-if (process.platform == 'darwin') {global.titleBarStyle = 'hiddenInset'}
-else if(process.platform == 'win32'){global.titleBarStyle = 'hidden'}
-else{global.titleBarStyle = 'default'}
+if        /* If macOS */    (process.platform == 'darwin')  {global.titleBarStyle = 'hiddenInset' }
+else if   /* If Windows */  (process.platform == 'win32')   {global.titleBarStyle = 'hidden'      }
+else      /* If Linux */                                    {global.titleBarStyle = 'default'     }
 
 const launch = () => {
   const mainWindow = new BrowserWindow({
