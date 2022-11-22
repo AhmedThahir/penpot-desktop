@@ -27,7 +27,7 @@
 
         echo "40" ;
         cd /usr/share/korbs-studio/penpot-desktop/app/
-        sudo wget -q "https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.1.AppImage"
+        sudo wget -q "https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.3.AppImage"
         echo "80" ;
         sudo wget -q "https://code.korbsstudio.com/KorbsStudio/Penpot-Desktop/raw/branch/main/extra/linux/penpot-desktop.sh"
 
