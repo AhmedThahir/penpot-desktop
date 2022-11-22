@@ -1,6 +1,6 @@
-> Quick note: This is not offical software of Penpot or Kaleidos, this is created and maintained by Korbs Studio.
+![Penpot Desktop](https://cdn.korbsstudio.com/images/Promo%20-%20Dark%20Background%20-%20Surface%20Pro.png)
 
-![Penpot Desktop on Windows 11](https://user-images.githubusercontent.com/51213244/192091484-62d8e0b3-5011-41df-8a97-38306e3d84d0.png)
+> This is community software and not official software by Penpot.
 
 ## Features
 - Use Penpot Desktop on your own server if you're self-hosting
@@ -90,6 +90,11 @@ If you're unable to build, use the `build` workflow provided and use GitHub Acti
 
 ## Credits
 [Electron Tabs](https://github.com/brrd/electron-tabs)
+
+---
+## Subscribe for updates
+[![Mastodon](https://cdn.korbsstudio.com/images/Subcribe%20-%20Mastodon.png)](https://mastodon.social/@KorbsStudio)
+[![Mailchamp](https://cdn.korbsstudio.com/images/Subscribe%20-%20Mailchamp.png)](https://penpot-desktop.korbsstudio.com/subscribe/)
 
 ---
 > This is community software and not official software by Penpot.
