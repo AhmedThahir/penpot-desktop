@@ -1,4 +1,13 @@
 #!/bin/sh
+############## Installation Instructions ##############################################
+# Hi there! This script will install Penpot Desktop on Linux                          #
+# Files will be added to /usr/share/korbs-studio/                                     #
+#                                                                                     #
+# RUN THIS: bash <(curl -s https://cdn.korbsstudio.com/files/sh/penpot-desktop.sh)    #
+#                                                                                     #
+#######################################################################################
+
+#!/bin/sh
 
 # Auth
   while ! zenity --password  --ok-label="Continue"| sudo -S cat /dev/null >/dev/null; do
