@@ -94,6 +94,7 @@ If you're unable to build, use the `build` workflow provided and use GitHub Acti
 ---
 ## Subscribe for updates
 [![Mastodon](https://cdn.korbsstudio.com/images/Subcribe%20-%20Mastodon.png)](https://mastodon.social/@KorbsStudio)
+<br>
 [![Mailchamp](https://cdn.korbsstudio.com/images/Subscribe%20-%20Mailchamp.png)](https://penpot-desktop.korbsstudio.com/subscribe/)
 
 ---
