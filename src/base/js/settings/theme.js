@@ -9,6 +9,7 @@ if (theme == null) {
 
 function setTheme(theme) {
   localStorage.setItem('theme', theme);
+  document.querySelector("#reload-required").removeAttribute('hidden')
 }
 
 /** Detect Changes on the Selector **/
