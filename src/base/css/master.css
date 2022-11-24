@@ -231,7 +231,7 @@ input, select {
 }
 button#cswU, button#save {
     width: 100%;
-    color: black;
+    color: black !important;
     height: 52px !important;
     background: #31efb8 !important;
     border-image: initial !important;
