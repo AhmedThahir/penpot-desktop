@@ -19,6 +19,7 @@ setTimeout(() => {
       textHN.textContent = hostname;
     }
     document.querySelector("#hostField").value = document.querySelector("#hostField").value + hostname
+    document.querySelector("#EhostField").innerHTML = hostname
 }, 0500); // Wait a moment
 
 if(!localStorage.getItem("firstTime")){
@@ -30,6 +31,7 @@ if(!localStorage.getItem("firstTime")){
 }else{}
 
 function hostnameSaved() {
+  document.querySelector("#reload-required").removeAttribute('hidden')
   document.querySelector("#cswU").style.backgroundColor = '#00af00'
   document.querySelector("#cswU").innerHTML = 'Saved'
   document.querySelector("body > div.modal > div:nth-child(1) > div.settings > div.modal-footer").style.display = 'flex';
