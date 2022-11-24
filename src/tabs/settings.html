@@ -13,23 +13,37 @@
                     <h1>Settings</h1>
                 </div>
                 <div>
-                    <button id="Hostname" onclick="showHostnameTab(); sbsDE(); document.querySelector('button#Hostname').setAttribute('class', 'tab-selected')"><i class="fa-light fa-link-simple"></i> Hostname</button>
+                    <button id="App" onclick="showAppTab(); sbsDE(); document.querySelector('button#App').setAttribute('class', 'tab-selected')"><i class="fa-light fa-link-simple"></i> App</button>
                     <button id="Theme" onclick="showThemeTab(); sbsDE(); document.querySelector('button#Theme').setAttribute('class', 'tab-selected')"><i class="fa-light fa-moon-over-sun"></i> Theme</button>
                     <button id="Release" onclick="showReleaseTab(); sbsDE(); document.querySelector('button#Release').setAttribute('class', 'tab-selected')"><i class="fa-light fa-pen"></i> Release Notes</button>
-                    <p style="pointer-events: none; opacity: 0.8;">Penpot Desktop v0.1.3 Beta</p>
+                    <p style="pointer-events: none; opacity: 0.8;">Penpot Desktop v0.1.4 Beta</p>
+                </div>
+                <div class="notice">
+                    <p hidden id="reload-required"><i class="fa-light fa-arrows-rotate"></i> Reload Required</p>
                 </div>
             </div>
             <div class="tab-content">                
-                <div id="Hostname" class="tab-content-sub">
-                    <h2>Hostname</h2>
+                <div id="App" class="tab-content-sub">
+                    <h2>App</h2>
                     <div class="sub-content">
-                        <label hidden>Hostname</label>
+                        <label>Startup</label>
+                        <div onclick="startup_home()" class="radio-select">
+                            <span id="startup-home" class="checkmark"></span>
+                            <p>Home</p>
+                            <p id="startup-location">App's Home</p>
+                        </div>
+                        <div onclick="startup_penpotdashboard()" class="radio-select">
+                            <span id="startup-penpot-dashboard" class="checkmark"></span>
+                            <p>Penpot Dashboard</p>
+                            <p id="startup-location"><span id="EhostField"></span></p>
+                        </div>
+
+                        <label>Hostname</label>
                         <input type="text" class="appUsername" id="hostField">
                         <p class="lead mt-3 setName" style="display: none;"></p>
                         <button onclick="hostnameSaved()" id="cswU" class="btn btn-secondary save">Save</button>
                         <hr>
                         <p>If you're self-hosting Penpot on your own server, you can add it here. (Example: "http://localhost:9001")</p>
-                        <p>(You're required to reload the app if you set a hostname.)</p>
                     </div>
                 </div>
 
@@ -59,32 +73,64 @@
                 </div>
             </div>
         </div>
-        <div class="popup-notes">
-            <div id="pn-hostname">
-                <p>If you're self-hosting Penpot on your own server, you can add it here. (Example: "http://localhost:9001")</p>
-                <p>(You're required to reload the app if you set a hostname.)</p>
-            </div>
-        </div>
     </body>
 </html>
 
 <script>
+const hostname = localStorage.getItem('customHostname')
+const defaultTab = localStorage.getItem('defaultTab')
+const WhatIsDefaultTab = localStorage.getItem('WhatIsDefaultTab')
+
 // Select the About tab as default
-setTimeout(() => {document.querySelector("#Hostname").click()}, 0500);
+setTimeout(() => {document.querySelector("#App").click()}, 0500);
+
+// Startup Settings
+function startup_home() {
+    document.querySelector("#reload-required").removeAttribute('hidden')
+    localStorage.setItem('defaultTab', 'tabs/home.html')
+    localStorage.setItem('WhatIsDefaultTab', 'startup-home')
+
+    document.querySelector('div[onclick="startup_home()"]').style.border = '2px #31efb8 solid';
+    document.querySelector('div[onclick="startup_home()"] .checkmark').style.background = '#31efb8';
+
+    document.querySelector('div[onclick="startup_penpotdashboard()"]').style.border = '2px rgb(72 72 72) solid';
+    document.querySelector('div[onclick="startup_penpotdashboard()"] .checkmark').style.background = '#303236';
+}
+function startup_penpotdashboard() {
+    document.querySelector("#reload-required").removeAttribute('hidden')
+    localStorage.setItem('defaultTab', hostname)
+    localStorage.setItem('WhatIsDefaultTab', 'startup-penpot-dashboard')
+
+    document.querySelector('div[onclick="startup_penpotdashboard()"]').style.border = '2px #31efb8 solid';
+    document.querySelector('div[onclick="startup_penpotdashboard()"] .checkmark').style.background = '#31efb8';
+
+    document.querySelector('div[onclick="startup_home()"]').style.border = '2px rgb(72 72 72) solid';
+    document.querySelector('div[onclick="startup_home()"] .checkmark').style.background = '#303236';
+}
+
+setTimeout(() => {
+    if (WhatIsDefaultTab == 'startup-home'){
+        document.querySelector('div[onclick="startup_home()"]').style.border = '2px #31efb8 solid';
+        document.querySelector('div[onclick="startup_home()"] .checkmark').style.background = '#31efb8';
+    }else if(WhatIsDefaultTab == 'startup-penpot-dashboard') {
+        document.querySelector('div[onclick="startup_penpotdashboard()"]').style.border = '2px #31efb8 solid';
+        document.querySelector('div[onclick="startup_penpotdashboard()"] .checkmark').style.background = '#31efb8';
+    }
+}, 1300);
 
 // Selecting Tabs
 function hideAllTabs() {
-    document.querySelector('.tab-content-sub#Hostname').style.display = 'none';
+    document.querySelector('.tab-content-sub#App').style.display = 'none';
     document.querySelector('.tab-content-sub#Theme').style.display = 'none';
     document.querySelector('.tab-content-sub#Release').style.display = 'none';
 }
 
-function showHostnameTab() {hideAllTabs(); document.querySelector('.tab-content-sub#Hostname').style.display = 'inherit';}
+function showAppTab() {hideAllTabs(); document.querySelector('.tab-content-sub#App').style.display = 'inherit';}
 function showThemeTab() {hideAllTabs(); document.querySelector('.tab-content-sub#Theme').style.display = 'inherit';}
 function showReleaseTab() {hideAllTabs(); document.querySelector('.tab-content-sub#Release').style.display = 'inherit';}
 
 function sbsDE() {
-    document.querySelector('button#Hostname').setAttribute('class', 'tab-not-selected')
+    document.querySelector('button#App').setAttribute('class', 'tab-not-selected')
     document.querySelector('button#Theme').setAttribute('class', 'tab-not-selected')
     document.querySelector('button#Release').setAttribute('class', 'tab-not-selected')
 }
@@ -180,7 +226,7 @@ input, select {
 }
 button#cswU, button#save {
     width: 100%;
-    color: black;
+    color: black !important;
     height: 52px !important;
     background: #31efb8 !important;
     border-image: initial !important;
@@ -201,6 +247,50 @@ label {
     display: flex;
     align-items: center;
     font-size: 0.875rem;
-    margin-bottom: 20px;
+    margin: 10px 0px;
+}
+
+.radio-select {
+    background: transparent;
+    border: 2px rgb(72 72 72) solid;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    align-items: center;
+    padding: 0px 12px;
+    display: flex;
+    cursor: pointer;
+}
+.radio-select p {
+    margin-left: 32px;
+}
+.checkmark {
+    background: #303236;
+    padding: 10px;
+    position: absolute;
+    border-radius: 4px;
+}
+div#startup-selected {
+    border: 2px #31efb8 solid;
+}
+div#startup-selected .checkmark {
+    background: #31efb8;
+}
+
+p#startup-location {
+    text-align: right;
+    position: absolute;
+    right: 12px;
+    background: #303136;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+p#reload-required {
+    position: fixed;
+    background: #31efb8;
+    color: black;
+    padding: 12px 24px;
+    border-radius: 6px;
+    bottom: 24px;
 }
 </style>

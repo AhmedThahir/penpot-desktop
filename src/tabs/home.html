@@ -14,6 +14,9 @@
                 <p>We're announcing our Series A funding! <a href="https://community.penpot.app/t/penpot-our-time-has-come/1563" target="_blank">Learn More</a></p>
             </div>
             <div>
+                <!---->
+                <a id="open-dashboard" hidden href="https://design.penpot.app/" target="_blank"></a>
+                <!---->
                 <a href="https://community.penpot.app/" target="_blank"><i class="fa-sharp fa-solid fa-users"></i> Communtiy</a>
                 <a href="https://penpot.app/dev-diaries.html" target="_blank"><i class="fa-sharp fa-solid fa-books"></i> Dev Dairy</a>
                 <a href="./settings.html" target="_blank"><i class="fa-sharp fa-solid fa-sliders-simple"></i> Settings</a>
@@ -37,6 +40,16 @@
         </div>
     </body>
 </html>
+
+<script>
+const hostname = localStorage.getItem('customHostname')
+const WhatIsDefaultTab = localStorage.getItem('WhatIsDefaultTab')
+setTimeout(() => {
+    document.querySelector("a#open-dashboard").setAttribute('href', hostname)
+    if (WhatIsDefaultTab == 'startup-home'){console.log('Default Tab: Home')}
+    else if(WhatIsDefaultTab == 'startup-penpot-dashboard') {document.querySelector("#open-dashboard").click()}
+}, 350)
+</script>
 
 <style>
 body {
