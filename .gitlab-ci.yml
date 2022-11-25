@@ -1,0 +1,11 @@
+stages:
+  - build
+
+build-job:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    expose_as: 'artifact-1'
+    paths: ['dist/']
