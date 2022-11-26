@@ -1,11 +1,14 @@
 stages:
-  - build
+  - Build
+  - Get Artifacts
 
 build-job:
-  stage: build
+  stage: Build
   script:
     - npm install
     - npm run build
+    - Remove-Item -path .\dist\win-unpacked\ -recurse  # This will make sure that Build Artifact doesn't take a butt load of time to zip up the dist folder I need
+  stage: Get Artifacts
   artifacts:
     expose_as: 'artifact-1'
     paths: ['dist/']
