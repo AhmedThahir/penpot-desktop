@@ -21,8 +21,8 @@
 
         echo "20" ;
         echo "# Downloading and adding resources..."
-        cd ~/.local/share/korbs-studio/penpot-desktop/
-        wget -q "https://code.korbsstudio.com/KorbsStudio/Penpot-Desktop/-/raw/main/build/icon.png"
+        cd ~/.local/share/icons/hicolor/scalable/apps/
+        wget -q -O com.korbsstudio.penpot-desktop.svg "https://code.korbsstudio.com/KorbsStudio/Penpot-Desktop/-/raw/main/build/icon.png"
 
         echo "40" ;
         cd ~/.local/share/korbs-studio/penpot-desktop/app/
