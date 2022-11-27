@@ -1,10 +1,11 @@
 [Desktop Entry]
 Name=Penpot Desktop
 Comment=Design Freedom for Teams
-Exec=sh /usr/share/korbs-studio/penpot-desktop/app/penpot-desktop.sh
-Icon=/usr/share/korbs-studio/penpot-desktop/icon.png
+Exec=sh ~/.local/share/korbs-studio/penpot-desktop/app/launch.sh
+Icon=com.korbsstudio.penpot-desktop
 Type=Application
 StartupNotify=false
 Categories=Graphics;
-Actions=new-empty-window;
 Keywords=penpot;
+Terminal=false
+X-GNOME-UsesNotifications=false
