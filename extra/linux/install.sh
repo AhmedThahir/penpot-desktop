@@ -38,7 +38,7 @@
 
         # This is add 'penpot-desktop' as a command, because why not?
         cd ~
-        printf "alias penpot-desktop='~/.local/share/korbs-studio/penpot-desktop/app/Penpot\ *.AppImage --no-sandbox %U'" >> .bashrc
+        printf "alias penpot-desktop='~/.local/share/korbs-studio/penpot-desktop/app/Penpot\ *.AppImage'" >> .bashrc
 
         echo "99" ;
         echo "# Done. Click OK to continue." ;
