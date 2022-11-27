@@ -58,11 +58,11 @@ You'll need to have NodeJS already installed before working with Penpot Desktop,
 For Linux, the installation is:
 ```
 # Debian/Ubuntu/Chrome OS
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Fedora/CentOS/RHEL
-sudo dnf module install nodejs:16
+sudo dnf module install nodejs:18/common
 
 # Arch
 sudo pacman -S nodejs npm
