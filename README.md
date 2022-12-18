@@ -1,5 +1,7 @@
 ![Penpot Desktop](https://cdn.korbsstudio.com/images/Promo%20-%20Dark%20Background%20-%20Surface%20Pro.png)
 
+<a href="https://www.producthunt.com/posts/penpot-desktop?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-penpot&#0045;desktop" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=371642&theme=dark" alt="Penpot&#0032;Desktop - A&#0032;desktop&#0045;like&#0032;experience&#0032;for&#0032;Penpot | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 > This is community software and not official software by Penpot.
 
 ## Features
