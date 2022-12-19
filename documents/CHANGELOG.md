@@ -1,17 +1,21 @@
 # Changelog
-## v0.1.2
+## v0.2.0 Beta (In Progress)
+ - Rewritten code
+ - Updated Electron from `21.1.1` to `22.0.0`
+
+## v0.1.2 Beta
  - Added Newsletter to homepage
  - Added banner to homepage
  - Added Font Awesome kit from Korbs Studio
  - Remove Font Awesome Pro files
 
-## v0.1.1
+## v0.1.1 Beta
  - Add custom titlebar overlay for Linux (Mocking GTK)
  - Frame set to `false` for Linux
  - Removed RSS feed from home 
  > This release is only for Linux
 
-## v0.1.0
+## v0.1.0 Beta
  - Converted modals into their own tabs
  - Added home tab
 
