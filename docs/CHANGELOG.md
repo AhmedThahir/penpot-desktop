@@ -3,6 +3,7 @@
  - Rewritten code
  - Updated Electron from `21.1.1` to `22.0.0`
  - Added `funding`, `repo`, and `description` to "package.json"
+ - Support for Windows 7/8/8.1 is discontinued ([Why?](https://www.electronjs.org/blog/windows-7-to-8-1-deprecation-notice))
 
 ## v0.1.2 Beta
  - Added Newsletter to homepage

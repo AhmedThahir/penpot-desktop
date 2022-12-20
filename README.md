@@ -1,103 +1,98 @@
-![Penpot Desktop](https://cdn.korbsstudio.com/images/Promo%20-%20Dark%20Background%20-%20Surface%20Pro.png)
+![Penpot Desktop](https://cdn.korbsstudio.com/images/Promo%20-%20Dark%20Background%20-%20Transparent%20-%20Slim.png)
+> This is unofficial software
 
-<a href="https://www.producthunt.com/posts/penpot-desktop?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-penpot&#0045;desktop" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=371642&theme=dark" alt="Penpot&#0032;Desktop - A&#0032;desktop&#0045;like&#0032;experience&#0032;for&#0032;Penpot | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+# Penpot Desktop
+Penpot Desktop delivers a desktop-like experience for Penpot users with the additional of integrating tabs to conveniently traverse back and forth between projects. Offline support is available through the select your own instance option in settings, as well as the theme settings that may be applied to either the entire desktop app or simply the Penpot dashboard.  
 
-> This is community software and not official software by Penpot.
+<!-- ## Downloads
+ - Microsoft Windows - [[Download]()] [[Microsoft Store]()]
+ - macOS - [[Download]()]
+ - Linux - [[Snap Store]()] -->
 
-## Features
-- Use Penpot Desktop on your own server if you're self-hosting
-- Dark mode in Dashboard
-- Tabs
+## FAQ
+Q: Is this official software?
 
-## References of Penpot Desktop
-[Is there a Desktop app option for Penpot?](https://community.penpot.app/t/is-there-a-desktop-app-option-for-penpot/2038) (Penpot Community)
+A: No, Penpot Desktop is an Electron-based application developed by Korbs Studio. If the project was official, it would be sitting on Penpot's GitHub, not Korbs Studio Code.
 
-## Downloads
-> macOS does not include auto update, you'll need to manually update the app.
+<br>
 
-[Windows](https://apps.microsoft.com/store/detail/penpot-desktop/9P1G47CXJKR2) (Microsoft Store)
+Q: What operating system does this support?
 
-[Windows](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop%20-%20Setup.exe) (EXE)
+A: As of Penpot Desktop v0.2.0:
+ - Windows 10/11
+ - maccOS High Sierra and up
+ - Linux (Debian/Fedora/Arch)
 
-[macOS](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.3.dmg)
+Since the release of Penpot Desktop v0.2.0, support has dropped for Windows 7/8/8.1.
 
-[Linux](https://updates.korbsstudio.com/penpot-desktop/Penpot%20Desktop-0.1.3.AppImage) (AppImage)
+<br>
 
-[Linux](https://snapcraft.io/penpot-desktop) (Snap)
+Q: If an update is available, how do I get it?
 
-[Linux](https://cdn.korbsstudio.com/files/sh/penpot-desktop.sh) (Command Line)
+A: This is done automatically on Windows and Linux, with auto update builtin from Electron Builder. We recommend that you wait at the least 1 - 2 minutes for the update to download, or depending on your internet. This usually take about 10 - 30 seconds for decent internet(200mbps).
 
-## Installation
-### Windows
-After downloading the setup file for Penpot Desktop, you'll notice a [pop up](https://i.imgur.com/yNjUYg7.png) when opening the setup file.
+On macOS, however, each update must be installed manually by the user themself. No, you are not required to do this on a regular basis; nevertheless, updating Penpot Desktop is recommended if you want the most up-to-date version in general. It's difficult to support macOS for auto updating at the time being.
 
-The pop up should be Smartscreen saying "Windows protected your PC" and "Microsoft Defender SmartScreen prevented an unrecoginzed app from start...". This is because the setup file for Penpot Desktop is unsigned and Windows will do this for all unsigned files, whether if the file is actually safe to use or not. 
+<br>
 
-Just click "Show More" and then "Run anyway".
+Q: Why Electron and what is it?
 
-### MacOS
-(This is a temporary work-around until the issue is resolved.)
-When you launch the Penpot desktop app for the first time, macOS (from approx. version 11 and higher) may not allow it [to launch for security reasons](https://support.apple.com/en-gb/guide/mac-help/mh40616/12.0/mac/12.0).
+A.1 (Why): I, Korbs, am mostly comfortable and knowledgeable with web coding languages such as HTML, CSS/SCSS, and JavaScript, along with APIs by ElectronJS. Using Electron was the right approach for me, and I've acquired a huge amount of experience with it over the last four years thanks to development I've done at FalixNodes Limited. The process of doing cross-platform support was also shortened and easier for me to do. I've also gotten very attach to Electron and am also most comfortable using technology built specifically for the framework like Electron Builder, Glasstron, and more.
 
-You may see an error message saying Penpot-Desktop "...cannot Be Opened Because the Developer Cannot Be Verified'. Until this has been resolved a work-around is:
+A.2 (What): "Electron is an open-source software framework developed and maintained by GitHub. It allows for the development of desktop GUI applications using web technologie. It combines the Chromium rendering engine and the Node.js runtime." - [Wikipedia](https://en.wikipedia.org/wiki/Electron_(software_framework))
 
-1. Navigate to the application in Finder
-2. Right-click the application icon and select "Open"
-3. Confirm in the dialog which will be shown
+## Mentions of Penpot Desktop
+[Is there a Desktop app option for Penpot?](https://community.penpot.app/t/is-there-a-desktop-app-option-for-penpot/2038) - Penpot Community
 
-The Penpot-Desktop app is now saved as an exception to your security settings, and you can open it in the future by double-clicking it just as you can any registered app.
+# Building Penpot Desktop
+## Requirements
+ - NodeJS 18 or up
+ - Python 3.10 or up
+ - g++ (Linux)
+ - Visual Studio (Windows)
+  - Development with C++
+ - Visual C++ Redistributable (Windows)
+ - At least 4GB of storage available, recommended is 8GB (macOS/Linux)
+ - At least 8GB of storage available, recommended is 16GB (Windows)
 
----
+ > If you're using Windows, please be using Windows 10 or Windows 11. Windows 8.1 or older are not supported by Penpot Desktop.
 
-# Building and Development
-## Prerequisites
-You'll need to have NodeJS already installed before working with Penpot Desktop, since it's built on ElectronJS.
+### Building
+Now to build the actual software, this process has been made more simple over time during the development of Penpot Desktop, all thanks to GitHub Actions and Electron Builder. 
 
-[Download for Windows](https://nodejs.org/en/download/)
-
-[Download for macOS](https://nodejs.org/en/download/)
-
-For Linux, the installation is:
-```
-# Debian/Ubuntu/Chrome OS
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-# Fedora/CentOS/RHEL
-sudo dnf module install nodejs:18/common
-
-# Arch
-sudo pacman -S nodejs npm
-```
-
-> The prerequisites will have more requirements in the future like Python and more. In the meantime, only NodeJS is required.
-
-## Cloning and Starting
-To clone the project, we'll use `git` and use `npm start` to start the app in development mode.
-```
-git clone KorbsStudio/Penpot-Desktop
-cd Penpot-Desktop/
-npm i
-npm start
-```
-
-## Building
-Penpot Desktop uses `electron-builder` package to build an executable file/setup for all operating systems.
-
-To build, run:
+With Electron Builder, you can simply run:
 ```
 npm run build
 ```
-If you're unable to build, use the `build` workflow provided and use GitHub Actions, it's free to use.
 
-## Credits
-[Electron Tabs](https://github.com/brrd/electron-tabs)
+Then Electron builder will start building for your operating system.
 
----
-## Subscribe for updates
-[![Mastodon](https://cdn.korbsstudio.com/images/Subcribe%20-%20Mastodon.png)](https://social.vivaldi.net/@MrKorbs)
-<br>
-[![Mailchamp](https://cdn.korbsstudio.com/images/Subscribe%20-%20Mailchamp.png)](https://penpot-desktop.korbsstudio.com/subscribe/)
+# Support
+Reach out to the maintainer at one of the following places:
 
----
-> This is community software and not official software by Penpot.
+- [Issues](https://code.korbsstudio.com/KorbsStudio/Penpot-Desktop/-/issues)
+- [Email](mailto:hello@korbsstudio.com)
+
+#### Contributing
+Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you for being involved!
+
+#### Security
+Penpot Desktop follows good practices of security, but 100% security cannot be assured.
+Penpot Desktop is provided **"as is"** without any **warranty**. Use at your own risk.
+
+_For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
+
+# Acknowledgements
+ - Creator/Developer: [Korbs Studio](https://korbsstudio.com/)
+ <!-- - Past Contributors:  -->
+
+#### Frameworks
+ - Built on: [ElectronJS](https://electronjs.org/)
+ - Styled with: [SASS](https://sass-lang.com/)
+
+#### Packages Used
+ - Building for distrubtion: [Electron Builder](https://github.com/electron-userland/electron-builder/)
+ - Tabs and tab management: [Electron Tabs](https://github.com/brrd/electron-tabs)
+ - Reducing terminal logs: [Run Electron](https://github.com/sindresorhus/run-electron)
+ - Pretty logger: [Electron Timber](https://github.com/sindresorhus/electron-timber)
+ - For blur composition effect: [Glasstron Clarity](https://code.korbsstudio.com/KorbsStudio/Glasstron-Clarity)
