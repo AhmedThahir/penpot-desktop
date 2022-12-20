@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "start": "run-electron .",
-    "build": "electron-builder --config ./build/"
+    "build": "electron-builder build"
   },
   "repository": {
     "type": "git",
