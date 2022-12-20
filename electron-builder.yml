@@ -39,4 +39,4 @@ linux:
 
 publish:
   provider: "generic"
-  url: "https://distribute.korbsstudio.com/penpot-desktop/latest/"
+  url: "https://distribute.korbsstudio.com/application/penpot-desktop/latest/"
