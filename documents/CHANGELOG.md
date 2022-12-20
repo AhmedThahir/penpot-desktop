@@ -2,6 +2,7 @@
 ## v0.2.0 Beta (In Progress)
  - Rewritten code
  - Updated Electron from `21.1.1` to `22.0.0`
+ - Added `funding`, `repo`, and `description` to "package.json"
 
 ## v0.1.2 Beta
  - Added Newsletter to homepage
