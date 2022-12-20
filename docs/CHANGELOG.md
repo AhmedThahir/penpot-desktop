@@ -1,7 +1,7 @@
 # Changelog
 ## v0.2.0 Beta (In Progress)
  - Rewritten code
- - Updated Electron from `21.1.1` to `22.0.0`
+ - Updated Electron from `21.1.1` to `23.0.0`
  - Added `funding`, `repo`, and `description` to "package.json"
  - Support for Windows 7/8/8.1 is discontinued ([Why?](https://www.electronjs.org/blog/windows-7-to-8-1-deprecation-notice))
  - Changed update server destination to `https://distribute.korbsstudio.com/penpot-desktop/latest/`
