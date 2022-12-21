@@ -5,6 +5,10 @@
  - Added `funding`, `repo`, and `description` to "package.json"
  - Support for Windows 7/8/8.1 is discontinued ([Why?](https://www.electronjs.org/blog/windows-7-to-8-1-deprecation-notice))
  - Changed update server destination to `https://distribute.korbsstudio.com/applications/penpot-desktop/latest/`
+ - Native wayland support added for Snapcraft
+ - Added NPM Packages:
+    - Electron Timber `[electron-timber]`
+    - Run Electron `[run-electron]`
 
 ## v0.1.2 Beta
  - Added Newsletter to homepage

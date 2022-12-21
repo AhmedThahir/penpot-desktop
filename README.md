@@ -44,6 +44,8 @@ A.2 (What): "Electron is an open-source software framework developed and maintai
 ## Mentions of Penpot Desktop
 [Is there a Desktop app option for Penpot?](https://community.penpot.app/t/is-there-a-desktop-app-option-for-penpot/2038) - Penpot Community
 
+___
+
 # Building Penpot Desktop
 ## Requirements
  - NodeJS 18 or up
@@ -57,7 +59,7 @@ A.2 (What): "Electron is an open-source software framework developed and maintai
 
  > If you're using Windows, please be using Windows 10 or Windows 11. Windows 8.1 or older are not supported by Penpot Desktop.
 
-### Building
+## Building
 Now to build the actual software, this process has been made more simple over time during the development of Penpot Desktop, all thanks to GitHub Actions and Electron Builder. 
 
 With Electron Builder, you can simply run:
@@ -66,6 +68,8 @@ npm run build
 ```
 
 Then Electron builder will start building for your operating system.
+
+___
 
 # Support
 Reach out to the maintainer at one of the following places:
