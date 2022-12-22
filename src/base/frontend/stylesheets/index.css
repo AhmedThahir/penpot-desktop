@@ -1,0 +1,32 @@
+body {
+  overflow: hidden;
+}
+
+.full-window {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+splash {
+  background: #121212;
+  position: fixed;
+  z-index: 50;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+splash img {
+  width: 24px;
+  margin-right: 12px;
+}
+
+/*# sourceMappingURL=index.css.map */
