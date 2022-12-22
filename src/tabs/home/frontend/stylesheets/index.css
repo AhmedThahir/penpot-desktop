@@ -1,0 +1,13 @@
+body {
+    background: #1b1b1b;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 32px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}

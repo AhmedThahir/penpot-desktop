@@ -7,6 +7,19 @@
  - Changed update server destination to `https://distribute.korbsstudio.com/applications/penpot-desktop/latest/`
  - Native wayland support added for Snapcraft
  - Tab names will no longer end with " - Penpot" and only show the project name
+ - If window is inactive, tab colors will change to inactive color (macOS only)
+ - New icon for Windows
+ - New icon for macOS
+ - New icon for Linux (Adwaita Style)
+ - New Settings: 
+    - Theme
+        - App theme
+        - Penpot Dashboard theme
+    - Tab Theming
+        - Style
+        - Active Color (macOS only)
+        - Inactive Color (macOS only)
+        - Size
 
 ## v0.1.2 Beta
  - Added Newsletter to homepage
