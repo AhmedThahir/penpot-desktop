@@ -4,7 +4,6 @@ asar: true
 
 # macOS
 mac:
-  title: "Penpot Desktop"
   darkModeSupport: true
   category: "public.app-category.graphics-design"
   target:
@@ -40,10 +39,12 @@ linux:
   maintainer: "com.korbsstudio.penpot"
   vendor: "Korbs Studio"
   description: "A Desktop-Like Experience"
-  allowNativeWayland: true
-  confinement: "strict"
   target:
     - "snap"
+
+snap:
+  # allowNativeWayland: true # Electron Builder doesn't know this option, yet it's listed in their documentations for Snap. I've submitted an issue: electron-userland/electron-builder #7330
+  confinement: "strict"
 
 # Update Server
 publish:
