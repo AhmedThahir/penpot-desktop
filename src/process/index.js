@@ -13,9 +13,9 @@ else      /* If Linux */                                    {global.AppIcon = '.
 function createWindow () {
   const mainWindow = new BrowserWindow({
     // Size
-    width: 1200,
-    height: 800,
-    minWidth: 600,
+    width: 1400,
+    height: 900,
+    minWidth: 1300,
     minHeight: 600,
     // Theme
     backgroundColor: '#121212',
@@ -38,15 +38,29 @@ function createWindow () {
     }
   })
   mainWindow.loadFile('src/base/index.html')
+  if (process.platform === 'linux') {setTimeout(() => {
+    mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-titlebar-buttons").style.display = 'inherit'`)
+    mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '32px'`)
+    mainWindow.webContents.executeJavaScript(`document.querySelector(".actions #instance").style.right = '32px'`)
+  }, 1500)}
 }
 
 app.whenReady().then(() => {
   createWindow()
   // For new power saving option (Future use)
-  powerMonitor.on('on-ac', () => { // This is only supported for Windows and macOS
-      console.log('The system is on AC Power (charging)');
-  })
-  powerMonitor.on('on-battery', () => { // This is only supported for Windows and macOS
-      console.log('The system is on battery');
-  })
+  // powerMonitor.on('on-ac', () => { // This is only supported for Windows and macOS
+  //     console.log('The system is on AC Power (charging)');
+  // })
+  // powerMonitor.on('on-battery', () => { // This is only supported for Windows and macOS
+  //     console.log('The system is on battery');
+  // })
+})
+
+app.on('web-contents-created', function (webContentsCreatedEvent, contents) {
+  if (contents.getType() === 'webview') {
+    contents.on('new-window', function (newWindowEvent, url) {
+      console.log('block');
+      newWindowEvent.preventDefault(); // When allowing popups for WebViews, anchor links with target blank will open new windows. However, tabs have been setup for this. So we're gonna prevent duplicates from appearing, by preventing popup windows
+    })
+  }
 })

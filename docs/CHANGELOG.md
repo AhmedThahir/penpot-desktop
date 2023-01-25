@@ -12,14 +12,15 @@
  - New icon for macOS
  - New icon for Linux (Adwaita Style)
  - New Settings: 
-    - Theme
-        - App theme
-        - Penpot Dashboard theme
-    - Tab Theming
-        - Style
-        - Active Color (macOS only)
-        - Inactive Color (macOS only)
-        - Size
+    - Power Saving - If enabled, certain options will be disabled when on battery
+    - Appearance
+        - Blur
+        - Theme
+            - App theme
+            - Penpot Dashboard theme
+        - Tab Theming
+            - Style
+            - Size
 
 ## v0.1.2 Beta
  - Added Newsletter to homepage
