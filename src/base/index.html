@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Penpot Desktop</title>
+        <link rel="stylesheet" href="./frontend/stylesheets/index.css">
+        <!-- <link rel="stylesheet" href="./css/fonts.css"> -->
+    </head>
+    <body>
+        <titlebar>
+            <div class="actions">
+                <div class="action-buttons">
+                    <button hidden style="pointer-events: none" id="restart-required">Restart Required</button>
+                    <!-- <button title="Toggle Theme"><i class="fa-sharp fa-solid fa-toggle-large-on"></i></button> -->
+                    <button title="Change Instance" onclick="ShowModal_Instance()"><i class="fa-sharp fa-solid fa-server"></i></button>
+                </div>
+                <div class="action-modals">
+                    <div style="display: none;" id="instance" class="action-modal">
+                        <input type="text" id="hostField">
+                        <p class="lead mt-3 setName" style="display: none;"></p>
+                        <button onclick="HideModal_Instance();"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+                        <button onclick="InstanceSaved(); HideModal_Instance();" id="cswU" class="btn btn-secondary save"><i class="fa-sharp fa-solid fa-check"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div style="display: none" id="gtk" class="linux-titlebar-buttons">
+                <!-- <button><i class="fa-duotone fa-circle-minus"></i></button>
+                <button><i style="transform: rotate(45deg);" class="fa-duotone fa-circle-xmark"></i></button> -->
+                <button onclick="window.close()"><i class="fa-duotone fa-circle-xmark"></i></button>
+            </div>
+        </titlebar>
+        <tab-group new-tab-button="true" sortable="true" class="full-window">
+            <style>
+                :host {
+                    --tabgroup-background: #1f1f1f !important;
+                    --tab-background: #1f1f1f !important;
+                    --tab-color: #ffffff !important;
+                    --tab-border-color: transparent !important;
+                    --tab-active-background: #303236 !important;
+                    --tag-hover-background: #3d3d3d !important;
+                    --button-font-size: 15px !important;
+                    --button-background: none !important;
+                    --button-color: #696a6c !important;
+                    --button-hover-background: #303236 !important;
+                    --button-hover-color: #fff !important;
+                    --button-border-radius: 50% !important;
+                    --button-cursor: pointer !important;
+                    --badge-background: #383a3e !important;
+                    --badge-color: #fff !important;
+                    --close-button-visibility: visible !important;
+                    --tab-height: 41px;
+                }
+                * {
+                    cursor: default !important;
+                }
+                .nav {
+                    -webkit-app-region: drag;
+                    color: white !important;
+                    display: flex !important;
+                    position: fixed !important;
+                    top: 0px !important;
+                    z-index: 10 !important;
+                    left: -1px !important;
+                    border: none !important;
+                    height: var(--tab-height);
+                    width: calc(100% - 70px);
+                }
+                .tab {
+                    -webkit-app-region: no-drag;
+                    display: flex;
+                    flex: none;
+                }
+                .tabs {
+                    height: var(--tab-height);
+                    display: flex;
+                    overflow-x: scroll;
+                }
+                .tabs::-webkit-scrollbar {
+                    background: transparent;
+                    height: 1px;
+                    width: 0px;
+                }
+                .tabs::-webkit-scrollbar-thumb {
+                    background: #00ff89;
+                }
+                .buttons {
+                    -webkit-app-region: no-drag;
+                    border-left: 1px solid #1f1f1f !important;
+                    padding: 5px !important;
+                    display: flex !important;
+                    align-items: center !important;
+                }
+                webview {
+                    height: calc(100% - var(--tab-height)) !important;
+                    position: fixed !important;
+                    bottom: 0px !important;
+                    z-index: 20 !important;
+                    left: 0px !important;
+                }
+            </style>
+        </tab-group>
+        <!-- <splash class="full-window">
+            <img src="./frontend/media/images/penpot-logo/logo-white.png">
+            <p>Design Free for Teams</p>
+        </splash> -->
+    </body>
+    <script src="https://kit.fontawesome.com/34da06dfa8.js" crossorigin="anonymous"></script>
+    <script src="../../node_modules/electron-tabs/dist/electron-tabs.js"></script>
+    <script type="module" src="./frontend/javascript/view/electron-tabs.js"></script>
+    <script src="./frontend/javascript/view/theme.js"></script>
+    <script src="./frontend/javascript/settings/instance.js"></script>
+    <script src="./frontend/javascript/settings/theme.js"></script>
+</html>

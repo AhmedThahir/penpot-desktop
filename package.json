@@ -1,59 +1,35 @@
 {
   "name": "penpot-desktop",
-  "version": "0.1.4",
+  "version": "0.2.0",
+  "author": "KorbsStudio",
+  "license": "MIT",
   "main": "src/process/index.js",
+  "homepage": "https://code.korbsstudio.com/KorbsStudio/Penpot-Desktop/",
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://ko-fi.com/korbsstudio"
+    }
+  ],
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder build"
+    "build": "electron-builder --config ./build/electron-builder.yml",
+    "dev": "concurrently --kill-others \"npm run scss:app\" \"npm start\"",
+    "scss:app": "sass --watch src/base/frontend/stylesheets/index.scss:src/base/frontend/stylesheets/index.css"
   },
-  "author": "KorbsStudio",
+  "repository": {
+    "type": "git",
+    "url": "git@code.korbsstudio.com:KorbsStudio/Penpot-Desktop.git"
+  },
   "dependencies": {
-    "electron-log": "^4.4.8",
+    "concurrently": "^7.6.0",
+    "electron-is-dev": "^2.0.0",
     "electron-tabs": "^1.0.1",
+    "electron-titlebar-respect": "^1.0.0",
     "electron-updater": "^5.3.0"
   },
   "devDependencies": {
-    "electron": "^21.1.1",
-    "electron-builder": "^23.3.3"
-  },
-  "build": {
-    "productName": "Penpot Desktop",
-    "appId": "com.korbsstudio.penpot",
-    "win": {
-      "target": [
-        "nsis"
-      ]
-    },
-    "mac": {
-      "target": "dmg"
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "snap"
-      ],
-      "category": "Network",
-      "synopsis": "Use PenPot, right from your desktop",
-      "description": "Use PenPot, right from your desktop"
-    },
-    "nsis": {
-      "shortcutName": "Penpot Desktop",
-      "uninstallDisplayName": "Penpot Desktop",
-      "artifactName": "Penpot Desktop - Setup.exe",
-      "installerSidebar": "build/installerSidebar.bmp",
-      "oneClick": false,
-      "displayLanguageSelector": true,
-      "allowElevation": false,
-      "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": false,
-      "deleteAppDataOnUninstall": true
-    },
-    "publish": [
-      {
-        "provider": "generic",
-        "url": "https://updates.korbsstudio.com/penpot-desktop/",
-        "channel": "latest"
-      }
-    ]
+    "electron": "^23.0.0-alpha.3",
+    "electron-builder": "^22.10.3"
   }
 }

@@ -1,95 +1,55 @@
-const {app, BrowserWindow, dialog, ipcMain, ipcRenderer, Menu, MenuItem} = require('electron')
-const {autoUpdater} = require("electron-updater")
-const log = require('electron-log')
-const path = require('path')
-autoUpdater.logger = log
-console.log = log.log // Override "console.log" and use log everywhere
+const {app, BrowserWindow, ipcMain, ipcRenderer, Menu, MenuItem} = require('electron')
+const isDev = require('electron-is-dev');
+const {TitlebarRespect} = require('electron-titlebar-respect')
 
-// Use native titlebar from the OS on Windows and macOS, hide the titlebar completely on Linux
-if        /* If macOS */    (process.platform == 'darwin')  {global.titleBarStyle = 'hiddenInset' }
-else if   /* If Windows */  (process.platform == 'win32')   {global.titleBarStyle = 'hidden'      }
-else      /* If Linux */                                    {global.titleBarStyle = 'default'     }
+// Set the appropriate icon for the operating system
+if        /* If macOS */    (process.platform == 'darwin')  {global.AppIcon = './src/base/frontend/media/images/penpot-logo/macOS/icon.icns'  }
+else if   /* If Windows */  (process.platform == 'win32')   {global.AppIcon = './src/base/frontend/media/images/penpot-logo/Windows/icon.ico' }
+else      /* If Linux */                                    {global.AppIcon = './src/base/frontend/media/images/penpot-logo/Linux/icon.png'   }
 
-const launch = () => {
+function createWindow () {
   const mainWindow = new BrowserWindow({
-    width: 1300,
+    // Size
+    width: 1400,
     height: 900,
-    minWidth: 1240,
-    minHeight: 400,
-    show: false,
-    autoHideMenuBar: true,
+    minWidth: 1300,
+    minHeight: 600,
+    // Theme
+    backgroundColor: '#121212',
     darkTheme: true,
-    frame: false,
-    fullscreenable: true,
-    skipTaskbar: true,
-    titleBarStyle: global.titleBarStyle,
+    // Titlebar
+    titleBarStyle: global.TitleBarStyle,
     trafficLightPosition: { x: 10, y: 10 }, // for macOS
     titleBarOverlay: { // For Windows
       color: '#1f1f1f',
       symbolColor: 'white',
       height: 40,
     },
+    // Other Options
+    autoHideMenuBar: true,
+    frame: false,
+    icon: global.AppIcon,
     webPreferences: {
-      webviewTag: true,
-      enableBlinkFeatures: false,
-      experimentalFeatures: false,
       sandbox: true,
-      contextIsolation: true,
-      nodeIntegration: false
+      webviewTag: true
     }
   })
-  mainWindow.show()
-  mainWindow.maximize()
-  mainWindow.loadFile('src/index.html')
-  mainWindow.on('enter-html-full-screen', (event, input) => {console.log('Penpot Desktop has entered fullscreen mode.')})
-  mainWindow.on('exit-html-full-screen', (event, input) => {console.log('Penpot Desktop has exit fullscreen mode.')}) // This is being triggered, even when exiting without breaking things, concerning...
-  
-  autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {mainWindow.webContents.executeJavaScript(`document.querySelector("#available").style.opacity = '1'; setTimeOut(() => {document.querySelector("#available").style.opacity = '0'}, 5000)`)})
-  
-  // Adjust padding of tabs depending on the OS, to make sure native titlebar buttons aren't overlaying tabs. Show custom titlebar on Linux as well.
-  if (process.platform === 'darwin') {setTimeout(() => {mainWindow.webContents.executeJavaScript(`document.querySelector("body > div:nth-child(2) > tab-group").shadowRoot.querySelector("div > nav").style.paddingLeft = '80px'`)}, 1500)}
-  if (process.platform === 'win32') {setTimeout(() => {mainWindow.webContents.executeJavaScript(`document.querySelector("#available").style.right = '137px'`)}, 1500)}
-  if (process.platform === 'linux') {setTimeout(() => {mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-titlebar-buttons").style.display = 'inherit'`)}, 1500)}
-  
-  const menu = new Menu()
-  menu.append(new MenuItem({
-    label: 'Penpot',
-      submenu: [
-        { type: 'separator'},
-        { role: 'reload' },
-        { role: 'toggleDevTools' },
-        { role: 'resetZoom' },
-        { role: 'zoomIn' },
-        { role: 'zoomOut' },
-        { type: 'separator'},
-        {
-          label: 'Fullscreen',
-          accelerator: 'F11',
-          click: async () => {
-            mainWindow.webContents.executeJavaScript('document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview.tab-view.visible").requestFullscreen()')
-          }
-        },
-        {
-          label: 'Exit Fullscreen',
-          accelerator: 'ESC',
-          click: async () => {
-            mainWindow.webContents.executeJavaScript('document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview.tab-view.visible").requestFullscreen()') // It works, somehow
-          }
-        },
-        { type: 'separator'},
-        {
-          label: 'Quit',
-          accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
-          hide: true,
-          click: () => { app.quit() }
-        }
-    ],
-  }))
-
-  Menu.setApplicationMenu(menu)
+  mainWindow.loadFile('src/base/index.html')
+  if (isDev) {
+    // Use default menu
+  } else {
+    Menu.setApplicationMenu(null)
+  }
+  if (process.platform === 'linux') {setTimeout(() => {
+    mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-titlebar-buttons").style.display = 'inherit'`)
+    mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '32px'`)
+    mainWindow.webContents.executeJavaScript(`document.querySelector(".actions #instance").style.right = '32px'`)
+  }, 1500)}
 }
 
-app.whenReady().then(() => {launch();autoUpdater.checkForUpdatesAndNotify()})
+app.whenReady().then(() => {
+  createWindow()
+})
 
 app.on('web-contents-created', function (webContentsCreatedEvent, contents) {
   if (contents.getType() === 'webview') {
