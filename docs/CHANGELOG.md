@@ -1,26 +1,17 @@
 # Changelog
-## v0.2.0 Beta (In Progress)
+## v0.2.0 Beta
  - Rewritten code
  - Updated Electron from `21.1.1` to `23.0.0`
  - Added `funding`, `repo`, and `description` to "package.json"
  - Support for Windows 7/8/8.1 is discontinued ([Why?](https://www.electronjs.org/blog/windows-7-to-8-1-deprecation-notice))
  - Changed update server destination to `https://distribute.korbsstudio.com/applications/penpot-desktop/latest/`
- - Native wayland support added for Snapcraft
  - Tab names will no longer end with " - Penpot" and only show the project name
- - If window is inactive, tab colors will change to inactive color (macOS only)
  - New icon for Windows
  - New icon for macOS
- - New icon for Linux (Adwaita Style)
- - New Settings: 
-    - Power Saving - If enabled, certain options will be disabled when on battery
-    - Appearance
-        - Blur
-        - Theme
-            - App theme
-            - Penpot Dashboard theme
-        - Tab Theming
-            - Style
-            - Size
+ - New icon for Linux
+ - Removed settings page
+ - Removed dashboard
+ - Instance setting moved to titlebar
 
 ## v0.1.2 Beta
  - Added Newsletter to homepage
