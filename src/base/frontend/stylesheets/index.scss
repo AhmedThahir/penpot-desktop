@@ -15,6 +15,11 @@ body {
 $ActionBackgroundDark: #fff;
 $ActionBackgroundDark: #303236;
 
+:root {
+    --navBarWF: 70px;
+    --navBarWS: 280px;
+}
+
 // Animations
 @keyframes RevealSlideDown {
     from {

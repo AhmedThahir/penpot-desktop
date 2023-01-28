@@ -10,6 +10,11 @@ body {
   outline: none;
 }
 
+:root {
+  --navBarWF: 70px;
+  --navBarWS: 280px;
+}
+
 @keyframes RevealSlideDown {
   from {
     opacity: 0;

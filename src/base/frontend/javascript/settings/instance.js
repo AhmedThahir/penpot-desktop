@@ -1,11 +1,11 @@
 function ShowModal_Instance() {
   document.querySelector("#instance").style.display = 'inherit'
-  document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.width = 'calc(100% - 280px)'
+  document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.width = 'calc(100% - var(--navBarWS))'
 }
 
 function HideModal_Instance() {
   document.querySelector("#instance").style.display = 'none'
-  document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.width = 'calc(100% - 70px)'
+  document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.width = 'calc(100% - var(--navBarWF))'
 }
 
 setTimeout(() => {
