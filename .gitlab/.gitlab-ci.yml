@@ -4,13 +4,15 @@ build1:
     - echo "Do your build here"
 
 test1:
-  stage: test
+  tags:
+    - debian
+  stage: Upload to Linux Repository (DEB)
   script:
     - echo "Do a test here"
     - echo "For example run a test suite"
 
 test2:
-  stage: test
+  stage: Upload to Linux Repository (RPM)
   script:
     - echo "Do another parallel test here"
     - echo "For example run a lint test"
@@ -19,4 +21,3 @@ deploy1:
   stage: deploy
   script:
     - echo "Do your deploy here"
-  environment: production
