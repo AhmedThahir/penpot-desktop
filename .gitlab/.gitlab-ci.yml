@@ -29,7 +29,7 @@ deb-ready:
   stage: deploy
   needs:
     - deb
-    - .pre
+    - prepare
   script:
     - echo "Prepare to upload..."
     - echo "Upload package to Cloudsmith..."
@@ -39,7 +39,7 @@ rpm-ready:
   stage: deploy
   needs:
     - rpm
-    - .pre
+    - prepare
   script:
     - echo "Prepare to upload..."
     - echo "Upload package to Cloudsmith..."
