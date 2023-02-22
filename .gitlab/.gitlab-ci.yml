@@ -17,6 +17,11 @@ Windows:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
     - echo "Run build"
+    - sleep 10
+    - echo "Testing SFTP"
+    - sleep 2
+    - sftp $SFTP_USERNAME@$SFTP_IP
+    - echo "Test - 1"
 
 Linux:
   stage: build
@@ -47,5 +52,5 @@ Linux-Ready:
     - Linux
   script:
     - echo "Prepare to upload..."
-    - echo "Upload package to Cloudsmith..."
+    - echo "Upload packages to Cloudsmith..."
     - echo "Remove dist/ folder for future builds."
