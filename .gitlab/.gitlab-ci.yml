@@ -5,6 +5,8 @@
 
 Prepare:
   stage: .pre
+  only:
+    - production
   script:
     - export $(grep -v '^#' .env | xargs)
     - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
@@ -13,6 +15,8 @@ DEB:
   tags:
     - debian
   stage: build
+  only:
+    - production
   script:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
@@ -20,6 +24,8 @@ DEB:
 
 RPM:
   stage: build
+  only:
+    - production
   script:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
@@ -27,6 +33,8 @@ RPM:
 
 Debian-Ready:
   stage: deploy
+  only:
+    - production
   needs:
     - DEB
     - Prepare
@@ -37,6 +45,8 @@ Debian-Ready:
 
 RHEL-Ready:
   stage: deploy
+  only:
+    - production
   needs:
     - RPM
     - Prepare
