@@ -6,13 +6,13 @@ build1:
 test1:
   tags:
     - debian
-  stage: Upload to Linux Repository (DEB)
+  stage: test
   script:
     - echo "Do a test here"
     - echo "For example run a test suite"
 
 test2:
-  stage: Upload to Linux Repository (RPM)
+  stage: test
   script:
     - echo "Do another parallel test here"
     - echo "For example run a lint test"
