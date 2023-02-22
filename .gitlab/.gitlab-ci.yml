@@ -59,9 +59,9 @@ Linux-Ready:
     - echo "Remove dist/ folder for future builds."
     - sleep 5
     - echo "Download artifact from Windows (Latest)..."
-    - cd
+    - cd /home/korbs/
     - sleep 1
-    - wget "https://korbsstudio.com/code/KorbsStudio/Penpot-Desktop/-/jobs/artifacts/main/download?job=Windows"
+    - wget -O artifact-windows.zip "https://korbsstudio.com/code/KorbsStudio/Penpot-Desktop/-/jobs/artifacts/main/download?job=Windows"
     - sleep 1
     - ls
     - sleep 1
