@@ -23,6 +23,8 @@ Windows:
     - sleep 2
 
 Linux:
+  tags:
+    - main
   stage: build
   only:
     - main
@@ -35,6 +37,8 @@ Linux:
     - ls *
 
 Windows-Ready:
+  tags:
+    - WindowsVM
   stage: deploy
   only:
     - main
@@ -46,6 +50,8 @@ Windows-Ready:
     - echo "Remove dist/ folder for future builds."
 
 Linux-Ready:
+  tags:
+    - main
   stage: deploy
   only:
     - main
