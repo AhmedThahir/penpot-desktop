@@ -21,7 +21,7 @@ rpm:
     - echo "Get dependencies"
     - sleeo 5
     - ecgo "Check dist/ directory"
-    - sleeo 2
+    - sleep 2
     - echo "Run build"
     - sleep 10
 
