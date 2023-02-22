@@ -4,7 +4,7 @@
 #     - echo "Do your build here"
 
 prepare:
-  stage: start
+  stage: .pre
   script:
     - export $(grep -v '^#' .env | xargs)
     - sudo mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
