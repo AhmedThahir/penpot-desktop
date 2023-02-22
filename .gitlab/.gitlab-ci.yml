@@ -1,46 +1,19 @@
-# exe:
-#   stage: build
-#   script:
-#     - echo "Do your build here"
+stages:
+  - build
+  - test
+  - deploy
 
-deb:
-  tags:
-    - debian
+build:
   stage: build
-  script:
-    - echo "Get dependencies"
-    - sleep 5
-    - echo "Check dist/ directory"
-    - sleep 2
-    - echo "Run build"
-    - sleep 10
+  script: exit 0
 
-rpm:
-  stage: build
-  script:
-    - echo "Get dependencies"
-    - sleep 5
-    - echo "Check dist/ directory"
-    - sleep 2
-    - echo "Run build"
-    - sleep 10
+test:
+  stage: test
+  when: manual
+  script: exit 0
 
-deb-ready:
+deploy:
   stage: deploy
-  script:
-    - echo "Prepare to upload..."
-    - sleep 2
-    - echo "Upload package to Cloudsmith..."
-    - sleep 10
-    - echo "Remove dist/ folder for future builds."
-    - sleep 1
-
-rpm-ready:
-  stage: deploy
-  script:
-    - echo "Prepare to upload..."
-    - sleep 2
-    - echo "Upload package to Cloudsmith..."
-    - sleep 10
-    - echo "Remove dist/ folder for future builds."
-    - sleep 1
+  script: echo "when should this job run?"
+  needs:
+    - test
