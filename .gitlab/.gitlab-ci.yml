@@ -3,13 +3,13 @@
 #   script:
 #     - echo "Do your build here"
 
-prepare:
+Prepare:
   stage: .pre
   script:
     - export $(grep -v '^#' .env | xargs)
     - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
-deb:
+DEB:
   tags:
     - debian
   stage: build
@@ -18,14 +18,14 @@ deb:
     - echo "Check dist/ directory"
     - echo "Run build"
 
-rpm:
+RPM:
   stage: build
   script:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
     - echo "Run build"
 
-deb-ready:
+Debian-Ready:
   stage: deploy
   needs:
     - deb
@@ -35,7 +35,7 @@ deb-ready:
     - echo "Upload package to Cloudsmith..."
     - echo "Remove dist/ folder for future builds."
 
-rpm-ready:
+RHEL-Ready:
   stage: deploy
   needs:
     - rpm
