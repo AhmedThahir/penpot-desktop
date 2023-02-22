@@ -3,7 +3,7 @@ Prepare:
   only:
     - main
   script:
-      - "Prepare"
+      - echo "Prepare"
     # - export $(grep -v '^#' .env | xargs)
     # - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
