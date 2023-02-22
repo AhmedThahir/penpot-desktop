@@ -3,27 +3,27 @@
 #   script:
 #     - echo "Do your build here"
 
+prepare:
+  stage: start
+  script:
+    - export $(grep -v '^#' .env | xargs)
+    - sudo mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+
 deb:
   tags:
     - debian
   stage: build
   script:
     - echo "Get dependencies"
-    - sleep 5
     - echo "Check dist/ directory"
-    - sleep 2
     - echo "Run build"
-    - sleep 10
 
 rpm:
   stage: build
   script:
     - echo "Get dependencies"
-    - sleep 5
     - echo "Check dist/ directory"
-    - sleep 2
     - echo "Run build"
-    - sleep 10
 
 deb-ready:
   stage: deploy
@@ -31,11 +31,8 @@ deb-ready:
     - deb
   script:
     - echo "Prepare to upload..."
-    - sleep 2
     - echo "Upload package to Cloudsmith..."
-    - sleep 10
     - echo "Remove dist/ folder for future builds."
-    - sleep 1
 
 rpm-ready:
   stage: deploy
@@ -43,8 +40,5 @@ rpm-ready:
     - rpm
   script:
     - echo "Prepare to upload..."
-    - sleep 2
     - echo "Upload package to Cloudsmith..."
-    - sleep 10
     - echo "Remove dist/ folder for future builds."
-    - sleep 1
