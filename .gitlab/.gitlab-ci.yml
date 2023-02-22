@@ -13,7 +13,7 @@ Windows:
   stage: build
   artifacts:
      paths:
-       - dist/
+       - README.md
   only:
     - main
   script:
@@ -30,6 +30,7 @@ Linux:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
     - echo "Run build"
+    - sleep 24
     - ls
     - ls *
 
