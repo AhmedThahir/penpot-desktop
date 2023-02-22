@@ -9,7 +9,7 @@ deb:
   stage: build
   script:
     - echo "Get dependencies"
-    - sleeo 5
+    - sleep 5
     - ecgo "Check dist/ directory"
     - sleep 2
     - echo "Run build"
@@ -19,7 +19,7 @@ rpm:
   stage: build
   script:
     - echo "Get dependencies"
-    - sleeo 5
+    - sleep 5
     - ecgo "Check dist/ directory"
     - sleep 2
     - echo "Run build"
