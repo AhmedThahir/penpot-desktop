@@ -28,8 +28,8 @@ RPM:
 Debian-Ready:
   stage: deploy
   needs:
-    - deb
-    - prepare
+    - DEB
+    - Prepare
   script:
     - echo "Prepare to upload..."
     - echo "Upload package to Cloudsmith..."
@@ -38,8 +38,8 @@ Debian-Ready:
 RHEL-Ready:
   stage: deploy
   needs:
-    - rpm
-    - prepare
+    - RPM
+    - Prepare
   script:
     - echo "Prepare to upload..."
     - echo "Upload package to Cloudsmith..."
