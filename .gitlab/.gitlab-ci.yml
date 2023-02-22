@@ -1,62 +1,67 @@
 Prepare:
+  tags:
+    - main
   stage: .pre
   only:
-    - main
+    - production
   script:
-      - echo "Prepare"
-    # - export $(grep -v '^#' .env | xargs)
-    # - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+    - export $(grep -v '^#' .env | xargs)
+    - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
+# Build
 Windows:
   tags:
     - WindowsVM
   stage: build
   artifacts:
      paths:
-       - README.md
+       - dist/
   only:
-    - main
+    - production
   script:
-    - echo "Get dependencies"
-    - echo "Check dist/ directory"
-    - echo "Run build"
+    - yarn
+    - yarn build
+    - Remove-Item -path .\dist\win-unpacked\ -recurse  # This will make sure that the artifact doesn't take a butt load of time to zip up the dist folder I need
 
 Linux:
   tags:
     - main
   stage: build
   only:
-    - main
+    - production
   script:
-    - echo "Get dependencies"
-    - echo "Check dist/ directory"
-    - echo "Run build"
+    - if [ -d "dist/" ]; then rm -R dist/; fi # Delete the dist/ folder if it exist
+    - yarn
+    - yarn build
 
+# Deploy
 Windows-Ready:
   tags:
-    - WindowsVM
+    - main
   stage: deploy
   only:
-    - main
+    - production
   needs:
     - Prepare
+    - Windows
   script:
-    - echo "Prepare to upload..."
-    - echo "Upload files to main server..."
-    - echo "Remove dist/ folder for future builds."
+    - cd /home/korbs/
+    - wget -O artifact-windows.zip "https://korbsstudio.com/code/KorbsStudio/Penpot-Desktop/-/jobs/artifacts/main/download?job=Windows"
+    - unzip artifact-windows.zip
+    - cd artifact-windows
+    - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+    - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
 
 Linux-Ready:
   tags:
     - main
   stage: deploy
   only:
-    - main
+    - production
   needs:
     - Prepare
     - Linux
-    - Windows # We need to grab an artifact from Windows :)
   script:
-    - echo "Prepare to upload..."
-    - echo "Upload packages to Cloudsmith..."
-    - echo "Remove dist/ folder for future builds."
-    - echo "Download artifact from Windows (Latest)..."
+    - cd dist/
+    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.rpm
+    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.deb
