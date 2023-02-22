@@ -27,7 +27,7 @@ function createWindow () {
     },
     // Other Options
     autoHideMenuBar: true,
-    frame: global.frame,
+    frame: false,
     icon: global.AppIcon,
     webPreferences: {
       sandbox: true,

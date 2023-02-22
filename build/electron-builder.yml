@@ -40,7 +40,8 @@ linux:
   vendor: "Korbs Studio"
   description: "A Desktop-Like Experience"
   target:
-    - "snap"
+    - "deb"
+    - "rpm"
 
 snap:
   # allowNativeWayland: true # Electron Builder doesn't know this option, yet it's listed in their documentations for Snap. I've submitted an issue: electron-userland/electron-builder #7330

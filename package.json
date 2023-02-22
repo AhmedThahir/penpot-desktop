@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --config ./build/electron-builder.yml",
+    "build": "electron-builder --config build/electron-builder.yml",
     "dev": "concurrently --kill-others \"npm run scss:app\" \"npm start\"",
     "scss:app": "sass --watch src/base/frontend/stylesheets/index.scss:src/base/frontend/stylesheets/index.css"
   },
