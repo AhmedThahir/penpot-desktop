@@ -20,7 +20,7 @@ Windows:
     - sleep 10
     - echo "Testing SFTP"
     - sleep 2
-    - sftp $SFTP_USERNAME@$SFTP_IP
+    - ./test.ps1
     - echo "Test - 1"
 
 Linux:
