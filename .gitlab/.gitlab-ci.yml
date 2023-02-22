@@ -20,7 +20,6 @@ Windows:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
     - echo "Run build"
-    - sleep 2
 
 Linux:
   tags:
@@ -32,9 +31,6 @@ Linux:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
     - echo "Run build"
-    - sleep 24
-    - ls
-    - ls *
 
 Windows-Ready:
   tags:
@@ -63,11 +59,4 @@ Linux-Ready:
     - echo "Prepare to upload..."
     - echo "Upload packages to Cloudsmith..."
     - echo "Remove dist/ folder for future builds."
-    - sleep 5
     - echo "Download artifact from Windows (Latest)..."
-    - cd /home/korbs/
-    - sleep 1
-    - wget -O artifact-windows.zip "https://korbsstudio.com/code/KorbsStudio/Penpot-Desktop/-/jobs/artifacts/main/download?job=Windows"
-    - sleep 1
-    - ls
-    - sleep 1
