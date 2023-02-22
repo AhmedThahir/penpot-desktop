@@ -1,10 +1,10 @@
-Prepare:
-  stage: .pre
-  only:
-    - main
-  script:
-    - export $(grep -v '^#' .env | xargs)
-    - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+# Prepare:
+#   stage: .pre
+#   only:
+#     - main
+#   script:
+#     - export $(grep -v '^#' .env | xargs)
+#     - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
 Windows:
   tags:
