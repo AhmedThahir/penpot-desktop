@@ -10,7 +10,7 @@ deb:
   script:
     - echo "Get dependencies"
     - sleep 5
-    - ecgo "Check dist/ directory"
+    - echo "Check dist/ directory"
     - sleep 2
     - echo "Run build"
     - sleep 10
@@ -20,12 +20,12 @@ rpm:
   script:
     - echo "Get dependencies"
     - sleep 5
-    - ecgo "Check dist/ directory"
+    - echo "Check dist/ directory"
     - sleep 2
     - echo "Run build"
     - sleep 10
 
-debready:
+deb-ready:
   stage: deploy
   script:
     - echo "Prepare to upload..."
@@ -35,7 +35,7 @@ debready:
     - echo "Remove dist/ folder for future builds."
     - sleep 1
 
-rpmready:
+rpm-ready:
   stage: deploy
   script:
     - echo "Prepare to upload..."
