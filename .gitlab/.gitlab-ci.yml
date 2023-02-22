@@ -1,23 +1,46 @@
-build1:
-  stage: build
-  script:
-    - echo "Do your build here"
+# exe:
+#   stage: build
+#   script:
+#     - echo "Do your build here"
 
-test1:
+deb:
   tags:
     - debian
-  stage: test
+  stage: build
   script:
-    - echo "Do a test here"
-    - echo "For example run a test suite"
+    - echo "Get dependencies"
+    - sleeo 5
+    - ecgo "Check dist/ directory"
+    - sleeo 2
+    - echo "Run build"
+    - sleep 10
 
-test2:
-  stage: test
+rpm:
+  stage: build
   script:
-    - echo "Do another parallel test here"
-    - echo "For example run a lint test"
+    - echo "Get dependencies"
+    - sleeo 5
+    - ecgo "Check dist/ directory"
+    - sleeo 2
+    - echo "Run build"
+    - sleep 10
 
-deploy1:
+deb:
   stage: deploy
   script:
-    - echo "Do your deploy here"
+    - echo "Prepare to upload..."
+    - sleep 2
+    - echo "Upload package to Cloudsmith..."
+    - sleep 10
+    - echo "Remove dist/ folder for future builds."
+    - sleep 1
+
+rpm:
+  stage: deploy
+  script:
+    - echo "Prepare to upload..."
+    - sleep 2
+    - echo "Upload package to Cloudsmith..."
+    - sleep 10
+    - echo "Remove dist/ folder for future builds."
+    - sleep 1
