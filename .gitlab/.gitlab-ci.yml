@@ -25,7 +25,7 @@ rpm:
     - echo "Run build"
     - sleep 10
 
-deb:
+debready:
   stage: deploy
   script:
     - echo "Prepare to upload..."
@@ -35,7 +35,7 @@ deb:
     - echo "Remove dist/ folder for future builds."
     - sleep 1
 
-rpm:
+rpmready:
   stage: deploy
   script:
     - echo "Prepare to upload..."
