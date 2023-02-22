@@ -11,17 +11,16 @@ Windows:
   tags:
     - WindowsVM
   stage: build
+  artifacts:
+     paths:
+       - dist/
   only:
     - main
   script:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
     - echo "Run build"
-    - sleep 10
-    - echo "Testing SFTP"
     - sleep 2
-    - ./test.ps1
-    - echo "Test - 1"
 
 Linux:
   stage: build
@@ -31,6 +30,8 @@ Linux:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
     - echo "Run build"
+    - ls
+    - ls *
 
 Windows-Ready:
   stage: deploy
