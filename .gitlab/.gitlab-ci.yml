@@ -3,9 +3,6 @@
 #   script:
 #     - echo "Do your build here"
 
- rules:
-   - when: manual
-
 prepare:
   stage: .pre
   script:
