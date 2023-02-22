@@ -1,55 +1,49 @@
-# exe:
-#   stage: build
-#   script:
-#     - echo "Do your build here"
-
 Prepare:
   stage: .pre
   only:
-    - production
+    - main
   script:
     - export $(grep -v '^#' .env | xargs)
     - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
-DEB:
+Windows:
   tags:
-    - debian
+    - WindowsVM
   stage: build
   only:
-    - production
+    - main
   script:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
     - echo "Run build"
 
-RPM:
+Linux:
   stage: build
   only:
-    - production
+    - main
   script:
     - echo "Get dependencies"
     - echo "Check dist/ directory"
     - echo "Run build"
 
-Debian-Ready:
+Windows-Ready:
   stage: deploy
   only:
-    - production
+    - main
   needs:
-    - DEB
     - Prepare
   script:
     - echo "Prepare to upload..."
-    - echo "Upload package to Cloudsmith..."
+    - echo "Upload files to main server..."
     - echo "Remove dist/ folder for future builds."
 
-RHEL-Ready:
+Linux-Ready:
   stage: deploy
   only:
-    - production
+    - main
   needs:
-    - RPM
     - Prepare
+    - Linux
   script:
     - echo "Prepare to upload..."
     - echo "Upload package to Cloudsmith..."
