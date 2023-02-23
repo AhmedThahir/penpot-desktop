@@ -1,39 +1,39 @@
-Prepare:
-  tags:
-    - main
-  stage: .pre
-  only:
-    - production
-  script:
-    - export $(grep -v '^#' .env | xargs)
-    - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+# Prepare:
+#   tags:
+#     - main
+#   stage: .pre
+#   only:
+#     - production
+#   script:
+#     - export $(grep -v '^#' .env | xargs)
+#     - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
-# Build
-Windows:
-  tags:
-    - WindowsVM
-  stage: build
-  artifacts:
-     paths:
-       - dist/Penpot Desktop - Setup.exe
-       - dist/latest.yml
-  only:
-    - production
-  script:
-    - npm i
-    - npm run build
-    - Remove-Item -path .\dist\win-unpacked\ -recurse  # This will make sure that the artifact doesn't take a butt load of time to zip up the dist folder I need
+# # Build
+# Windows:
+#   tags:
+#     - WindowsVM
+#   stage: build
+#   artifacts:
+#      paths:
+#        - dist/Penpot Desktop - Setup.exe
+#        - dist/latest.yml
+#   only:
+#     - production
+#   script:
+#     - npm i
+#     - npm run build
+#     - Remove-Item -path .\dist\win-unpacked\ -recurse  # This will make sure that the artifact doesn't take a butt load of time to zip up the dist folder I need
 
-Linux:
-  tags:
-    - main
-  stage: build
-  only:
-    - production
-  script:
-    - if [ -d "dist/" ]; then rm -R dist/; fi # Delete the dist/ folder if it exist
-    - yarn
-    - yarn build
+# Linux:
+#   tags:
+#     - main
+#   stage: build
+#   only:
+#     - production
+#   script:
+#     - if [ -d "dist/" ]; then rm -R dist/; fi # Delete the dist/ folder if it exist
+#     - yarn
+#     - yarn build
 
 # Deploy
 Windows-Ready:
@@ -41,29 +41,25 @@ Windows-Ready:
     - main
   stage: deploy
   only:
-    - production
-  needs:
-    - Prepare
-    - Windows
-  script:
-    - cd /home/korbs/
-    - 'curl --location --output artifacts.zip --header "PRIVATE-TOKEN: $CI_JOB_TOKEN" "https://korbsstudio.com/code/api/v4/projects/8/jobs/$CI_JOB_ID/artifacts"'
-    - unzip artifacts.zip
-    - cd dist/
-    - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
-    - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
-    - cp latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
-
-Linux-Ready:
-  tags:
     - main
-  stage: deploy
-  only:
-    - production
-  needs:
-    - Prepare
-    - Linux
+  # needs:
+  #   - Prepare
+  #   - Windows
   script:
-    - cd dist/
-    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.rpm
-    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.deb
+    - ssh -o "StrictHostKeyChecking=no" $SFTP_USERNAME@$SFTP_IP
+    - $SFTP_USERNAME@$SFTP_IP "ls /home/korbs/"
+    - $SFTP_USERNAME@$SFTP_IP "ls /"
+
+# Linux-Ready:
+#   tags:
+#     - main
+#   stage: deploy
+#   only:
+#     - production
+#   needs:
+#     - Prepare
+#     - Linux
+#   script:
+#     - cd dist/
+#     - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.rpm
+#     - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.deb
