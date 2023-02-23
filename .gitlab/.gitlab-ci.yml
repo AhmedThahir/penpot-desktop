@@ -6,8 +6,10 @@ Prepare:
     - production
   script:
     - if [ -d "dist/" ]; then rm -R dist/; fi # Delete the dist/ folder if it exist
+    - sudo rm /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/*
     - export $(grep -v '^#' .env | xargs)
     - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+    - yarn
 
 # Build
 Windows:
@@ -17,8 +19,9 @@ Windows:
   only:
     - production
   script:
-    - yarn
     - yarn build:win
+    - cp dist/Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
+    - cp dist/latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
 
 Linux:
   tags:
@@ -27,8 +30,9 @@ Linux:
   only:
     - production
   script:
-    - yarn
     - yarn build
+    - cp dist/*.deb /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
+    - cp dist/*.rpm /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
 
 # Deploy
 Windows-Ready:
@@ -41,9 +45,10 @@ Windows-Ready:
     - job: Prepare
     - job: Windows
   script:
-    - cp dist/Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
-    - cp dist/latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
-    - cp dist/Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+    - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
+    - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
+    - cp latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
+    - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
 Linux-Ready:
   tags:
@@ -55,6 +60,6 @@ Linux-Ready:
     - job: Prepare
     - job: Linux
   script:
-    - cd dist/
-    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.rpm
-    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.deb
+    - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
+    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.rpm
+    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.deb
