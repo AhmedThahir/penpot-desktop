@@ -47,9 +47,9 @@ Windows-Ready:
     - Windows
   script:
     - cd /home/korbs/
-    - wget -O artifact-windows.zip "https://korbsstudio.com/code/KorbsStudio/Penpot-Desktop/-/jobs/artifacts/main/download?job=Windows"
-    - unzip artifact-windows.zip
-    - cd artifact-windows
+    - curl --location --output artifacts.zip --header "PRIVATE-TOKEN: $CI_JOB_TOKEN" "https://korbsstudio.com/code/api/v4/projects/8/jobs/$CI_JOB_ID/artifacts"
+    - unzip artifacts.zip
+    - cd dist/
     - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
     - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
     - cp latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
