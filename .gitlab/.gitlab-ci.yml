@@ -15,7 +15,8 @@ Windows:
   stage: build
   artifacts:
      paths:
-       - dist/
+       - dist/Penpot Desktop - Setup.exe
+       - dist/latest.yml
   only:
     - production
   script:
@@ -51,6 +52,7 @@ Windows-Ready:
     - cd artifact-windows
     - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
     - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
+    - cp latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
 
 Linux-Ready:
   tags:
