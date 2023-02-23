@@ -22,6 +22,19 @@ Windows:
     - cp dist/Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
     - cp dist/latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
 
+Mac:
+  tags:
+    - mac
+  stage: build
+  only:
+    - main
+  script:
+    - echo "Hi, I'm a Mac."
+    - sleep 2
+    - yarn
+    - yarn build
+    - ls dist/
+
 Linux:
   tags:
     - main
