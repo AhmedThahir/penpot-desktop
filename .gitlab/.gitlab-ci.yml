@@ -1,39 +1,34 @@
-# Prepare:
-#   tags:
-#     - main
-#   stage: .pre
-#   only:
-#     - production
-#   script:
-#     - export $(grep -v '^#' .env | xargs)
-#     - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+Prepare:
+  tags:
+    - main
+  stage: .pre
+  only:
+    - production
+  script:
+    - if [ -d "dist/" ]; then rm -R dist/; fi # Delete the dist/ folder if it exist
+    - export $(grep -v '^#' .env | xargs)
+    - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
-# # Build
-# Windows:
-#   tags:
-#     - WindowsVM
-#   stage: build
-#   artifacts:
-#      paths:
-#        - dist/Penpot Desktop - Setup.exe
-#        - dist/latest.yml
-#   only:
-#     - production
-#   script:
-#     - npm i
-#     - npm run build
-#     - Remove-Item -path .\dist\win-unpacked\ -recurse  # This will make sure that the artifact doesn't take a butt load of time to zip up the dist folder I need
+# Build
+Windows:
+  tags:
+    - main
+  stage: build
+  only:
+    - production
+  script:
+    - yarn
+    - yarn build:win
 
-# Linux:
-#   tags:
-#     - main
-#   stage: build
-#   only:
-#     - production
-#   script:
-#     - if [ -d "dist/" ]; then rm -R dist/; fi # Delete the dist/ folder if it exist
-#     - yarn
-#     - yarn build
+Linux:
+  tags:
+    - main
+  stage: build
+  only:
+    - production
+  script:
+    - yarn
+    - yarn build
 
 # Deploy
 Windows-Ready:
@@ -41,23 +36,25 @@ Windows-Ready:
     - main
   stage: deploy
   only:
-    - main
-  # needs:
-  #   - Prepare
-  #   - Windows
+    - production
+  needs:
+    - job: Prepare
+    - job: Windows
   script:
-    - wget -O demo.zip "http://192.168.1.225/latest.yml"
+    - cp dist/Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
+    - cp dist/latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
+    - cp dist/Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
-# Linux-Ready:
-#   tags:
-#     - main
-#   stage: deploy
-#   only:
-#     - production
-#   needs:
-#     - Prepare
-#     - Linux
-#   script:
-#     - cd dist/
-#     - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.rpm
-#     - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.deb
+Linux-Ready:
+  tags:
+    - main
+  stage: deploy
+  only:
+    - production
+  needs:
+    - job: Prepare
+    - job: Linux
+  script:
+    - cd dist/
+    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.rpm
+    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version penpot-desktop*.deb
