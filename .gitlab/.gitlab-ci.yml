@@ -28,6 +28,8 @@ Mac:
   tags:
     - mac
   stage: build
+  artifacts:
+    untracked: true
   only:
     - main
   script:
@@ -36,7 +38,6 @@ Mac:
     - cd /Users/korbs/Documents/
     - git clone http://192.168.1.195:5050/code/KorbsStudio/Penpot-Desktop/
     - cd Penpot-Desktop
-    - git checkout main
     - yarn
     - yarn build
     - ls dist/
@@ -68,6 +69,19 @@ Windows-Ready:
     - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
     - cp latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
     - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+
+Mac-Ready:
+  tags:
+    - main
+  stage: deploy
+  only:
+    - main
+  needs:
+    - job: Mac
+  dependencies: 
+    - Mac
+  script:
+    - ls
 
 Linux-Ready:
   tags:
