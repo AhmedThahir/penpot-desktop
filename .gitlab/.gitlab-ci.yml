@@ -46,7 +46,6 @@ Windows-Ready:
   #   - Prepare
   #   - Windows
   script:
-    - ssh -o "StrictHostKeyChecking=no" $SFTP_USERNAME@$SFTP_IP
     - $SFTP_USERNAME@$SFTP_IP "ls /home/korbs/"
     - $SFTP_USERNAME@$SFTP_IP "ls /"
 
