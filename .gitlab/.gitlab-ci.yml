@@ -62,6 +62,6 @@ Linux-Ready:
   script:
     - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
     - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.rpm --api-key="$CSK"
-    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.deb --api-key="$CSK"
+    - cloudsmith push deb korbsstudio/penpot-desktop/any-distro/any-version *.deb --api-key="$CSK"
     - sleep 24
     - rm /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/*
