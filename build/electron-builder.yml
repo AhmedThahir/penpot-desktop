@@ -12,7 +12,6 @@ mac:
 # Windows
 win:
   target:
-    - "appx" # Microsoft Store
     - "nsis" # Executable Setup
 
 appx:
