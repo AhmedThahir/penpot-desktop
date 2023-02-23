@@ -46,8 +46,7 @@ Windows-Ready:
   #   - Prepare
   #   - Windows
   script:
-    - $SFTP_USERNAME@$SFTP_IP "ls /home/korbs/"
-    - $SFTP_USERNAME@$SFTP_IP "ls /"
+    - wget -O demo.zip "http://192.168.1.225/latest.yml"
 
 # Linux-Ready:
 #   tags:
