@@ -23,6 +23,8 @@ Windows:
     - cp dist/latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
 
 Mac:
+  variables:
+    GIT_STRATEGY: none # Due to OS being isolated in a VM in certain conditions, conflicts will rise
   tags:
     - mac
   stage: build
@@ -31,6 +33,9 @@ Mac:
   script:
     - echo "Hi, I'm a Mac."
     - sleep 2
+    - cd /Users/korbs/Document/
+    - git clone http://192.168.1.195:5050/code/KorbsStudio/Penpot-Desktop/
+    - cd Penpot-Desktop
     - yarn
     - yarn build
     - ls dist/
