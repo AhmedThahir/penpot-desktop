@@ -47,7 +47,7 @@ Windows-Ready:
     - Windows
   script:
     - cd /home/korbs/
-    - curl --location --output artifacts.zip --header "PRIVATE-TOKEN: $CI_JOB_TOKEN" "https://korbsstudio.com/code/api/v4/projects/8/jobs/$CI_JOB_ID/artifacts"
+    - 'curl --location --output artifacts.zip --header "PRIVATE-TOKEN: $CI_JOB_TOKEN" "https://korbsstudio.com/code/api/v4/projects/8/jobs/$CI_JOB_ID/artifacts"'
     - unzip artifacts.zip
     - cd dist/
     - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
