@@ -29,8 +29,9 @@ Mac:
     - mac
   stage: build
   artifacts:
-    path:
-      - dist/
+    paths:
+      - dist/Penpot-*
+      - dist/latest-mac.yml
   only:
     - main
   script:
