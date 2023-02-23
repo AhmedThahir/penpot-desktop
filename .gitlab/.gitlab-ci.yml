@@ -19,8 +19,8 @@ Windows:
   only:
     - production
   script:
-    - yarn
-    - yarn build
+    - npm i
+    - npm run build
     - Remove-Item -path .\dist\win-unpacked\ -recurse  # This will make sure that the artifact doesn't take a butt load of time to zip up the dist folder I need
 
 Linux:
