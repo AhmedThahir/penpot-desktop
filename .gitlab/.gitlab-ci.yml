@@ -6,7 +6,7 @@ Prepare:
     - production
   script:
     - if [ -d "dist/" ]; then rm -R dist/; fi # Delete the dist/ folder if it exist
-    - sudo rm /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/*
+    - rm /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/*
     - export $(grep -v '^#' .env | xargs)
     - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
     - yarn
