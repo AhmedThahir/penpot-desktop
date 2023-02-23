@@ -29,7 +29,7 @@ Mac:
     - mac
   stage: build
   artifacts:
-    paths:
+    path:
       - dist/
   only:
     - main
