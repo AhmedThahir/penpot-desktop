@@ -29,7 +29,7 @@ Mac:
     - mac
   stage: build
   artifacts:
-    untracked: true
+    untracked: true   
   only:
     - main
   script:
@@ -38,6 +38,7 @@ Mac:
     - cd /Users/korbs/Documents/
     - git clone http://192.168.1.195:5050/code/KorbsStudio/Penpot-Desktop/
     - cd Penpot-Desktop
+    - git checkout main
     - yarn
     - yarn build
     - ls dist/
