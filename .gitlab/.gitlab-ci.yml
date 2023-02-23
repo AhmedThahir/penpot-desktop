@@ -29,7 +29,8 @@ Mac:
     - mac
   stage: build
   artifacts:
-    untracked: true   
+    paths:
+      - dist/
   only:
     - main
   script:
