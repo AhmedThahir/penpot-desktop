@@ -61,7 +61,7 @@ Linux-Ready:
     - job: Linux
   script:
     - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
-    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.rpm
-    - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.deb
+    - bash cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.rpm
+    - bash cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.deb
     - sleep 24
     - rm /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/*
