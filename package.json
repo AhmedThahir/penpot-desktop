@@ -1,6 +1,6 @@
 {
   "name": "penpot-desktop",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "KorbsStudio",
   "license": "MIT",
   "main": "src/process/index.js",
@@ -30,7 +30,7 @@
     "electron-updater": "^5.3.0"
   },
   "devDependencies": {
-    "electron": "^23.0.0-alpha.3",
+    "electron": "^23.1.1",
     "electron-builder": "^22.10.3"
   }
 }
