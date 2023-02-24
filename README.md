@@ -4,10 +4,31 @@
 # Penpot Desktop
 Penpot Desktop delivers a desktop-like experience for Penpot users with the additional of integrating tabs to conveniently traverse back and forth between projects. Offline support is available through the select your own instance option in settings, as well as the theme settings that may be applied to either the entire desktop app or simply the Penpot dashboard.  
 
-<!-- ## Downloads
- - Microsoft Windows - [[Download]()] [[Microsoft Store]()]
- - macOS - [[Download]()]
- - Linux - [[Snap Store]()] -->
+## Downloads
+ - Windows - [Download](https://distribute.korbsstudio.com/applications/penpot-desktop/latest/Penpot%20Desktop%20-%20Setup.exe)
+ - macOS - [[Download](https://distribute.korbsstudio.com/applications/penpot-desktop/latest/Penpot.dmg)]
+
+
+Linux Instructions:
+```bash
+# Setup
+## Debian/Ubuntu
+curl -1sLf \
+  'https://dl.cloudsmith.io/public/korbsstudio/penpot-desktop/setup.deb.sh' \
+  | sudo -E bash
+
+## Fedora/RHEL
+curl -1sLf \
+  'https://dl.cloudsmith.io/public/korbsstudio/penpot-desktop/setup.rpm.sh' \
+  | sudo -E bash
+
+# Install
+## Debian
+sudo apt install penpot-desktop
+
+## Fedora/RHEL
+sudo dnf install penpot-desktop
+```
 
 ## FAQ
 Q: Is this official software?
