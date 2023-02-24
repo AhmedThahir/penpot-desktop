@@ -39,6 +39,7 @@ Mac:
     - git checkout main
     - yarn
     - yarn build
+    - mv dist/Penpot*.dmg dist/Penpot.dmg
     - lftp -u $SFTP_USERNAME,$SFTP_PASSWORD $SFTP_IP -e "set ftp:ssl-allow off; cd /korbs-studio-server/nginx/sites/release/applications/penpot-desktop/.prepare/; put dist/Penpot.dmg; bye;"
 
 Linux:
