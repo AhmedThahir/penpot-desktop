@@ -110,9 +110,9 @@ Linux-Ready:
   stage: deploy
   only:
     - main
-  needs:
-    - job: Prepare
-    - job: Linux
+  # needs:
+  #   - job: Prepare
+  #   - job: Linux
   script:
     - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
     - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.rpm --api-key="$CSK"
