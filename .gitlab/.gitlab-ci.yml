@@ -81,6 +81,7 @@ Mac-Ready:
   dependencies: 
     - Mac
   script:
+    - export $(grep -v '^#' .env | xargs)
     - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
     - cp Penpot.dmg /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
     - cp Penpot.dmg /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
