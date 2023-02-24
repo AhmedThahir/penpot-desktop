@@ -3,7 +3,7 @@ Prepare:
     - main
   stage: .pre
   only:
-    - production
+    - main
   script:
     - if [ -d "dist/" ]; then rm -R dist/; fi # Delete the dist/ folder if it exist
     - export $(grep -v '^#' .env | xargs)
