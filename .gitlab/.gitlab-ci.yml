@@ -67,6 +67,7 @@ Windows-Ready:
     - job: Prepare
     - job: Windows
   script:
+    - export $(grep -v '^#' .env | xargs)
     - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
     - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
     - cp latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
