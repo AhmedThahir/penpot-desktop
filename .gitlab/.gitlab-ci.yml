@@ -28,10 +28,6 @@ Mac:
   tags:
     - mac
   stage: build
-  artifacts:
-    paths:
-      - dist/Penpot-*
-      - dist/latest-mac.yml
   only:
     - main
   script:
@@ -43,7 +39,7 @@ Mac:
     - git checkout main
     - yarn
     - yarn build
-    - ls dist/
+    - lftp -u $SFTP_USERNAME,$SFTP_PASSWORD $SFTP_IP -e "set ftp:ssl-allow off; cd /korbs-studio-server/nginx/sites/release/applications/penpot-desktop/.prepare/; put dist/Penpot.dmg; bye;"
 
 Linux:
   tags:
@@ -84,7 +80,9 @@ Mac-Ready:
   dependencies: 
     - Mac
   script:
-    - ls
+    - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
+    - cp Penpot.dmg /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
+    - cp Penpot.dmg /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
 
 Linux-Ready:
   tags:
