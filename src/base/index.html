@@ -10,14 +10,15 @@
                 <div class="action-buttons">
                     <button hidden style="pointer-events: none" id="restart-required">Restart Required</button>
                     <!-- <button title="Toggle Theme"><i class="fa-sharp fa-solid fa-toggle-large-on"></i></button> -->
+                    <button title="Open Voice Chat" onclick="window.api.send('OpenVoiceChat')"><i class="fa-sharp fa-solid fa-microphone"></i></button>
                     <button title="Change Instance" onclick="ShowModal_Instance()"><i class="fa-sharp fa-solid fa-server"></i></button>
                 </div>
                 <div class="action-modals">
-                    <div style="display: none;" id="instance" class="action-modal">
+                    <div style="display: none" id="instance" class="action-modal">
                         <input type="text" id="hostField">
-                        <p class="lead mt-3 setName" style="display: none;"></p>
-                        <button onclick="HideModal_Instance();"><i class="fa-sharp fa-solid fa-xmark"></i></button>
-                        <button onclick="InstanceSaved(); HideModal_Instance();" id="cswU" class="btn btn-secondary save"><i class="fa-sharp fa-solid fa-check"></i></button>
+                        <p class="lead mt-3 setName" style="display: none"></p>
+                        <button onclick="HideModal_Instance()"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+                        <button onclick="InstanceSaved(); HideModal_Instance()" id="cswU" class="btn btn-secondary save"><i class="fa-sharp fa-solid fa-check"></i></button>
                     </div>
                 </div>
             </div>
@@ -66,6 +67,13 @@
                     -webkit-app-region: no-drag;
                     display: flex;
                     flex: none;
+                    border-radius: 4px;
+                    margin: 4px;
+                    height: 80%;
+                }
+                .tab:not(.active):hover {
+                    background: #3f4247 !important;
+                    color: white !important;
                 }
                 .tabs {
                     height: var(--tab-height);
@@ -82,13 +90,13 @@
                 }
                 .buttons {
                     -webkit-app-region: no-drag;
-                    border-left: 1px solid #1f1f1f !important;
+                    border-left: none !important;
                     padding: 5px !important;
                     display: flex !important;
                     align-items: center !important;
                 }
                 webview {
-                    height: calc(100% - var(--tab-height)) !important;
+                    height: calc(100% - var(--tab-height));
                     position: fixed !important;
                     bottom: 0px !important;
                     z-index: 20 !important;

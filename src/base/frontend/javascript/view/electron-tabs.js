@@ -11,38 +11,70 @@ const theme = localStorage.getItem('theme')
 // If we delay by 0.9s or sooner, the following error will occur
 // "Uncaught SyntaxError: Decimals with leading zeros are not allowed in strict mode."
 setTimeout(() => {
-    // Select tab-group
-    const tabGroup = document.querySelector("tab-group")
+  // Select tab-group
+  const tabGroup = document.querySelector("tab-group")
 
-    // New Tab - When "+" is clicked
-    tabGroup.setDefaultTab({
-      src: hostname,
-      active: true,
-      webviewAttributes: {
-        preload: "./frontend/javascript/webview/preload.js",
-      },
-      ready: function (tab) {
-        const webview = tab.webview;
-        webview.addEventListener('page-title-updated', () => {
-          const newTitle = webview.getTitle()
-          tab.setTitle(newTitle);
-        })
-    }})
+  // New Tab - When "+" is clicked
+  tabGroup.setDefaultTab({
+    src: hostname,
+    active: true,
+    webviewAttributes: {
+      preload: "./frontend/javascript/webview/preload.js",
+      allowpopups: true,
+    },
+    ready: function (tab) {
+      const webview = tab.webview;
+      tab.webview.addEventListener('new-window', (e) => {
+        tabGroup.addTab(
+          {
+            active: true,
+            src: e.url,
+            ready: function (tab) {
+              const webview = tab.webview;
+              webview.addEventListener('page-title-updated', () => {
+                const newTitle = webview.getTitle();
+                tab.setTitle(newTitle)
+              })
+            }
+          }
+        )
+      })
+      webview.addEventListener('page-title-updated', () => {
+        const newTitle = webview.getTitle()
+        tab.setTitle(newTitle)
+      })
+    }
+  })
 
-    // Default Tab - On Launch
-    const tab = tabGroup.addTab({
-      src: hostname,
-      active: true,
-      webviewAttributes: {
-        preload: "./frontend/javascript/webview/preload.js",
-      },
-      ready: function (tab) {
-        const webview = tab.webview;
-        webview.addEventListener('page-title-updated', () => {
-          const newTitle = webview.getTitle()
-          tab.setTitle(newTitle);
-        })
-    }})
+  // Default Tab - On Launch
+  const tab = tabGroup.addTab({
+    src: hostname,
+    active: true,
+    webviewAttributes: {
+      preload: "./frontend/javascript/webview/preload.js",
+      allowpopups: true,
+    },
+    ready: function (tab) {
+      const webview = tab.webview;
+      tab.webview.addEventListener('new-window', (e) => {
+        tabGroup.addTab(
+          {
+            active: true,
+            src: e.url,
+            ready: function (tab) {
+              const webview = tab.webview;
+              webview.addEventListener('page-title-updated', () => {
+                const newTitle = webview.getTitle();
+                tab.setTitle(newTitle)
+              })
+            }
+          }
+        )
+      })
+      webview.addEventListener('page-title-updated', () => {
+        const newTitle = webview.getTitle()
+        tab.setTitle(newTitle)
+      })
+    }
+  })  
 }, 1000)
-
-

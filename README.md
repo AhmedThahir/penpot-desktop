@@ -1,12 +1,12 @@
-![Penpot Desktop](https://cdn.korbsstudio.com/images/Promo%20-%20Dark%20Background%20-%20Transparent%20-%20Slim.png)
+![Penpot Desktop](https://sudovanilla.com/content/images/Promo%20-%20Dark%20Background%20-%20Transparent%20-%20Slim.png)
 > This is unofficial software
 
 # Penpot Desktop
 Penpot Desktop delivers a desktop-like experience for Penpot users with the additional of integrating tabs to conveniently traverse back and forth between projects. Offline support is available through the select your own instance option in settings, as well as the theme settings that may be applied to either the entire desktop app or simply the Penpot dashboard.  
 
 ## Downloads
- - Windows - [Download](https://distribute.korbsstudio.com/applications/penpot-desktop/latest/Penpot%20Desktop%20-%20Setup.exe)
- - macOS - [[Download](https://distribute.korbsstudio.com/applications/penpot-desktop/latest/Penpot.dmg)]
+ - Windows - [Download](https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot%20Desktop%20-%20Setup.exe)
+ - macOS - [[Download](https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot.dmg)]
 
 
 Linux Instructions:
@@ -33,7 +33,7 @@ sudo dnf install penpot-desktop
 ## FAQ
 Q: Is this official software?
 
-A: No, Penpot Desktop is an Electron-based application developed by Korbs Studio. If the project was official, it would be sitting on Penpot's GitHub, not Korbs Studio Code.
+A: No, Penpot Desktop is an Electron-based application developed by SudoVanilla. If the project was official, it would be sitting on Penpot's GitHub, not SudoVanilla Code.
 
 <br>
 
@@ -95,8 +95,8 @@ ___
 # Support
 Reach out to the maintainer at one of the following places:
 
-- [Issues](https://code.korbsstudio.com/KorbsStudio/Penpot-Desktop/-/issues)
-- [Email](mailto:hello@korbsstudio.com)
+- [Issues](https://sudovanilla.com/code/Korbs/Penpot-Desktop/-/issues)
+- [Email](mailto:hello@sudovanilla.com)
 
 #### Contributing
 Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you for being involved!
@@ -108,7 +108,7 @@ Penpot Desktop is provided **"as is"** without any **warranty**. Use at your own
 _For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
 
 # Acknowledgements
- - Creator/Developer: [Korbs Studio](https://korbsstudio.com/)
+ - Creator/Developer: [Korbs Studio](https://SudoVanilla.com/)
  <!-- - Past Contributors:  -->
 
 #### Frameworks
@@ -120,4 +120,4 @@ _For more information and to report security issues, please refer to our [securi
  - Tabs and tab management: [Electron Tabs](https://github.com/brrd/electron-tabs)
  - Reducing terminal logs: [Run Electron](https://github.com/sindresorhus/run-electron)
  - Pretty logger: [Electron Timber](https://github.com/sindresorhus/electron-timber)
- - For blur composition effect: [Glasstron Clarity](https://code.korbsstudio.com/KorbsStudio/Glasstron-Clarity)
+ - For blur composition effect: [Glasstron Clarity](https://sudovanilla.com/code/Korbs/Glasstron-Clarity)
