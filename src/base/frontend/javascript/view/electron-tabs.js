@@ -12,10 +12,14 @@ const theme = localStorage.getItem('theme')
 // "Uncaught SyntaxError: Decimals with leading zeros are not allowed in strict mode."
 setTimeout(() => {
   // Select tab-group
-  const tabGroup = document.querySelector("tab-group")
+  const TabGroup = document.querySelector("tab-group")
+  TabGroup.on("tab-added", (tab, TabGroup) => { COP() })
+  TabGroup.on("tab-removed", (tab, TabGroup) => { COP() })
+  TabGroup.on("tab-active", (tab, TabGroup) => { COP() })
+  TabGroup.on("webview-ready", (tab, TabGroup) => { COP() })
 
   // New Tab - When "+" is clicked
-  tabGroup.setDefaultTab({
+  TabGroup.setDefaultTab({
     src: hostname,
     active: true,
     webviewAttributes: {
@@ -25,7 +29,7 @@ setTimeout(() => {
     ready: function (tab) {
       const webview = tab.webview;
       tab.webview.addEventListener('new-window', (e) => {
-        tabGroup.addTab(
+        TabGroup.addTab(
           {
             active: true,
             src: e.url,
@@ -47,7 +51,7 @@ setTimeout(() => {
   })
 
   // Default Tab - On Launch
-  const tab = tabGroup.addTab({
+  const tab = TabGroup.addTab({
     src: hostname,
     active: true,
     webviewAttributes: {
@@ -57,7 +61,7 @@ setTimeout(() => {
     ready: function (tab) {
       const webview = tab.webview;
       tab.webview.addEventListener('new-window', (e) => {
-        tabGroup.addTab(
+        TabGroup.addTab(
           {
             active: true,
             src: e.url,

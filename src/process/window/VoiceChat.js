@@ -18,9 +18,9 @@ module.exports = {
           titleBarStyle: global.titleBarStyle,
           trafficLightPosition: { x: 10, y: 12 }, // for macOS
           titleBarOverlay: { // For Windows
-            color: '#FFFFFF',
-            symbolColor: 'black',
-            height: 40,
+            color: '#1f1f1f',
+            symbolColor: 'white',
+            height: 30,
           },
           // Other Options
           title: "Penpot Desktop Voice Chat - Loading...",

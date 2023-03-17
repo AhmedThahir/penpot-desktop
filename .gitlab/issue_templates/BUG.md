@@ -1,5 +1,5 @@
 # Bug Report
-If you've found a bug in Penpot Desktop, submit it with this issue template. If the bug is a security vulnerability, please view [SECURITY.md](https://code.korbsstudio.com/KorbsStudio/Penpot-Desktop/-/blob/rewrite-2023/docs/SECURITY.md).
+If you've found a bug in Penpot Desktop, submit it with this issue template. If the bug is a security vulnerability, please view [SECURITY.md](https://code.korbsstudio.com/KorbsStudio/Penpot-Desktop/-/blob/master/docs/SECURITY.md).
 
 ## Report
 ### Quick Questions

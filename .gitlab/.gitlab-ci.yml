@@ -7,7 +7,7 @@ Prepare:
   script:
     - if [ -d "dist/" ]; then rm -R dist/; fi # Delete the dist/ folder if it exist
     - export $(grep -v '^#' .env | xargs)
-    - mkdir /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+    - mkdir /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/$VERSION/
 
 # Build
 Windows:
@@ -19,8 +19,8 @@ Windows:
   script:
     - yarn
     - yarn build:win
-    - cp dist/Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
-    - cp dist/latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
+    - cp dist/Penpot*.exe /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/.prepare/
+    - cp dist/latest.yml /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/.prepare/
 
 Mac:
   variables:
@@ -40,7 +40,7 @@ Mac:
     - yarn
     - yarn build
     - mv dist/Penpot*.dmg dist/Penpot.dmg
-    - lftp -u $SFTP_USERNAME,$SFTP_PASSWORD $SFTP_IP -e "set ftp:ssl-allow off; cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/; put dist/Penpot.dmg; bye;"
+    - lftp -u $SFTP_USERNAME,$SFTP_PASSWORD $SFTP_IP -e "set ftp:ssl-allow off; cd /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/.prepare/; put dist/Penpot.dmg; bye;"
     - cd ..
     - rm -r Penpot-Desktop # Clean up for next run
 
@@ -53,8 +53,8 @@ Linux:
   script:
     - yarn
     - yarn build
-    - cp dist/*.deb /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
-    - cp dist/*.rpm /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
+    - cp dist/*.deb /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/.prepare/
+    - cp dist/*.rpm /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/.prepare/
 
 # Deploy
 Windows-Ready:
@@ -68,10 +68,10 @@ Windows-Ready:
     - job: Windows
   script:
     - export $(grep -v '^#' .env | xargs)
-    - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
-    - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
-    - cp latest.yml /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
-    - cp Penpot*.exe /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+    - cd /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/.prepare/
+    - cp Penpot*.exe /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/latest/
+    - cp latest.yml /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/latest/
+    - cp Penpot*.exe /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/$VERSION/
 
 Mac-Ready:
   tags:
@@ -85,9 +85,9 @@ Mac-Ready:
     - Mac
   script:
     - export $(grep -v '^#' .env | xargs)
-    - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
-    - cp Penpot.dmg /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/latest/
-    - cp Penpot.dmg /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/$VERSION/
+    - cd /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/.prepare/
+    - cp Penpot.dmg /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/latest/
+    - cp Penpot.dmg /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/$VERSION/
 
 Linux-Ready:
   tags:
@@ -100,8 +100,8 @@ Linux-Ready:
     - job: Linux
   script:
     - export CLOUDSMITH_API_KEY=$CLOUDSMITH_API_KEY
-    - cd /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/
+    - cd /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/.prepare/
     - cloudsmith push rpm korbsstudio/penpot-desktop/any-distro/any-version *.rpm
     - cloudsmith push deb korbsstudio/penpot-desktop/any-distro/any-version *.deb
     - sleep 24
-    - rm /korbs-studio-server/nginx/sites/releases/applications/penpot-desktop/.prepare/*
+    - rm /korbs-studio-server/nginx/sites/distribute/applications/penpot-desktop/.prepare/*

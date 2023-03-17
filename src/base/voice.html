@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    <div class="drag"></div>
     <div id="Default" class="content">
         <h1>Penpot Desktop Voice Chat</h1>
         <h2>Powered by Jam</h2>
@@ -46,6 +47,7 @@
         document.querySelector('webview').style.height = 'calc(100% - 60px)'
         document.querySelector('#Default').style.display = 'none'
         document.querySelector('#JoinRoom').style.display = 'none'
+        document.querySelector('webview').style.display = 'inherit'
         document.querySelector('#InRoom').style.display = 'inherit'
 
         setTimeout(() => {
@@ -58,6 +60,7 @@
         webview.executeJavaScript(`document.querySelector("#root > div > div > div > form > button").click()`)
         document.querySelector('webview').style.height = 'calc(100% - 60px)'
         document.querySelector('#Default').style.display = 'none'
+        document.querySelector('webview').style.display = 'inherit'
         document.querySelector('#InRoom').style.display = 'inherit'
 
         setTimeout(() => {
@@ -69,10 +72,23 @@
 
 <style>
     body {
-        background: #1f1f1f;
+        background: rgba(31, 31, 31, 0.50);
         color: white;
         font-family: arial;
         overflow: hidden;
+    }
+
+    :root {
+        background: transparent !important;
+    }
+
+    .drag {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 30px;
+        app-region: drag;
     }
 
     .content {
@@ -125,6 +141,7 @@
     webview {
         height: calc(100% - 180px);
         transition: 1s height;
+        display: none;
     }
 
     div#InRoom {

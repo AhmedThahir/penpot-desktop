@@ -43,9 +43,9 @@ module.exports = {
           mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWS', '350px')`)
         }, 1500)}
         else if (process.platform === 'win32') {setTimeout(() => {
-          mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '124px'`)
+          mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '144px'`)
           mainWindow.webContents.executeJavaScript(`document.querySelector(".actions #instance").style.right = '113px'`)
-          mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWF', '190px')`)
+          mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWF', '214px')`)
           mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWS', '400px')`)
         }, 1500)}
         else if (process.platform === 'linux') {setTimeout(() => {
