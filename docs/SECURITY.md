@@ -2,7 +2,7 @@
 ## Reporting a Vulnerability
 If there are any vulnerabilities in **Penpot Desktop**, don't hesitate to _report them_.
 
-1. Please email [security@korbsstudio.com](mailto:security@korbsstudio.com).
+1. Please email [security@sudovanilla.com](mailto:security@sudovanilla.com).
 2. Describe the vulnerability.
 
    If you have a fix, that is most welcome -- please attach or summarize it in your message!
