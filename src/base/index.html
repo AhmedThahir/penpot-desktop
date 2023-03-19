@@ -8,22 +8,25 @@
             <div class="actions">
                 <div class="action-buttons">
                     <button hidden style="pointer-events: none" id="restart-required">Restart Required</button>
-                    <!-- <button title="Toggle Theme"><i class="fa-sharp fa-solid fa-toggle-large-on"></i></button> -->
                     <button title="Open Voice Chat" onclick="window.api.send('OpenVoiceChat')"><i class="fa-sharp fa-solid fa-microphone"></i></button>
-                    <button title="Change Instance" onclick="ShowModal_Instance()"><i class="fa-sharp fa-solid fa-server"></i></button>
-                </div>
-                <div class="action-modals">
-                    <div style="display: none" id="instance" class="action-modal">
-                        <input type="text" id="hostField">
-                        <p class="lead mt-3 setName" style="display: none"></p>
-                        <button onclick="HideModal_Instance()"><i class="fa-sharp fa-solid fa-xmark"></i></button>
-                        <button onclick="InstanceSaved(); HideModal_Instance()" id="cswU" class="btn btn-secondary save"><i class="fa-sharp fa-solid fa-check"></i></button>
-                    </div>
+                    <button onclick="ToggleSettings()"><i class="fa-sharp fa-solid fa-gear"></i></button>
                 </div>
             </div>
-            <div style="display: none" id="gtk" class="linux-titlebar-buttons">
-                <button onclick="window.close()"><i class="fa-duotone fa-circle-xmark"></i></button>
+            <div class="settings-dropdown">
+                <i class="fa-sharp fa-solid fa-caret-up"></i>
+                <div class="settings">
+                    <p>Penpot Instance (<a href="#">?</a>)</p>
+                    <input type="text" id="hostField">
+                    <p hidden></p>
+                    <button onclick="InstanceSaved()" id="cswU" class="btn btn-secondary save"><i class="fa-sharp fa-solid fa-check"></i></button>
+                    <hr>
+                    <p>Jam Instance (<a href="#">?</a>)</p>
+                    <input type="text" id="JamField">
+                    <p hidden></p>
+                    <button id="cswR" class="btn btn-secondary save"><i class="fa-sharp fa-solid fa-check"></i></button>
+                </div>
             </div>
+            <div style="display: none" id="gtk" class="linux-titlebar-buttons"><button onclick="window.close()"><i class="fa-duotone fa-circle-xmark"></i></button></div>
         </titlebar>
         <tab-group new-tab-button="true" sortable="true" class="full-window">
             <style>
@@ -46,9 +49,7 @@
                     --close-button-visibility: visible !important;
                     --tab-height: 41px;
                 }
-                * {
-                    cursor: default !important;
-                }
+                * {cursor: default !important}
                 .nav {
                     -webkit-app-region: drag;
                     color: white !important;
@@ -106,5 +107,6 @@
     <script src="../../node_modules/electron-tabs/dist/electron-tabs.js"></script>
     <script type="module" src="./frontend/javascript/view/electron-tabs.js"></script>
     <script src="./frontend/javascript/settings/instance.js"></script>
-    <script src="./frontend/javascript/settings/theme.js"></script>
+    <script src="./frontend/javascript/settings/jam.js"></script>
+    <script src="./frontend/javascript/view/toggles.js"></script>
 </html>

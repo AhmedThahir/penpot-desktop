@@ -28,13 +28,16 @@
     <div style="display: none" id="InRoom" class="content">
         <p>Enter Room URL: <span id="url"></span></p>
     </div>
-    <webview src="https://jam.systems"></webview>
+    <webview></webview>
 </body>
 
 </html>
 
 <script>
+    const JamHostName = localStorage.getItem('JamHost')
     var webview = document.querySelector('webview')
+
+    webview.setAttribute('src', JamHostName)
 
     function JR() {
         document.querySelector('#Default').style.display = 'none'

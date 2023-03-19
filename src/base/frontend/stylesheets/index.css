@@ -11,7 +11,7 @@ body {
 }
 
 :root {
-  --navBarWF: 70px;
+  --navBarWF: 100px;
   --navBarWS: 280px;
 }
 
@@ -61,6 +61,53 @@ body {
   -webkit-app-region: no-drag;
 }
 .actions #instance input {
+  background: #3d3d3d;
+  color: white;
+  border: none;
+  height: 32px;
+  padding: 0px 12px;
+  margin-top: 4px;
+  border-radius: 6px;
+}
+
+.settings-dropdown {
+  display: none;
+}
+.settings-dropdown .fa-caret-up {
+  position: fixed;
+  top: 35px;
+  right: 45px;
+  z-index: 10;
+  color: #1f1f1f;
+  font-size: 24px;
+}
+.settings-dropdown .settings {
+  position: fixed;
+  z-index: 10;
+  right: 12px;
+  top: 50px;
+  background: #303236;
+  border-radius: 6px;
+  border: 1px #1f1f1f solid;
+  padding: 0px 12px 12px 12px;
+}
+.settings-dropdown .settings p {
+  cursor: default;
+}
+.settings-dropdown .settings a {
+  color: white;
+}
+.settings-dropdown .settings button {
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 7px;
+  border-radius: 4px;
+  width: 27px;
+  -webkit-app-region: no-drag;
+  background: #1f1f1f;
+}
+.settings-dropdown .settings input {
   background: #3d3d3d;
   color: white;
   border: none;

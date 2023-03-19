@@ -79,6 +79,50 @@ $ActionBackgroundDark: #303236;
         }
     }
 }
+
+.settings-dropdown {
+    display: none;
+    .fa-caret-up {
+        position: fixed;
+        top: 35px;
+        right: 45px;
+        z-index: 10;
+        color: #1f1f1f;
+        font-size: 24px;
+    }
+    .settings {
+        position: fixed;
+        z-index: 10;
+        right: 12px;
+        top: 50px;
+        background: #303236;
+        border-radius: 6px;
+        border: 1px #1f1f1f solid;
+        padding: 0px 12px 12px 12px;
+        p {cursor: default}
+        a {color: white}
+        button {
+            background: transparent;
+            color: white;
+            border: none;
+            padding: 7px;
+            border-radius: 4px;
+            width: 27px;
+            -webkit-app-region: no-drag;
+            background: #1f1f1f;
+        }
+        input {
+            background: #3d3d3d;
+            color: white;
+            border: none;
+            height: 32px;
+            padding: 0px 12px;
+            margin-top: 4px;
+            border-radius: 6px;
+        }
+    }
+}
+
 button#restart-required {
     width: max-content;
     background: #00ff89;
