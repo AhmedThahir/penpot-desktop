@@ -8,7 +8,10 @@ let NewWindow = require('./new-window')
 let OS = require('./extra/os')
 // let CrashReporter = require('./crashreporter')
 
-app.whenReady().then(() => {MainWindow.create()})
+// Functions
 OS.Icon()
 NewWindow.NewWindow()
 // CrashReporter.CrashReporter()
+
+// Launch
+app.whenReady().then(() => {MainWindow.create()})

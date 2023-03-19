@@ -1,8 +1,3 @@
-// Credit to Brrd, the creator of Electron Tabs: https://github.com/brrd/electron-tabs
-//////////////////////////////////////////////////////////////////////////////////////
-// Import functions from other scripts
-// import { darkmode } from '../webview/theme-dark.js'
-
 // LocalStorage - Grab options set by end-user
 const hostname = localStorage.getItem('customHostname')
 const theme = localStorage.getItem('theme')
@@ -13,10 +8,6 @@ const theme = localStorage.getItem('theme')
 setTimeout(() => {
   // Select tab-group
   const TabGroup = document.querySelector("tab-group")
-  TabGroup.on("tab-added", (tab, TabGroup) => { COP() })
-  TabGroup.on("tab-removed", (tab, TabGroup) => { COP() })
-  TabGroup.on("tab-active", (tab, TabGroup) => { COP() })
-  TabGroup.on("webview-ready", (tab, TabGroup) => { COP() })
 
   // New Tab - When "+" is clicked
   TabGroup.setDefaultTab({
@@ -27,16 +18,16 @@ setTimeout(() => {
       allowpopups: true,
     },
     ready: function (tab) {
-      const webview = tab.webview;
+      const webview = tab.webview
       tab.webview.addEventListener('new-window', (e) => {
         TabGroup.addTab(
           {
             active: true,
             src: e.url,
             ready: function (tab) {
-              const webview = tab.webview;
+              const webview = tab.webview
               webview.addEventListener('page-title-updated', () => {
-                const newTitle = webview.getTitle();
+                const newTitle = webview.getTitle()
                 tab.setTitle(newTitle)
               })
             }
@@ -59,16 +50,16 @@ setTimeout(() => {
       allowpopups: true,
     },
     ready: function (tab) {
-      const webview = tab.webview;
+      const webview = tab.webview
       tab.webview.addEventListener('new-window', (e) => {
         TabGroup.addTab(
           {
             active: true,
             src: e.url,
             ready: function (tab) {
-              const webview = tab.webview;
+              const webview = tab.webview
               webview.addEventListener('page-title-updated', () => {
-                const newTitle = webview.getTitle();
+                const newTitle = webview.getTitle()
                 tab.setTitle(newTitle)
               })
             }
@@ -80,5 +71,5 @@ setTimeout(() => {
         tab.setTitle(newTitle)
       })
     }
-  })  
+  })
 }, 1000)

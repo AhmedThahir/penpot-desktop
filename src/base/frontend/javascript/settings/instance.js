@@ -11,7 +11,7 @@ function HideModal_Instance() {
 setTimeout(() => {
     const customHostname = document.querySelector("#hostField")
     const textHN = document.querySelector("#instance > p")
-    const buttonHN = document.querySelector('#cswU');
+    const buttonHN = document.querySelector('#cswU')
   
     customHostname.addEventListener('input', name => {
       textHN.textContent = name.target.value
@@ -26,17 +26,17 @@ setTimeout(() => {
     const hostname = localStorage.getItem('customHostname')
   
     if (customHostname) {
-      textHN.textContent = hostname;
+      textHN.textContent = hostname
     }
     document.querySelector("#hostField").value = document.querySelector("#hostField").value + hostname
-}, 0500); // Wait a moment
+}, 0500) // Wait a moment
 
 if(!localStorage.getItem("firstTime")){
   localStorage.setItem('customHostname', 'https://design.penpot.app/') // If not set, by default on first launch, the app will be blank (to fix issue #3)
-  localStorage.setItem("firstTime","true");
+  localStorage.setItem("firstTime","true")
   setTimeout(() => {
     welcome()
-  }, 1000);
+  }, 1000)
 }else{}
 
 function InstanceSaved() {
