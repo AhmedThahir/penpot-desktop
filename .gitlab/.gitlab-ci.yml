@@ -34,7 +34,7 @@ Mac:
     - echo "Hi, I'm a Mac."
     - sleep 2
     - cd /Users/korbs/Documents/
-    - git clone http://192.168.1.195:5050/code/KorbsStudio/Penpot-Desktop/
+    - git clone http://192.168.1.195:5050/code/Korbs/Penpot-Desktop/
     - cd Penpot-Desktop
     - git checkout main
     - yarn

@@ -51,7 +51,6 @@ module.exports = {
         else if (process.platform === 'linux') {setTimeout(() => {
           mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-titlebar-buttons").style.display = 'inherit'`)
           mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '32px'`)
-          mainWindow.webContents.executeJavaScript(`document.querySelector(".actions #instance").style.right = '32px'`)
         }, 1500)}
     }
 }

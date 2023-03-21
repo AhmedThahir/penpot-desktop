@@ -108,8 +108,7 @@ Penpot Desktop is provided **"as is"** without any **warranty**. Use at your own
 _For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
 
 # Acknowledgements
- - Creator/Developer: [Korbs Studio](https://SudoVanilla.com/)
- <!-- - Past Contributors:  -->
+ - Creator/Developer: [SudoVanilla](https://SudoVanilla.com/)
 
 #### Frameworks
  - Built on: [ElectronJS](https://electronjs.org/)
