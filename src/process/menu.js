@@ -94,6 +94,36 @@ module.exports = {
                         await shell.openExternal('https://community.penpot.app/')
                     }
                 },
+                { type: 'separator'},
+                {
+                    label: 'User Guide',
+                    click: async () => {
+                        const { shell } = require('electron')
+                        await shell.openExternal('https://help.penpot.app/user-guide/')
+                    }
+                },
+                {
+                    label: 'FAQ',
+                    click: async () => {
+                        const { shell } = require('electron')
+                        await shell.openExternal('https://help.penpot.app/faqs')
+                    }
+                },
+                {
+                    label: 'Learn to Self-host',
+                    click: async () => {
+                        const { shell } = require('electron')
+                        await shell.openExternal('https://penpot.app/self-host')
+                    }
+                },
+                {
+                    label: 'Penpot Community',
+                    click: async () => {
+                        const { shell } = require('electron')
+                        await shell.openExternal('https://community.penpot.app/')
+                    }
+                },
+                { type: 'separator'},
                 {
                     label: 'Source Code',
                     click: async () => {

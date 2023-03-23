@@ -7,7 +7,7 @@ function InstanceSave() { // If save button is clicked
   setTimeout(() => {
     document.querySelector("#InstanceSaveButton").style.backgroundColor = 'white'
     document.querySelector("#InstanceSaveButton").setAttribute('value', 'Save')
-  }, 1200);
+  }, 1200)
 }
 
 function InstanceGet() { // Runs on start
