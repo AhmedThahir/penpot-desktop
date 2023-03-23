@@ -15,8 +15,6 @@ function MaximizeWindow() {
 
     document.querySelector("#plasma-window-is-max").style.height = '18px'
     document.querySelector('#plasma-window-is-unmax').style.height = '0px'
-    
-    window.api.send('MaximizeWindow')
 }
 function UnmaximizeWindow() {
     document.querySelector("#plasma-window-is-max").style.display = 'none'
@@ -24,6 +22,7 @@ function UnmaximizeWindow() {
 
     document.querySelector("#plasma-window-is-max").style.height = '0px'
     document.querySelector('#plasma-window-is-unmax').style.height = '18px'
-    
-    window.api.send('UnmaximizeWindow')
 }
+
+function ProcessMaximizeWindow() {window.api.send('MaximizeWindow')}
+function ProcessUnmaximizeWindow() {window.api.send('UnmaximizeWindow')}

@@ -32,6 +32,8 @@ module.exports = {
           }
         })
         mainWindow.loadFile('src/base/index.html')
+        mainWindow.on('maximize', (e) => {mainWindow.webContents.executeJavaScript('MaximizeWindow()')})
+        mainWindow.on('unmaximize', (e) => {mainWindow.webContents.executeJavaScript('UnmaximizeWindow()')})
         ipcMain.on('MaximizeWindow', () => {mainWindow.maximize()})
         ipcMain.on('UnmaximizeWindow', () => {mainWindow.unmaximize()})
         AppMenu.MainMenu()
