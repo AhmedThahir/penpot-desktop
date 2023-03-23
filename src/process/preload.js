@@ -4,7 +4,8 @@ const path = require('path')
 contextBridge.exposeInMainWorld( "api", { send: (channel, data) => {let validChannels = [
   "updateApp",
   "restartApp",
-  "OpenVoiceChat"
+  "MaximizeWindow",
+  "UnmaximizeWindow"
 ]
 if (validChannels.includes(channel)) {ipcRenderer.send(channel, data)}}})
 

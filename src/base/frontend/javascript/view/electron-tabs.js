@@ -1,6 +1,5 @@
 // LocalStorage - Grab options set by end-user
-const hostname = localStorage.getItem('customHostname')
-const theme = localStorage.getItem('theme')
+const Instance = localStorage.getItem('Instance')
 
 // setTimeout is used so we can delay the tab execution by 1 second.
 // If we delay by 0.9s or sooner, the following error will occur
@@ -11,7 +10,7 @@ setTimeout(() => {
 
   // New Tab - When "+" is clicked
   TabGroup.setDefaultTab({
-    src: hostname,
+    src: Instance,
     active: true,
     webviewAttributes: {
       preload: "./frontend/javascript/webview/preload.js",
@@ -43,7 +42,7 @@ setTimeout(() => {
 
   // Default Tab - On Launch
   const tab = TabGroup.addTab({
-    src: hostname,
+    src: Instance,
     active: true,
     webviewAttributes: {
       preload: "./frontend/javascript/webview/preload.js",

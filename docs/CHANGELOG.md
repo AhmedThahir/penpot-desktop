@@ -1,11 +1,11 @@
 # Changelog
 ## v0.2.2 Beta
- - Added Voice Chat (Powered by Jam)
  - Added settings dropdown
- - Added Jam Instance setting
  - Updated tab style
  - Updated title script for tabs
+ - Updated script for instance setting
  - Removed unused code
+ - Bug fixes
 
 ## v0.2.0 Beta
  - Rewritten code

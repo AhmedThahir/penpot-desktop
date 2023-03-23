@@ -46,9 +46,9 @@ body {
   background: transparent;
   color: white;
   border: none;
-  padding: 7px;
+  padding: 9px;
   border-radius: 4px;
-  width: 27px;
+  width: 32px;
   -webkit-app-region: no-drag;
   background: #1f1f1f;
 }
@@ -60,20 +60,11 @@ body {
   right: 0px;
   -webkit-app-region: no-drag;
 }
-.actions #instance input {
-  background: #3d3d3d;
-  color: white;
-  border: none;
-  height: 32px;
-  padding: 0px 12px;
-  margin-top: 4px;
-  border-radius: 6px;
-}
 
-.settings-dropdown {
+.titlebar-dropdown-menu {
   display: none;
 }
-.settings-dropdown .fa-caret-up {
+.titlebar-dropdown-menu .fa-caret-up {
   position: fixed;
   top: 35px;
   right: 45px;
@@ -81,7 +72,7 @@ body {
   color: #1f1f1f;
   font-size: 24px;
 }
-.settings-dropdown .settings {
+.titlebar-dropdown-menu .tdm-content {
   position: fixed;
   z-index: 10;
   right: 12px;
@@ -91,30 +82,40 @@ body {
   border: 1px #1f1f1f solid;
   padding: 0px 12px 12px 12px;
 }
-.settings-dropdown .settings p {
+.titlebar-dropdown-menu .tdm-content p {
   cursor: default;
 }
-.settings-dropdown .settings a {
+.titlebar-dropdown-menu .tdm-content a {
   color: white;
 }
-.settings-dropdown .settings button {
+.titlebar-dropdown-menu .tdm-content button {
   background: transparent;
   color: white;
   border: none;
-  padding: 7px;
+  padding: 9px;
   border-radius: 4px;
-  width: 27px;
+  width: 32px;
   -webkit-app-region: no-drag;
   background: #1f1f1f;
 }
-.settings-dropdown .settings input {
-  background: #3d3d3d;
+.titlebar-dropdown-menu .tdm-content input {
+  box-sizing: border-box;
+  font-family: "worksans", sans-serif;
+  background-color: #3f4247;
+  border-radius: 2px;
+  border: 1px solid #b1b2b5;
   color: white;
-  border: none;
+  font-size: 0.875rem;
   height: 32px;
+  margin: 0;
+  padding: 14px 14px 0 14px;
+  padding-top: 0;
+  padding-right: 50px;
+}
+.titlebar-dropdown-menu .tdm-content input#InstanceSaveButton {
+  background: white;
+  color: black;
   padding: 0px 12px;
-  margin-top: 4px;
-  border-radius: 6px;
 }
 
 button#restart-required {
@@ -149,6 +150,44 @@ button#restart-required {
 
 svg.svg-inline--fa.fa-circle-xmark path.fa-primary {
   color: white;
+}
+
+div#plasma {
+  position: fixed;
+  top: 8px;
+  right: 12px;
+  width: max-content;
+}
+div#plasma button[onclick="window.close()"] {
+  background: white;
+  color: black;
+}
+div#plasma button#plasma-window-is-max svg {
+  font-size: 10px;
+}
+div#plasma button#plasma-window-is-max {
+  display: none;
+}
+div#plasma button#plasma-window-is-unmax {
+  display: inherit;
+}
+div#plasma button {
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  aspect-ratio: 1;
+  height: 18px;
+  width: 18px;
+  font-size: 12px;
+  padding: 0px;
+  margin-left: 2px;
+  transition: 0.2s background, 0.2s color;
+}
+div#plasma button:hover {
+  background: white;
+  color: black;
+  transition: 0.2s background, 0.2s color;
 }
 
 splash {

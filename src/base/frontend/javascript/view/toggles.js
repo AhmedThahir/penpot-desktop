@@ -1,9 +1,29 @@
 // Settings Dropdown
 function ToggleSettings() {
-    var x = document.querySelector("body > titlebar > div.settings-dropdown")
-    if (x.style.display === "block") {
-        x.style.display = "none"
+    var SettingsUI = document.querySelector(".titlebar-dropdown-menu#settings")
+    if (SettingsUI.style.display === "block") {
+        SettingsUI.style.display = "none"
     } else {
-        x.style.display = "block"
+        SettingsUI.style.display = "block"
     }
+}
+
+// Titlebar Buttons (KDE Plasma)
+function MaximizeWindow() {
+    document.querySelector("#plasma-window-is-max").style.display = 'initial'
+    document.querySelector('#plasma-window-is-unmax').style.display = 'none'
+
+    document.querySelector("#plasma-window-is-max").style.height = '18px'
+    document.querySelector('#plasma-window-is-unmax').style.height = '0px'
+    
+    window.api.send('MaximizeWindow')
+}
+function UnmaximizeWindow() {
+    document.querySelector("#plasma-window-is-max").style.display = 'none'
+    document.querySelector('#plasma-window-is-unmax').style.display = 'initial'
+
+    document.querySelector("#plasma-window-is-max").style.height = '0px'
+    document.querySelector('#plasma-window-is-unmax').style.height = '18px'
+    
+    window.api.send('UnmaximizeWindow')
 }

@@ -6,7 +6,7 @@ Penpot Desktop delivers a desktop-like experience for Penpot users with the addi
 
 ## Downloads
  - Windows - [Download](https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot%20Desktop%20-%20Setup.exe)
- - macOS - [[Download](https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot.dmg)]
+ - macOS - [Download](https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot.dmg)
 
 
 Linux Instructions:
@@ -42,7 +42,7 @@ Q: What operating system does this support?
 A: As of Penpot Desktop v0.2.0:
  - Windows 10/11
  - maccOS High Sierra and up
- - Linux (Debian/Fedora/Arch)
+ - Linux (DEB/RPM/Snap)
 
 Since the release of Penpot Desktop v0.2.0, support has dropped for Windows 7/8/8.1.
 
@@ -97,6 +97,8 @@ Reach out to the maintainer at one of the following places:
 
 - [Issues](https://sudovanilla.com/code/Korbs/Penpot-Desktop/-/issues)
 - [Email](mailto:hello@sudovanilla.com)
+- [Penpot Forums](https://community.penpot.app/u/korbs/summary) (DM or mention me)
+- [Mastodon](https://fosstodon.org/@SudoVanilla)
 
 #### Contributing
 Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you for being involved!

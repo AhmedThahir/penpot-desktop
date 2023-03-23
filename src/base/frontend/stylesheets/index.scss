@@ -55,9 +55,9 @@ $ActionBackgroundDark: #303236;
         background: transparent;
         color: white;
         border: none;
-        padding: 7px;
+        padding: 9px;
         border-radius: 4px;
-        width: 27px;
+        width: 32px;
         -webkit-app-region: no-drag;
         background: #1f1f1f;
     }
@@ -68,19 +68,10 @@ $ActionBackgroundDark: #303236;
         width: 270px;
         right: 0px;
         -webkit-app-region: no-drag;
-        input {
-            background: #3d3d3d;
-            color: white;
-            border: none;
-            height: 32px;
-            padding: 0px 12px;
-            margin-top: 4px;
-            border-radius: 6px;
-        }
     }
 }
 
-.settings-dropdown {
+.titlebar-dropdown-menu {
     display: none;
     .fa-caret-up {
         position: fixed;
@@ -90,7 +81,7 @@ $ActionBackgroundDark: #303236;
         color: #1f1f1f;
         font-size: 24px;
     }
-    .settings {
+    .tdm-content {
         position: fixed;
         z-index: 10;
         right: 12px;
@@ -105,20 +96,30 @@ $ActionBackgroundDark: #303236;
             background: transparent;
             color: white;
             border: none;
-            padding: 7px;
+            padding: 9px;
             border-radius: 4px;
-            width: 27px;
+            width: 32px;
             -webkit-app-region: no-drag;
             background: #1f1f1f;
         }
         input {
-            background: #3d3d3d;
+            box-sizing: border-box;
+            font-family: "worksans", sans-serif;
+            background-color: #3f4247;
+            border-radius: 2px;
+            border: 1px solid #b1b2b5;
             color: white;
-            border: none;
+            font-size: 0.875rem;
             height: 32px;
+            margin: 0;
+            padding: 14px 14px 0 14px;
+            padding-top: 0;
+            padding-right: 50px;
+        }
+        input#InstanceSaveButton {
+            background: white;
+            color: black;
             padding: 0px 12px;
-            margin-top: 4px;
-            border-radius: 6px;
         }
     }
 }
@@ -154,6 +155,38 @@ button#restart-required {
 
 svg.svg-inline--fa.fa-circle-xmark path.fa-primary {
     color: white;
+}
+
+div#plasma {
+    position: fixed;
+    top: 8px;
+    right: 12px;
+    width: max-content;
+    button[onclick="window.close()"] {
+        background: white;
+        color: black;
+    }
+    button#plasma-window-is-max svg {font-size: 10px}
+    button#plasma-window-is-max {display: none}
+    button#plasma-window-is-unmax {display: inherit}
+    button {
+        background: transparent;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        aspect-ratio: 1;
+        height: 18px;
+        width: 18px;
+        font-size: 12px;
+        padding: 0px;
+        margin-left: 2px;
+        transition: 0.2s background, 0.2s color;
+    }
+    button:hover {
+        background: white;
+        color: black;
+        transition: 0.2s background, 0.2s color;
+    }
 }
 
 // Splash

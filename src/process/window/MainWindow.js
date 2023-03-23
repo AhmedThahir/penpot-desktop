@@ -1,9 +1,6 @@
 const {app, BrowserWindow, ipcMain, ipcRenderer} = require('electron')
 const path = require('path')
 let AppMenu = require('../menu')
-let VoiceChat = require('./VoiceChat')
-
-function OpenVoiceChat() {VoiceChat.create()}
 
 module.exports = {
     create: function () {
@@ -35,7 +32,8 @@ module.exports = {
           }
         })
         mainWindow.loadFile('src/base/index.html')
-        ipcMain.on('OpenVoiceChat', () => {OpenVoiceChat()})
+        ipcMain.on('MaximizeWindow', () => {mainWindow.maximize()})
+        ipcMain.on('UnmaximizeWindow', () => {mainWindow.unmaximize()})
         AppMenu.MainMenu()
         if (process.platform === 'darwin') {setTimeout(() => {
           mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.left = '74px'`)
