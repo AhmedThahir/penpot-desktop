@@ -4,18 +4,18 @@ const isDev = require('electron-is-dev')
 const TitlebarRespect = require('electron-titlebar-respect')
 
 // Import Files
+let CrashReporter = require('./extra/CrashReporter')
 let MainWindow = require('./window/MainWindow')
-let NewWindow = require('./new-window')
-let OS = require('./extra/os')
-// let CrashReporter = require('./crashreporter')
+let NewWindow = require('./extra/NewWindow')
+let Platform = require('./extra/Platform')
 
 // Functions
+CrashReporter.CrashReporter()
 NewWindow.NewWindow()
-OS.Icon()
-// CrashReporter.CrashReporter()
+Platform.Icon()
 
 // Launch
 app.whenReady().then(() => {
-    autoUpdater.checkForUpdatesAndNotify()
+    autoUpdater.checkForUpdates()
     MainWindow.create()
 })

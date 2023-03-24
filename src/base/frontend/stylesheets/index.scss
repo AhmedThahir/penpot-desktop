@@ -7,9 +7,7 @@ body {
     background: #1f1f1f;
 }
 
-* {
-    outline: none;
-}
+* {outline: none}
 
 // Root
 $ActionBackgroundDark: #fff;
@@ -51,6 +49,7 @@ $ActionBackgroundDark: #303236;
     padding: 6px 6px 0px 0px;
     cursor: default;
     -webkit-app-region: no-drag;
+    .action-buttons {display: flex;align-items: center;}
     button {
         background: transparent;
         color: white;

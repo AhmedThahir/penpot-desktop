@@ -23,11 +23,10 @@
     "electron-is-dev": "^2.0.0",
     "electron-tabs": "^1.0.1",
     "electron-titlebar-respect": "^1.0.0",
-    "electron-updater": "^5.3.0",
-    "path": "^0.12.7"
+    "electron-updater": "^5.3.0"
   },
   "devDependencies": {
-    "electron": "^23.1.1",
+    "electron": "^23.2.0",
     "electron-builder": "^22.10.3"
   }
 }

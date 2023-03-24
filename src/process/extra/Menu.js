@@ -59,8 +59,14 @@ module.exports = {
                 {
                 label: 'Open WebView Developer Tools',
                 accelerator: 'CmdOrCtrl+Shift+W',
-                click: async () => {if (isDev) {mainWindow.webContents.executeJavaScript(`document.querySelector('.active webview').openDevTools()`)}else {console.log('Not available in production mode.')}}
-                },
+                click: async () => {
+                    if (process.env.NODE_ENV === "development") {
+                        mainWindow.webContents.executeJavaScript(`document.querySelector('.active webview').openDevTools()`)
+                    } 
+                    if (process.env.NODE_ENV === "production") {
+                        console.log('Opening the WebView Developer Tools is not available in production.')
+                    }
+                }},
                 { type: 'separator' },
                 { role: 'resetZoom' },
                 { role: 'zoomIn' },

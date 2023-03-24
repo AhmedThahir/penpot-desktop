@@ -42,6 +42,10 @@ body {
   cursor: default;
   -webkit-app-region: no-drag;
 }
+.actions .action-buttons {
+  display: flex;
+  align-items: center;
+}
 .actions button {
   background: transparent;
   color: white;

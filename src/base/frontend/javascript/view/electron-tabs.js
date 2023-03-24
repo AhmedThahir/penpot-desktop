@@ -1,9 +1,24 @@
 // LocalStorage - Grab options set by end-user
 const Instance = localStorage.getItem('Instance')
 
-// setTimeout is used so we can delay the tab execution by 1 second.
-// If we delay by 0.9s or sooner, the following error will occur
-// "Uncaught SyntaxError: Decimals with leading zeros are not allowed in strict mode."
+// Functions
+function NewTab() {
+  TabGroup.addTab(
+    {
+      active: true,
+      src: e.url,
+      ready: function (tab) {
+        const webview = tab.webview
+        webview.addEventListener('page-title-updated', () => {
+          const newTitle = webview.getTitle()
+          tab.setTitle(newTitle)
+        })
+      }
+    }
+  )
+}
+
+// Tab Group
 setTimeout(() => {
   // Select tab-group
   const TabGroup = document.querySelector("tab-group")
@@ -18,21 +33,7 @@ setTimeout(() => {
     },
     ready: function (tab) {
       const webview = tab.webview
-      tab.webview.addEventListener('new-window', (e) => {
-        TabGroup.addTab(
-          {
-            active: true,
-            src: e.url,
-            ready: function (tab) {
-              const webview = tab.webview
-              webview.addEventListener('page-title-updated', () => {
-                const newTitle = webview.getTitle()
-                tab.setTitle(newTitle)
-              })
-            }
-          }
-        )
-      })
+      tab.webview.addEventListener('new-window', (e) => {NewTab()})
       webview.addEventListener('page-title-updated', () => {
         const newTitle = webview.getTitle()
         tab.setTitle(newTitle)
@@ -50,25 +51,15 @@ setTimeout(() => {
     },
     ready: function (tab) {
       const webview = tab.webview
-      tab.webview.addEventListener('new-window', (e) => {
-        TabGroup.addTab(
-          {
-            active: true,
-            src: e.url,
-            ready: function (tab) {
-              const webview = tab.webview
-              webview.addEventListener('page-title-updated', () => {
-                const newTitle = webview.getTitle()
-                tab.setTitle(newTitle)
-              })
-            }
-          }
-        )
-      })
+      tab.webview.addEventListener('new-window', (e) => {NewTab()})
       webview.addEventListener('page-title-updated', () => {
         const newTitle = webview.getTitle()
         tab.setTitle(newTitle)
       })
     }
   })
+
+  // Apply Active WebView Console to App Console
+  const webview = document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview.visible")
+  webview.addEventListener('console-message', (e) => {console.log(e.message)})
 }, 1000)
