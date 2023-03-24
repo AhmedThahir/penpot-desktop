@@ -9,10 +9,14 @@
     {
       "type": "individual",
       "url": "https://ko-fi.com/korbsstudio"
+    },
+    {
+      "type": "individual",
+      "url": "https://sudovanilla.com/donate/"
     }
   ],
   "scripts": {
-    "start": "electron .",
+    "start": "npm run dev",
     "build": "electron-builder --config build/electron-builder.yml",
     "build:win": "electron-builder --config build/electron-builder.yml --win",
     "dev": "concurrently --kill-others \"npm run scss:app\" \"npm start\"",
