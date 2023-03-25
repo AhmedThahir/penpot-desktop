@@ -2,6 +2,8 @@ const {app} = require('electron')
 const {autoUpdater} = require("electron-updater")
 const isDev = require('electron-is-dev')
 const TitlebarRespect = require('electron-titlebar-respect')
+const {MessageChannel, ProcessManager} = require('electron-re')
+// ProcessManager.openWindow()
 
 // Import Files
 let CrashReporter = require('./extra/CrashReporter')

@@ -20,14 +20,16 @@
     "build": "electron-builder --config build/electron-builder.yml",
     "build:win": "electron-builder --config build/electron-builder.yml --win",
     "dev": "concurrently --kill-others \"npm run scss:app\" \"electron .\"",
-    "scss:app": "sass --watch src/base/frontend/stylesheets/index.scss:src/base/frontend/stylesheets/index.css"
+    "scss:app": "stylus --watch src/base/frontend/stylesheets/index.styl src/base/frontend/stylesheets/index.css"
   },
   "dependencies": {
     "concurrently": "^7.6.0",
     "electron-is-dev": "^2.0.0",
+    "electron-re": "^1.3.0",
     "electron-tabs": "^1.0.1",
     "electron-titlebar-respect": "^1.0.0",
-    "electron-updater": "^5.3.0"
+    "electron-updater": "^5.3.0",
+    "stylus": "^0.59.0"
   },
   "devDependencies": {
     "electron": "^23.2.0",
