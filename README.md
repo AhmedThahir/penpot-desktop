@@ -8,9 +8,9 @@ Penpot Desktop delivers a desktop-like experience for Penpot users with the addi
 
 [Download for Windows](docs/install/WINDOWS.md)
 
-[Download for Windows](docs/install/MAC.md)
+[Download for macOS](docs/install/MAC.md)
 
-[Download for Windows](docs/install/LINUX.md)
+[Download for Linux](docs/install/LINUX.md)
 
 ## FAQ
 Q: Is this official software?
