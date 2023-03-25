@@ -7,7 +7,9 @@
 Penpot Desktop delivers a desktop-like experience for Penpot users with the additional of integrating tabs to conveniently traverse back and forth between projects. Offline support is available through the select your own instance option in settings, as well as the theme settings that may be applied to either the entire desktop app or simply the Penpot dashboard.
 
 [Download for Windows](docs/install/WINDOWS.md)
+
 [Download for Windows](docs/install/MAC.md)
+
 [Download for Windows](docs/install/LINUX.md)
 
 ## FAQ
