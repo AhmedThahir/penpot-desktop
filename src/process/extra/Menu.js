@@ -2,9 +2,8 @@ const {app, Menu} = require('electron')
 
 module.exports = {
     MainMenu: function () {
-        const isMac = process.platform === 'darwin'
         const template = [
-            ...(isMac ? [{
+            ...(process.platform === 'darwin' ? [{
             label: app.name,
             submenu: [
                 { role: 'about' },
@@ -21,7 +20,7 @@ module.exports = {
             {
             label: 'File',
             submenu: [
-                isMac ? { role: 'close' } : { role: 'quit' }
+                process.platform === 'darwin' ? { role: 'close' } : { role: 'quit' }
             ]
             },
             {
@@ -33,7 +32,7 @@ module.exports = {
                 { role: 'cut' },
                 { role: 'copy' },
                 { role: 'paste' },
-                ...(isMac ? [
+                ...(process.platform === 'darwin' ? [
                 { role: 'pasteAndMatchStyle' },
                 { role: 'delete' },
                 { role: 'selectAll' },
@@ -82,7 +81,7 @@ module.exports = {
             submenu: [
                 { role: 'minimize' },
                 { role: 'zoom' },
-                ...(isMac ? [
+                ...(process.platform === 'darwin' ? [
                 { type: 'separator' },
                 { role: 'front' },
                 { type: 'separator' },
