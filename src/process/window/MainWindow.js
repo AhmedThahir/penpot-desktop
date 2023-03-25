@@ -33,8 +33,10 @@ module.exports = {
       }
     })
     mainWindow.loadFile('src/base/index.html')
-    mainWindow.on('maximize', (e) => {mainWindow.webContents.executeJavaScript('MaximizeWindow()')})
-    mainWindow.on('unmaximize', (e) => {mainWindow.webContents.executeJavaScript('UnmaximizeWindow()')})
+    if (process.platform == 'linux') {mainWindow.on('maximize', (e) => {mainWindow.webContents.executeJavaScript('MaximizeWindow()')})}
+    if (process.platform == 'linux') {mainWindow.on('unmaximize', (e) => {mainWindow.webContents.executeJavaScript('UnmaximizeWindow()')})}
+    if (process.platform == 'darwin') {mainWindow.on('enter-full-screen', (e) => {mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.left = '0px'`)})}
+    if (process.platform == 'darwin') {mainWindow.on('leave-full-screen', (e) => {mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.left = '74px'`)})}
     ipcMain.on('MaximizeWindow', () => {mainWindow.maximize()})
     ipcMain.on('UnmaximizeWindow', () => {mainWindow.unmaximize()})
     AppMenu.MainMenu()

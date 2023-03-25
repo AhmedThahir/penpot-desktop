@@ -19,7 +19,7 @@
     "start": "npm run dev",
     "build": "electron-builder --config build/electron-builder.yml",
     "build:win": "electron-builder --config build/electron-builder.yml --win",
-    "dev": "concurrently --kill-others \"npm run scss:app\" \"npm start\"",
+    "dev": "concurrently --kill-others \"npm run scss:app\" \"electron .\"",
     "scss:app": "sass --watch src/base/frontend/stylesheets/index.scss:src/base/frontend/stylesheets/index.css"
   },
   "dependencies": {

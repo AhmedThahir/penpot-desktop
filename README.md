@@ -1,34 +1,14 @@
 ![Penpot Desktop](https://sudovanilla.com/content/images/Promo%20-%20Dark%20Background%20-%20Transparent%20-%20Slim.png)
 > This is unofficial software
 
+<a href="https://www.producthunt.com/posts/penpot-desktop?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-penpot&#0045;desktop" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=371642&theme=dark" alt="Penpot&#0032;Desktop - A&#0032;desktop&#0045;like&#0032;experience&#0032;for&#0032;Penpot | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 # Penpot Desktop
-Penpot Desktop delivers a desktop-like experience for Penpot users with the additional of integrating tabs to conveniently traverse back and forth between projects. Offline support is available through the select your own instance option in settings, as well as the theme settings that may be applied to either the entire desktop app or simply the Penpot dashboard.  
+Penpot Desktop delivers a desktop-like experience for Penpot users with the additional of integrating tabs to conveniently traverse back and forth between projects. Offline support is available through the select your own instance option in settings, as well as the theme settings that may be applied to either the entire desktop app or simply the Penpot dashboard.
 
-## Downloads
- - Windows - [Download](https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot%20Desktop%20-%20Setup.exe)
- - macOS - [Download](https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot.dmg)
-
-
-Linux Instructions:
-```bash
-# Setup
-## Debian/Ubuntu
-curl -1sLf \
-  'https://dl.cloudsmith.io/public/korbsstudio/penpot-desktop/setup.deb.sh' \
-  | sudo -E bash
-
-## Fedora/RHEL
-curl -1sLf \
-  'https://dl.cloudsmith.io/public/korbsstudio/penpot-desktop/setup.rpm.sh' \
-  | sudo -E bash
-
-# Install
-## Debian
-sudo apt install penpot-desktop
-
-## Fedora/RHEL
-sudo dnf install penpot-desktop
-```
+[Download for Windows](docs/install/WINDOWS.md)
+[Download for Windows](docs/install/MAC.md)
+[Download for Windows](docs/install/LINUX.md)
 
 ## FAQ
 Q: Is this official software?
@@ -119,6 +99,3 @@ _For more information and to report security issues, please refer to our [securi
 #### Packages Used
  - Building for distrubtion: [Electron Builder](https://github.com/electron-userland/electron-builder/)
  - Tabs and tab management: [Electron Tabs](https://github.com/brrd/electron-tabs)
- - Reducing terminal logs: [Run Electron](https://github.com/sindresorhus/run-electron)
- - Pretty logger: [Electron Timber](https://github.com/sindresorhus/electron-timber)
- - For blur composition effect: [Glasstron Clarity](https://sudovanilla.com/code/Korbs/Glasstron-Clarity)

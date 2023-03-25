@@ -1,4 +1,4 @@
-const {Menu} = require('electron')
+const {app, Menu} = require('electron')
 
 module.exports = {
     MainMenu: function () {
@@ -8,6 +8,8 @@ module.exports = {
             label: app.name,
             submenu: [
                 { role: 'about' },
+                { type: 'separator' },
+                { role: 'services' },
                 { type: 'separator' },
                 { role: 'hide' },
                 { role: 'hideOthers' },
@@ -93,14 +95,6 @@ module.exports = {
             {
             role: 'help',
             submenu: [
-                {
-                    label: 'Penpot Community',
-                    click: async () => {
-                        const { shell } = require('electron')
-                        await shell.openExternal('https://community.penpot.app/')
-                    }
-                },
-                { type: 'separator'},
                 {
                     label: 'User Guide',
                     click: async () => {
