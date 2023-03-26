@@ -1,3 +1,4 @@
+@import 'https://fonts.bunny.net/css?family=source-sans-pro:300,400,600';
 body {
   overflow: hidden;
   font-family: 'Source Sans Pro', sans-serif;
@@ -101,6 +102,23 @@ body {
   color: #000;
   padding: 0px 12px;
 }
+.titlebar-dropdown-menu .selector {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 24px;
+}
+.titlebar-dropdown-menu .selector .selector-image-base button {
+  background: rgba(42,42,42,0) !important;
+  width: max-content !important;
+  border: 1px #ffff1a solid !important;
+  padding: 0px 0px 0px 0px !important;
+}
+.titlebar-dropdown-menu .selector-image-base button #selected {
+  border: 1px #00ff89 solid !important;
+}
+.titlebar-dropdown-menu .selector-image-base button:hover {
+  border: 1px #ffff0d solid !important;
+}
 button#restart-required {
   width: max-content;
   background: #00ff89;
@@ -183,6 +201,36 @@ splash {
 splash img {
   width: 24px;
   margin-right: 12px;
+}
+@-moz-keyframes RevealSlideDown {
+  from {
+    opacity: 0;
+    transform: translate(0px, -24px);
+  }
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+@-webkit-keyframes RevealSlideDown {
+  from {
+    opacity: 0;
+    transform: translate(0px, -24px);
+  }
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+@-o-keyframes RevealSlideDown {
+  from {
+    opacity: 0;
+    transform: translate(0px, -24px);
+  }
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 }
 @-moz-keyframes RevealSlideDown {
   from {
