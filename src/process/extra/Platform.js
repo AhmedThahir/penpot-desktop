@@ -14,11 +14,11 @@ module.exports = {
     }, 1500)}
     else if (process.platform === 'win32') {setTimeout(() => {
       mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '144px'`)
-      mainWindow.webContents.executeJavaScript(`document.querySelector(".actions #instance").style.right = '113px'`)
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWF', '214px')`)
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWS', '400px')`)
     }, 1500)}
     else if (process.platform === 'linux') {setTimeout(() => {
+      mainWindow.webContents.executeJavaScript(`UnmaximizeWindow()`)
       mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-titlebar-buttons").style.display = 'inherit'`)
       mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '32px'`)
     }, 1500)}

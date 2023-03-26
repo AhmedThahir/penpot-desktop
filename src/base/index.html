@@ -3,7 +3,7 @@
         <title>Penpot Desktop</title>
         <link rel="stylesheet" href="./frontend/stylesheets/index.css">
     </head>
-    <body onload="InstanceGet(); UnmaximizeWindow()">
+    <body onload="InstanceGet()">
         <titlebar>
             <div class="actions">
                 <div class="action-buttons">
@@ -14,7 +14,7 @@
             <div id="settings" class="titlebar-dropdown-menu">
                 <i class="fa-sharp fa-solid fa-caret-up"></i>
                 <div class="tdm-content">
-                    <p>Penpot Instance <a onclick="window.open('./instance.html', '_blank', 'width=450, height=420, minWidth: 450, minHeight: 420, resizable: false, frame=true, autoHideMenuBar=true')" href="#">(What's this?)</a></p>
+                    <p>Penpot Instance <a onclick="window.open('./instance.html', '_blank', 'width=450, height=500, minWidth: 450, minHeight: 420, resizable: false, frame=true, autoHideMenuBar=true')" href="#">(What's this?)</a></p>
                     <input type="text" placeholder="Text" id="InstanceField" />
                     <input id="InstanceSaveButton" type="button" value="Save" onclick="InstanceSave()" />
                 </div>
