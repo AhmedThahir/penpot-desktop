@@ -12,8 +12,9 @@ module.exports = {
       minWidth: 1300,
       minHeight: 600,
       // Theme
-      backgroundColor: '#121212',
       darkTheme: true,
+      transparent: global.transparent, // Only enable for macOS to get Vibrancy effect
+      vibrancy: "sidebar",
       // Titlebar
       titleBarStyle: global.titleBarStyle,
       trafficLightPosition: { x: 10, y: 12 }, // for macOS
@@ -41,5 +42,6 @@ module.exports = {
     ipcMain.on('UnmaximizeWindow', () => {mainWindow.unmaximize()})
     AppMenu.MainMenu()
     Platform.CSS()
+    Platform.Extra()
   }
 }
