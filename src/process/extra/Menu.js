@@ -1,4 +1,5 @@
 const {app, Menu} = require('electron')
+let Platform = require('./Platform')
 
 module.exports = {
     MainMenu: function () {
@@ -20,7 +21,13 @@ module.exports = {
             {
             label: 'File',
             submenu: [
-                process.platform === 'darwin' ? { role: 'close' } : { role: 'quit' }
+                {
+                    label: "Close Tab",
+                    accelerator: "CmdOrCtrl+W",
+                    onclick: () => {
+                        mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector(".active .tab-close").click()`)
+                    }
+                }
             ]
             },
             {
@@ -54,15 +61,21 @@ module.exports = {
             {
             label: 'View',
             submenu: [
-                { role: 'reload' },
+                {
+                label: 'reload',
+                accelerator: 'CmdOrCtrl+R',
+                click: async () => {
+                    mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector(".active webview").reload()`)
+                }
+                },
                 { role: 'forceReload' },
                 { role: 'toggleDevTools' },
                 {
                 label: 'Open WebView Developer Tools',
-                accelerator: 'CmdOrCtrl+Shift+W',
+                accelerator: 'CmdOrCtrl+Shift+D',
                 click: async () => {
                     if (process.env.NODE_ENV === "development") {
-                        mainWindow.webContents.executeJavaScript(`document.querySelector('.active webview').openDevTools()`)
+                        mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector(".active webview").openDevTools()`)
                     } 
                     if (process.env.NODE_ENV === "production") {
                         console.log('Opening the WebView Developer Tools is not available in production.')
@@ -85,9 +98,15 @@ module.exports = {
                 { type: 'separator' },
                 { role: 'front' },
                 { type: 'separator' },
-                { role: 'window' }
+                {
+                    role: 'close',
+                    accelerator: "CmdOrCtrl+Shift+W"
+                }
                 ] : [
-                { role: 'close' }
+                {
+                    role: 'close',
+                    accelerator: "CmdOrCtrl+Shift+W"
+                }
                 ])
             ]
             },
