@@ -1,5 +1,6 @@
 const {app} = require('electron')
 module.exports = {
+  Extra: function () {if (process.platform == 'darwin') {global.transparent = true}},
   Icon: function () {
     // Set the appropriate icon for the operating system
     if        /* If macOS */    (process.platform == 'darwin')  {global.AppIcon = './src/base/frontend/media/images/penpot-logo/macOS/icon.icns'  }
@@ -8,6 +9,7 @@ module.exports = {
   },
   CSS: function () {
     if (process.platform === 'darwin') {setTimeout(() => {
+      mainWindow.webContents.executeJavaScript(`document.querySelector("body").style.backgroundColor = "rgb(31 31 31 / 25%)"`)
       mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.left = '74px'`)
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWF', '140px')`)
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWS', '350px')`)
