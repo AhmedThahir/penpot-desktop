@@ -1,4 +1,13 @@
 # Changelog
+## v0.2.3 Beta (In progress)
+ - Added vibrancy for macOS
+ - Removed pencil on macOS app icon
+ - ARM builds now available for macOS
+ - Keyboard shortcuts updated:
+   - `Ctrl` + `R` - Reload Tab
+   - `Ctrl` + `W` - Close Tab
+   - `Ctrl` + `Shift` + `W` - Close Window
+
 ## v0.2.2 Beta
  - Added settings dropdown
  - Updated tab style
