@@ -6,8 +6,9 @@ asar: true
 mac:
   darkModeSupport: true
   category: "public.app-category.graphics-design"
+  artifactName: Penpot-Desktop
   target:
-    - "dmg"
+    - "pkg"
 
 # Windows
 win:

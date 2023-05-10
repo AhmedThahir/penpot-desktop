@@ -2,3 +2,5 @@ node_modules/
 dist/
 .idea/
 .vscode/
+Penpot-Desktop.dmg
+.DS_Store
