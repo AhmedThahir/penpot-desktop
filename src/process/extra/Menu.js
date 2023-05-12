@@ -25,7 +25,7 @@ module.exports = {
                     label: "Close Tab",
                     accelerator: "CmdOrCtrl+W",
                     onclick: () => {
-                        mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector(".active .tab-close").click()`)
+                        mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav > div.tabs > .active > span.tab-close > button").click()`)
                     }
                 }
             ]
@@ -62,10 +62,10 @@ module.exports = {
             label: 'View',
             submenu: [
                 {
-                label: 'reload',
+                label: 'Reload',
                 accelerator: 'CmdOrCtrl+R',
                 click: async () => {
-                    mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector(".active webview").reload()`)
+                    mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview.visible").reload()`)
                 }
                 },
                 { role: 'forceReload' },
@@ -75,7 +75,7 @@ module.exports = {
                 accelerator: 'CmdOrCtrl+Shift+D',
                 click: async () => {
                     if (process.env.NODE_ENV === "development") {
-                        mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector(".active webview").openDevTools()`)
+                        mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview.visible").openDevTools()`)
                     } 
                     if (process.env.NODE_ENV === "production") {
                         console.log('Opening the WebView Developer Tools is not available in production.')
