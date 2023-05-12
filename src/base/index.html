@@ -103,6 +103,12 @@
                 }
             </style>
         </tab-group>
+        <div class="no-tabs-exist">
+            <div class="nte-content">
+                <p>Create a new tab.</p>
+                <button>New Tab</button>
+            </div>
+        </div>
     </body>
     <script src="https://kit.fontawesome.com/34da06dfa8.js" crossorigin="anonymous"></script>
     <script src="./frontend/javascript/settings/instance.js"></script>
@@ -110,3 +116,22 @@
     <script src="../../node_modules/electron-tabs/dist/electron-tabs.js"></script>
     <script type="module" src="./frontend/javascript/view/electron-tabs.js"></script>
 </html>
+
+<script>
+setTimeout(() => {
+    document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav > div.tabs > .active > span.tab-close > button").addEventListener('click', function(){ATWC()})
+    document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav > div.buttons > button").addEventListener('click', function(){ATWC()})
+}, 2000)
+function ATWC() {
+    var element =  document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav > div.tabs > *")
+    if (typeof(element) != 'undefined' && element != null)
+    {
+        document.querySelector('.no-tabs-exist').style.display = 'none'
+        document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav > div.tabs > .active > span.tab-close > button").addEventListener('click', function(){ATWC()})
+    }
+    else {
+        document.querySelector('.no-tabs-exist').style.display = 'inherit'
+        document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav > div.tabs > .active > span.tab-close > button").addEventListener('click', function(){ATWC()})
+    }
+}
+</script>

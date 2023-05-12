@@ -208,3 +208,32 @@ splash {
         margin-right: 12px
     }
 }
+
+// No Tabs Exist
+.no-tabs-exist {
+    display: none;
+    position: fixed;
+    top: 40px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    .nte-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        p {
+            opacity: 0.5;
+        }
+        button {
+            background: #00ff89;
+            color: black;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+    }
+}

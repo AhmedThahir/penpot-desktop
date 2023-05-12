@@ -3,6 +3,7 @@
  - Added vibrancy for macOS
  - Removed pencil on macOS app icon
  - ARM builds now available for macOS
+ - Added new message if all tabs are closed
  - Keyboard shortcuts updated:
    - `Ctrl` + `R` - Reload Tab
    - `Ctrl` + `W` - Close Tab
