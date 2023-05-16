@@ -1,7 +1,12 @@
-# Download and Install Penpot Desktop on Windows
-Penpot Desktop is available on the Snap Store or you can use a terminal.
+# Download and Install Penpot Desktop on Linux
 
-Via Terminal:
+ - [Repo (Terminal)](#repo)
+ - [Snap](#snap)
+ - Flatpak (In progress)
+ - Flathub (Help wanted)
+ - AUR (Help wanted)
+
+### Repo:
 ```
 # Setup
 ## Debian/Ubuntu
@@ -21,3 +26,11 @@ sudo apt install penpot-desktop
 ## Fedora/RHEL
 sudo dnf install penpot-desktop
 ```
+
+___
+
+### Snap:
+```
+sudo snap install penpot-desktop
+```
+[View on Snapcraft Store](https://snapcraft.io/penpot-desktop)
