@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Penpot Desktop
-Exec=${HOME}/.local/bin/penpot-desktop.AppImage %U
+Exec=/usr/local/bin/penpot-desktop.AppImage %U
 Terminal=false
 Type=Application
 Icon=penpot-desktop
