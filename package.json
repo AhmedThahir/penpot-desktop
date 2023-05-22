@@ -21,7 +21,7 @@
     "build:win": "electron-builder --config build/electron-builder.yml --win",
     "build:dmg": "sh ./build/build-dmg.sh",
     "dev": "concurrently --kill-others \"npm run scss:app\" \"electron .\"",
-    "scss:app": "stylus --watch src/base/frontend/stylesheets/index.styl src/base/frontend/stylesheets/index.css"
+    "scss:app": "sass --watch src/base/frontend/stylesheets/index.scss:src/base/frontend/stylesheets/index.css"
   },
   "dependencies": {
     "concurrently": "^7.6.0",
