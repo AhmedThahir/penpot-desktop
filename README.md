@@ -72,6 +72,8 @@ npm run build
 
 Then Electron builder will start building for your operating system.
 
+> On macOS, if Electron Builder says `/usr/bin/python` isn't found, that's because it should be looking for `/usr/bin/python3`. To fix this, the most easy workaround is to edit a file in `node_modules`. Edit the file `node_modules/dmg-builder/out/dmg.js` and change `python` on line 275 to `python3`. It should look like [this](https://i.imgur.com/RpbGWhS.png). Editing the `/usr/bin/` folder is almost impossible with newer versions of macOS.
+
 ___
 
 # Support
