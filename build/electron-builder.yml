@@ -6,14 +6,18 @@ asar: true
 mac:
   darkModeSupport: true
   category: "public.app-category.graphics-design"
-  artifactName: Penpot-Desktop
+  minimumSystemVersion: 10.10.5
   target:
-    - "pkg"
+    - "dmg" # Installer
+    - "zip" # Required for auto updater
+
+dmg:
+  sign: true
 
 # Windows
 win:
   target:
-    - "nsis" # Executable Setup
+    - "nsis" # Installer
 
 nsis:
   shortcutName: "Penpot Desktop"
@@ -33,8 +37,8 @@ linux:
   vendor: "SudoVanilla"
   description: "A Desktop-Like Experience"
   target:
-    - "deb"
-    - "rpm"
+    - "deb" # Debian/Ubuntu
+    - "rpm" # RHEL/Fedora
 
 snap:
   # allowNativeWayland: true # Electron Builder doesn't know this option, yet it's listed in their documentations for Snap. I've submitted an issue: electron-userland/electron-builder #7330
@@ -43,4 +47,4 @@ snap:
 # Update Server
 publish:
   provider: "generic"
-  url: "https://sudovanilla.com/distribute/applications/penpot-desktop/latest/"
+  url: "https://sudovanilla.com/distribute/applications/demo/latest/"
