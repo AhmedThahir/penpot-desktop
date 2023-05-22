@@ -1,9 +1,12 @@
 # Changelog
 ## v0.2.3 Beta (In progress)
- - Added vibrancy for macOS
- - Removed pencil on macOS app icon
+ - Auto updating now available for macOS
  - ARM builds now available for macOS
+ - Added vibrancy for macOS
  - Added new message if all tabs are closed
+ - Added DEB/RPM download links
+ - Fixed window dragging for Linux
+ - Removed pencil for macOS app icon
  - Keyboard shortcuts updated:
    - `Ctrl` + `R` - Reload Tab
    - `Ctrl` + `W` - Close Tab
