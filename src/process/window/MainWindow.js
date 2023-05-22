@@ -16,7 +16,7 @@ module.exports = {
       transparent: global.transparent, // Only enable for macOS to get Vibrancy effect
       vibrancy: "sidebar",
       // Titlebar
-      titleBarStyle: global.titleBarStyle,
+      titleBarStyle: 'hidden',
       trafficLightPosition: { x: 10, y: 12 }, // for macOS
       titleBarOverlay: { // For Windows
         color: '#1f1f1f',
