@@ -18,6 +18,6 @@ Platform.Icon()
 
 // Launch
 app.whenReady().then(() => {
-    autoUpdater.checkForUpdates()
+    autoUpdater.checkForUpdatesAndNotify()
     MainWindow.create()
 })
