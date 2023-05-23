@@ -22,11 +22,23 @@ module.exports = {
             label: 'File',
             submenu: [
                 {
+                    label: "New Tab",
+                    accelerator: "CmdOrCtrl+T",
+                    click: () => {
+                        mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav > div.buttons > button").click()`)
+                    }
+                },
+                {
                     label: "Close Tab",
                     accelerator: "CmdOrCtrl+W",
-                    onclick: () => {
+                    click: () => {
                         mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav > div.tabs > .active > span.tab-close > button").click()`)
                     }
+                },
+                {
+                    label: "New Window",
+                    accelerator: "CmdOrCtrl+N",
+                    click: () => {mainWindow.create()}
                 }
             ]
             },
@@ -62,24 +74,27 @@ module.exports = {
             label: 'View',
             submenu: [
                 {
-                label: 'Reload',
+                label: 'Reload Tab',
                 accelerator: 'CmdOrCtrl+R',
                 click: async () => {
                     mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview.visible").reload()`)
+                    setTimeout(() => {Platform.CSS()}, 1000)
                 }
                 },
-                { role: 'forceReload' },
+                {
+                label: 'Reload Window',
+                accelerator: 'CmdOrCtrl+Shift+R',
+                click: async () => {
+                    mainWindow.reload()
+                    setTimeout(() => {Platform.CSS()}, 1000)
+                }
+                },
                 { role: 'toggleDevTools' },
                 {
-                label: 'Open WebView Developer Tools',
+                label: 'Open Tab Developer Tools',
                 accelerator: 'CmdOrCtrl+Shift+D',
-                click: async () => {
-                    if (process.env.NODE_ENV === "development") {
-                        mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview.visible").openDevTools()`)
-                    } 
-                    if (process.env.NODE_ENV === "production") {
-                        console.log('Opening the WebView Developer Tools is not available in production.')
-                    }
+                click: () => {
+                    mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview.visible").openDevTools()`)
                 }},
                 { type: 'separator' },
                 { role: 'resetZoom' },
