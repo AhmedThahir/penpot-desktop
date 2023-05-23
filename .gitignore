@@ -4,3 +4,5 @@ dist/
 .vscode/
 Penpot-Desktop.dmg
 .DS_Store
+yarn.lock
+package-lock.json
