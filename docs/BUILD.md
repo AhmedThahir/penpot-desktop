@@ -10,7 +10,7 @@
  - At least 4GB of storage available, recommended is 8GB (macOS/Linux)
  - At least 8GB of storage available, recommended is 16GB (Windows)
 
-Also view [System Requirements](/docs/install/INSTALL.md#system-requirements)
+Also view [System Requirements](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/install/INSTALL.md#system-requirements)
 
 ## Building
 Now to build the actual software, this process has been made more simple over time during the development of Penpot Desktop, all thanks to GitHub Actions and Electron Builder. 

@@ -15,13 +15,13 @@ To switch Penpot Desktop to your self-hosted Penpot, click on the "Gear" icon in
 
 Q: There's an issue with the app, where do I get help?
 
-A: Please view the [support section](../README.md#support) of the README file. Email support is recommended for a faster response.
+A: Please view the [support section](https://sudovanilla.com/code/Korbs/Penpot-Desktop/README.md#support) of the README file. Email support is recommended for a faster response.
 
 <br>
 
 Q: What operating system does this support?
 
-A: View [System Requirements](/docs/install/INSTALL.md#system-requirements).
+A: View [System Requirements](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/install/INSTALL.md#system-requirements).
 
 <br>
 

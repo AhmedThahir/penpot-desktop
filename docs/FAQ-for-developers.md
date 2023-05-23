@@ -8,5 +8,3 @@ A.2 (What): "Electron is an open-source software framework developed and maintai
 Q: Can I use PNPM?
 
 A: No! It's come to my attention that the package `electron-updater` is not compatible with PNPM. This package is required for Electron Builder for the updater to work properly.
-
-Q: 

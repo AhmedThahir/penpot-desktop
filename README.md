@@ -8,14 +8,14 @@ Penpot Desktop delivers a desktop-like experience for Penpot users with the addi
 
 ## Quick Links
 Endusers:
- - [FAQ](/docs/FAQ.md)
- - Install [[Windows](/docs/install/WINDOWS.md), [Mac](/docs/install/MAC.md), [Linux](/docs/install/LINUX.md)]
- - [System Requirements](/docs/install/INSTALL.md#system-requirements)
- - [Changelog](/docs/CHANGELOG.md)
+ - [FAQ](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/FAQ.md)
+ - Install [[Windows](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/install/WINDOWS.md), [Mac](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/install/MAC.md), [Linux](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/install/LINUX.md)]
+ - [System Requirements](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/install/INSTALL.md#system-requirements)
+ - [Changelog](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/CHANGELOG.md)
 
 Developers:
- - [FAQ for Developers](/docs/FAQ-for-developers.md)
- - [Build Instructions](/docs/BUILD.md)
+ - [FAQ for Developers](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/FAQ-for-developers.md)
+ - [Build Instructions](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/BUILD.md)
 
 ## Mentions of Penpot Desktop
 [Is there a Desktop app option for Penpot?](https://community.penpot.app/t/is-there-a-desktop-app-option-for-penpot/2038) - Penpot Community
@@ -31,10 +31,10 @@ Reach out to the maintainer at one of the following places:
 - [Mastodon](https://fosstodon.org/@SudoVanilla)
 
 ### Contributing
-Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you for being involved!
+Please read [our contribution guidelines](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/CONTRIBUTING.md), and thank you for being involved!
 
 ### Security
 Penpot Desktop follows good practices of security, but 100% security cannot be assured.
 Penpot Desktop is provided **"as is"** without any **warranty**. Use at your own risk.
 
-_For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
+_For more information and to report security issues, please refer to our [security documentation](https://sudovanilla.com/code/Korbs/Penpot-Desktop/docs/SECURITY.md)._
