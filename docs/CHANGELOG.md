@@ -11,6 +11,7 @@
  - Added new message if all tabs are closed
  - Added DEB/RPM download links
  - Fixed window dragging for Linux
+ - Fixed positioning issue when reloading app
  - Removed pencil for macOS app icon
 
 ## v0.2.2 Beta

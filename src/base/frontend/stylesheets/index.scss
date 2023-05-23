@@ -16,6 +16,8 @@ $ActionBackgroundDark: #303236;
 :root {
     --navBarWF: 100px;
     --navBarWS: 280px;
+    --ActiveColor: #00ff89;
+    --ActiveColor50: rgba(193, 255, 226, 0.5);
 }
 
 // Animations
@@ -228,7 +230,7 @@ splash {
             opacity: 0.5;
         }
         button {
-            background: #00ff89;
+            background: var(--ActiveColor);
             color: black;
             border: none;
             padding: 8px 16px;
