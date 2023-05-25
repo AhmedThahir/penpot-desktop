@@ -44,3 +44,9 @@ function ATWC() {
         document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav > div.tabs > .active > span.tab-close > button").addEventListener('click', function(){ATWC()})
     }
 }
+
+// Splash
+function DestroySplash() {
+    document.querySelector('splash').style.opacity = '0'
+    document.querySelector('tab-group').style.opacity = '1'
+}
