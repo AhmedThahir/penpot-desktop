@@ -29,6 +29,9 @@
                 <button onclick="window.close()"><i class="fa-duotone fa-circle-xmark"></i></button>
             </div>
         </titlebar>
+        <splash>
+            <img src="./frontend/media/images/penpot-logo/logo-white.png">
+        </splash>
         <tab-group new-tab-button="true" sortable="true" class="full-window">
             <style>
                 :host {
@@ -69,13 +72,17 @@
                     border-radius: 4px;
                     margin: 4px;
                     height: 80%;
+                    transition: 0.4s border;
+                    border: 1px transparent solid !important;
                 }
                 .tab:not(.active):hover {
                     background: #3f4247 !important;
                     color: white !important;
+                    border: 1px var(--ActiveColor25) solid !important;
                 }
                 .tab.active {
-                    background: var(--ActiveColor50) !important;
+                    border: 1px var(--ActiveColor50) solid !important;
+                    transition: 0.4s border;
                 }
                 .tabs {
                     height: var(--tab-height);
@@ -104,6 +111,9 @@
                     z-index: 20 !important;
                     left: 0px !important;
                 }
+                .tab.active:last-child {
+                    border-right: inherit;
+                }
             </style>
         </tab-group>
         <div class="no-tabs-exist">
@@ -119,3 +129,15 @@
     <script src="../../node_modules/electron-tabs/dist/electron-tabs.js"></script>
     <script type="module" src="./frontend/javascript/view/electron-tabs.js"></script>
 </html>
+
+<script>
+    onload = () => {
+        setTimeout(() => {
+            const FirstWebview  = document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview")
+            setTimeout(() => {
+                const RemoveSplash = () => {DestroySplash()}
+                FirstWebview.addEventListener('did-finish-load', RemoveSplash)
+            }, 0250)
+        }, 1000)
+    }
+</script>

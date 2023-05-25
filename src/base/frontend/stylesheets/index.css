@@ -4,6 +4,7 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   color: white;
   background: #1f1f1f;
+  transition: 1s background;
 }
 
 * {
@@ -15,6 +16,7 @@ body {
   --navBarWS: 280px;
   --ActiveColor: #00ff89;
   --ActiveColor50: rgba(193, 255, 226, 0.5);
+  --ActiveColor25: rgba(193, 255, 226, 0.25);
 }
 
 @keyframes RevealSlideDown {
@@ -33,6 +35,11 @@ body {
   left: 0px;
   width: 100%;
   height: 100%;
+}
+
+tab-group {
+  opacity: 0;
+  transition: 2s opacity;
 }
 
 .actions {
@@ -197,7 +204,7 @@ div#plasma button:hover {
 }
 
 splash {
-  background: #121212;
+  background: transparent;
   position: fixed;
   z-index: 50;
   top: 0px;
@@ -208,9 +215,11 @@ splash {
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  opacity: 1;
+  transition: 0.4s opacity;
 }
 splash img {
-  width: 24px;
+  width: 64px;
   margin-right: 12px;
 }
 
