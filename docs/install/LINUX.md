@@ -14,7 +14,7 @@ curl -1sLf \
   'https://dl.cloudsmith.io/public/korbsstudio/penpot-desktop/setup.deb.sh' \
   | sudo -E bash
 
-## Fedora/RHEL
+## Fedora/RHEL/Suse
 curl -1sLf \
   'https://dl.cloudsmith.io/public/korbsstudio/penpot-desktop/setup.rpm.sh' \
   | sudo -E bash
@@ -24,8 +24,12 @@ curl -1sLf \
 sudo apt install penpot-desktop
 
 ## Fedora/RHEL
-sudo dnf install penpot-desktop
+sudo dnf install penpot-desktop # Yum can be used instead, if you want.
+
+## Suse
+sudo zypper install penpot-desktop
 ```
+*Instructions was provided by Cloudsmith*
 
 ___
 
