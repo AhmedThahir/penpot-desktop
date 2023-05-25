@@ -1,23 +1,6 @@
 // LocalStorage - Grab options set by end-user
 const Instance = localStorage.getItem('Instance')
 
-// Functions
-function NewTab() {
-  TabGroup.addTab(
-    {
-      active: true,
-      src: e.url,
-      ready: function (tab) {
-        const webview = tab.webview
-        webview.addEventListener('page-title-updated', () => {
-          const newTitle = webview.getTitle()
-          tab.setTitle(newTitle)
-        })
-      }
-    }
-  )
-}
-
 // Tab Group
 setTimeout(() => {
   // Select tab-group
@@ -32,8 +15,8 @@ setTimeout(() => {
       allowpopups: true,
     },
     ready: function (tab) {
+      TabGroup.on("tab-removed", (tab, tabGroup) => {ATWC()})
       const webview = tab.webview
-      tab.webview.addEventListener('new-window', (e) => {NewTab()})
       webview.addEventListener('page-title-updated', () => {
         const newTitle = webview.getTitle()
         tab.setTitle(newTitle)
@@ -50,8 +33,8 @@ setTimeout(() => {
       allowpopups: true,
     },
     ready: function (tab) {
+      TabGroup.on("tab-removed", (tab, tabGroup) => {ATWC()})
       const webview = tab.webview
-      tab.webview.addEventListener('new-window', (e) => {NewTab()})
       webview.addEventListener('page-title-updated', () => {
         const newTitle = webview.getTitle()
         tab.setTitle(newTitle)
