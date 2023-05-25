@@ -47,4 +47,4 @@ snap:
 # Update Server
 publish:
   provider: "generic"
-  url: "https://sudovanilla.com/distribute/applications/demo/latest/"
+  url: "https://sudovanilla.com/distribute/applications/penpot-desktop/latest/"
