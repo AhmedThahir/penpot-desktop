@@ -55,3 +55,13 @@ The following packages are required:
 ```
 bash <(wget -qO- https://sudovanilla.com/content/files/sh/penpot-desktop-install.sh)
 ```
+
+___
+
+## Troubleshooting
+### Repo
+**Distro not supported**
+For Ubuntu/Debian based distros, use the following:
+```
+curl -1sLf   'https://dl.cloudsmith.io/public/korbsstudio/penpot-desktop/setup.deb.sh' | distro=ubuntu version=16.04 codename=xenial sudo -E bash
+```
