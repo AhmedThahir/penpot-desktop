@@ -1,0 +1,26 @@
+---
+kind: pipeline
+type: ssh
+name: Build on macOS (M2)
+
+clone:
+  retries: 3
+
+server:
+  host:
+    from_secret: SFTP_IP_MAC
+  user:
+    from_secret: SFTP_USERNAME_MAC
+  password:
+    from_secret: SFTP_PASSWORD_MAC
+
+steps:
+- name: Build
+  commands:
+    - yarn
+    - yarn bulid
+    - mv dist/Penpot*.dmg dist/Penpot.dmg
+    - mv dist/Penpot*.zip dist/Penpot.zip
+    - rm /opt/homebrew/var/www/automation/penpot-desktop/*
+    - cp dist/Penpot.dmg /opt/homebrew/var/www/automation/penpot-desktop/
+    - cp dist/Penpot.zip /opt/homebrew/var/www/automation/penpot-desktop/
