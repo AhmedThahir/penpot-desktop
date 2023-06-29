@@ -15,12 +15,13 @@ server:
     from_secret: SFTP_PASSWORD_MAC
 
 steps:
-- name: Build
+- name: Build                                                                                                                            
+  privileged: true
   commands:
-    - npm
-    - npm run build
+    - yarn
+    - yarn bulid
     - mv dist/Penpot*.dmg dist/Penpot.dmg
     - mv dist/Penpot*.zip dist/Penpot.zip
     - rm /opt/homebrew/var/www/automation/penpot-desktop/*
     - cp dist/Penpot.dmg /opt/homebrew/var/www/automation/penpot-desktop/
-    - cp dist/Penpot.zip /opt/homebrew/var/www/automation/penpot-desktop/https://laszlo.cloud/the-ultimate-droneci-caching-guide
+    - cp dist/Penpot.zip /opt/homebrew/var/www/automation/penpot-desktop/
