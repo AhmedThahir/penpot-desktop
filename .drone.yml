@@ -18,6 +18,7 @@ steps:
 - name: Build                                                                                                                            
   privileged: true
   commands:
+    - ls / # Comfirn this is running on the Mac
     - yarn
     - yarn bulid
     - mv dist/Penpot*.dmg dist/Penpot.dmg
