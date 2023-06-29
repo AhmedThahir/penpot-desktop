@@ -50,6 +50,9 @@ tab-group {
 
 // Titlebar
 /// Actions
+.linux-setting {
+    display: none;
+}
 .actions {
     position: fixed;
     right: 0px;
@@ -58,9 +61,6 @@ tab-group {
     padding: 6px 6px 0px 0px;
     cursor: default;
     -webkit-app-region: no-drag;
-    .linux-setting {
-        display: none;
-    }
     .action-buttons {
 		display: flex;
 		align-items: center;
