@@ -53,11 +53,14 @@ tab-group {
 .actions {
     position: fixed;
     right: 0px;
-    z-index: 12;
+    z-index: 10;
     top: 0px;
     padding: 6px 6px 0px 0px;
     cursor: default;
     -webkit-app-region: no-drag;
+    .linux-setting {
+        display: none;
+    }
     .action-buttons {
 		display: flex;
 		align-items: center;
@@ -134,6 +137,18 @@ tab-group {
         }
     }
 }
+
+.image-buttons-ts {
+    display: block;
+}
+.image-buttons-ts button {
+    width: inherit !important;
+    border: 1px #383838 solid !important;
+    padding: 0px !important;
+    background: #2a2a2a !important;
+    cursor: pointer;
+}
+
 button#restart-required {
     width: max-content;
     background: #00ff89;
@@ -141,30 +156,21 @@ button#restart-required {
     margin-right: 4px;
 }
 
-.linux-titlebar-buttons {
+.linux-custom-titlebar-buttons {
     position: fixed;
-    right: 12px;
-    top: 0px;
-    z-index: 50;
-}
-
-#gtk button {
-    -webkit-app-region: no-drag;
-    height: 40px;
-    width: 40px;
-    border: none;
-    font-size: 24px;
-    background: transparent;
-    color: #444444;
-    border-right: 1px #1f1f1f solid;
-    margin-right: -12px;
-}
-#gtk button:hover {
-    filter: brightness(1.4);
-}
-
-svg.svg-inline--fa.fa-circle-xmark path.fa-primary {
-    color: white;
+    right: 4px;
+    top: 4px;
+    z-index: 10;
+    button {
+        background-color: transparent;
+        border: none;
+        border-radius: 50px;
+        margin-left: -5px;
+        img {
+            width: 24px;
+            height: 32px;
+        }
+    }
 }
 
 div#plasma {
@@ -203,7 +209,7 @@ div#plasma {
 splash {
     background: transparent;
     position: fixed;
-    z-index: 50;
+    z-index: 9;
     top: 0px;
     left: 0px;
     width: 100%;

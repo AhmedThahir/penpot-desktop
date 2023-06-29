@@ -1,0 +1,6 @@
+.lctb-theme-gkt {display: inherit}
+.lctb-theme-kde {display: none}
+
+button[onclick="SwitchLinuxTitlebarTheme('./frontend/stylesheets/settings/linux-titlebar/gnome.css')"] {
+    border: 1px var(--ActiveColor) solid !important;
+}

@@ -2,6 +2,7 @@
     <head>
         <title>Penpot Desktop</title>
         <link rel="stylesheet" href="./frontend/stylesheets/index.css">
+        <link id="linux-titlebar-settings" rel="stylesheet" type="text/css" href="./frontend/stylesheets/settings/linux-titlebar/none.css">
     </head>
     <body onload="InstanceGet()">
         <titlebar>
@@ -12,21 +13,37 @@
                 </div>
             </div>
             <div id="settings" class="titlebar-dropdown-menu">
-                <i class="fa-sharp fa-solid fa-caret-up"></i>
                 <div class="tdm-content">
                     <p>Penpot Instance <a onclick="window.open('./instance.html', '_blank', 'width=450, height=500, minWidth: 450, minHeight: 420, resizable: false, frame=true, autoHideMenuBar=true')" href="#">(What's this?)</a></p>
-                    <input type="text" placeholder="Text" id="InstanceField" />
+                    <input type="text" placeholder="https://design.penpot.app/" id="InstanceField" />
                     <input id="InstanceSaveButton" type="button" value="Save" onclick="InstanceSave()" />
+                    <div class="linux-setting">
+                        <hr>
+                        <p>Titlebar Theme</p>
+                        <div class="image-buttons-ts">
+                            <button onclick="SwitchLinuxTitlebarTheme('./frontend/stylesheets/settings/linux-titlebar/gnome.css')"><img src="./frontend/media/images/titlebar/linux/GNOME.png"></button>
+                            <button onclick="SwitchLinuxTitlebarTheme('./frontend/stylesheets/settings/linux-titlebar/kde.css')"><img src="./frontend/media/images/titlebar/linux/KDE.png"></button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- <div style="display: none" id="plasma" class="linux-titlebar-buttons">
-                <button><i class="fa-light fa-chevron-down"></i></button>
-                <button onclick="MaximizeWindow(); ProcessMaximizeWindow()" id="plasma-window-is-unmax"><i class="fa-light fa-chevron-up"></i></button>
-                <button onclick="UnmaximizeWindow(); ProcessUnmaximizeWindow()" id="plasma-window-is-max"><i class="fa-light fa-diamond"></i></button>
-                <button onclick="window.close()"><i class="fa-light fa-xmark"></i></button>
-            </div> -->
-            <div style="display: none" id="gtk" class="linux-titlebar-buttons">
-                <button onclick="window.close()"><i class="fa-duotone fa-circle-xmark"></i></button>
+            <div class="linux-custom-titlebar-buttons">
+                <button onclick="window.api.send('MinimizeWindow')" class="lctb-min-button">
+                    <div class="lctb-theme-gkt"><img src="./frontend/media/images/titlebar/linux/buttons/gnome-min.svg"></div>
+                    <div class="lctb-theme-kde"><img src="./frontend/media/images/titlebar/linux/buttons/kde-min.svg"></div>
+                </button>
+                <button onclick="window.api.send('MaximizeWindow')" class="lctb-max-button">
+                    <div class="lctb-theme-gkt"><img src="./frontend/media/images/titlebar/linux/buttons/gnome-max.svg"></div>
+                    <div class="lctb-theme-kde"><img src="./frontend/media/images/titlebar/linux/buttons/kde-max.svg"></div>
+                </button>
+                <button style="display: none" onclick="window.api.send('UnmaximizeWindow')" class="lctb-unmax-button">
+                    <div class="lctb-theme-gkt"><img src="./frontend/media/images/titlebar/linux/buttons/gnome-max.svg"></div>
+                    <div class="lctb-theme-kde"><img src="./frontend/media/images/titlebar/linux/buttons/kde-max.svg"></div>
+                </button>
+                <button onclick="window.close()" class="lctb-close-button">
+                    <div class="lctb-theme-gkt"><img src="./frontend/media/images/titlebar/linux/buttons/gnome-close.svg"></div>
+                    <div class="lctb-theme-kde"><img src="./frontend/media/images/titlebar/linux/buttons/kde-close.svg"></div>
+                </button>
             </div>
         </titlebar>
         <splash>
@@ -125,6 +142,7 @@
     </body>
     <script src="https://kit.fontawesome.com/34da06dfa8.js" crossorigin="anonymous"></script>
     <script src="./frontend/javascript/settings/instance.js"></script>
+    <script src="./frontend/javascript/settings/linux-titlebar.js"></script>
     <script src="./frontend/javascript/view/toggles.js"></script>
     <script src="../../node_modules/electron-tabs/dist/electron-tabs.js"></script>
     <script type="module" src="./frontend/javascript/view/electron-tabs.js"></script>
@@ -137,7 +155,7 @@
             setTimeout(() => {
                 const RemoveSplash = () => {DestroySplash()}
                 FirstWebview.addEventListener('did-finish-load', RemoveSplash)
-            }, 0250)
+            }, 0o250)
         }, 1000)
     }
 </script>

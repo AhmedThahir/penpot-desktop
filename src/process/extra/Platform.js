@@ -20,9 +20,10 @@ module.exports = {
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWS', '400px')`)
     }, 1500)}
     else if (process.platform === 'linux') {setTimeout(() => {
-      // mainWindow.webContents.executeJavaScript(`UnmaximizeWindow()`) // For KDE option
+      mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-setting").style.display = 'inherit'`)
       mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-titlebar-buttons").style.display = 'inherit'`)
-      mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '32px'`)
+      mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '102px'`)
+      mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWF', '144px')`)
     }, 1500)}
   }
 }

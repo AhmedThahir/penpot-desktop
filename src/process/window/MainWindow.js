@@ -34,12 +34,22 @@ module.exports = {
       }
     })
     mainWindow.loadFile('src/base/index.html')
-    if (process.platform == 'linux') {mainWindow.on('maximize', (e) => {mainWindow.webContents.executeJavaScript('MaximizeWindow()')})}
-    if (process.platform == 'linux') {mainWindow.on('unmaximize', (e) => {mainWindow.webContents.executeJavaScript('UnmaximizeWindow()')})}
+    // Traffic Light buttons aren't show in entering fullscreen, scoot tabs over to the left
     if (process.platform == 'darwin') {mainWindow.on('enter-full-screen', (e) => {mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.left = '0px'`)})}
     if (process.platform == 'darwin') {mainWindow.on('leave-full-screen', (e) => {mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.left = '74px'`)})}
-    ipcMain.on('MaximizeWindow', () => {mainWindow.maximize()})
-    ipcMain.on('UnmaximizeWindow', () => {mainWindow.unmaximize()})
+    // Window Controls for Linux
+    ipcMain.on('MaximizeWindow', () => {
+      mainWindow.maximize()
+      mainWindow.webContents.executeJavaScript(`document.querySelector(".lctb-max-button").style.display = 'none'`)
+      mainWindow.webContents.executeJavaScript(`document.querySelector(".lctb-unmax-button").style.display = 'initial'`)
+    })
+    ipcMain.on('UnmaximizeWindow', () => {
+      mainWindow.unmaximize()
+      mainWindow.webContents.executeJavaScript(`document.querySelector(".lctb-unmax-button").style.display = 'none'`)
+      mainWindow.webContents.executeJavaScript(`document.querySelector(".lctb-max-button").style.display = 'initial'`)
+    })
+    ipcMain.on('MinimizeWindow', () => {mainWindow.minimize()})
+    // Other Functions
     AppMenu.MainMenu()
     Platform.CSS()
     Platform.Extra()
