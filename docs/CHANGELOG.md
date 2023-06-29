@@ -13,6 +13,7 @@
  - Fixed window dragging for Linux
  - Fixed positioning issue when reloading app
  - Removed pencil for macOS app icon
+ - Added Titlebar Theme Options for Linux
 
 ## v0.2.2 Beta
  - Added settings dropdown
