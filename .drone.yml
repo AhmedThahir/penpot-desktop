@@ -17,8 +17,9 @@ server:
 steps:
 - name: Build                                                                                                                            
   commands:
-    - /usr/local/bin/yarn
-    - /usr/local/bin/yarn bulid
+    - homebrew install yarn
+    - yarn
+    - yarn bulid
     - mv dist/Penpot*.dmg dist/Penpot.dmg
     - mv dist/Penpot*.zip dist/Penpot.zip
     - rm /opt/homebrew/var/www/automation/penpot-desktop/*
