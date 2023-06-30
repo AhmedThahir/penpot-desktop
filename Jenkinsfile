@@ -11,5 +11,14 @@ pipeline {
                 sh 'ls'
             }
         }
+        stage('Make sure Yarn works') {
+            agent any
+            steps {
+                echo 'Hello from the Mac server'
+                sh 'ls /'
+                sh 'yarn --help'
+                sh 'npm --help'
+            }
+        }
     }
 }
