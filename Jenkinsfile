@@ -1,20 +1,14 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
         stage('Test') {
-            steps {
-                echo 'Testing..'
+            agent { 
+                label 'mainserver'
             }
-        }
-        stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                echo 'Hello from the main server'
+                sh 'ls'
             }
         }
     }
