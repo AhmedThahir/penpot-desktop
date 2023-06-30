@@ -8,7 +8,9 @@ pipeline {
             }
             steps {
                 echo 'Hello from the main server'
-                sh 'ls'
+                sh 'ls /'
+                sh 'yarn --help'
+                sh 'npm --help'
             }
         }
         stage('Make sure Yarn works') {
