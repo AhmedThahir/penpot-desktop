@@ -1,15 +1,9 @@
-name: Gitea Actions Demo
-run-name: ${{ gitea.actor }} is testing out Gitea Actions 🚀
+name: test
+run-name: test
 on: [push]
 
 jobs:
-  Explore-Gitea-Actions:
+  build:
     runs-on: mac
     steps:
-      - run: |
-     cd /Users/korbsstudio/Documents/gitea-actions/
-     git clone https://sudovanilla.com/code/Korbs/Penpot-Desktop
-     cd Penpot-Desktop
-     yarn
-     yarn bulid
-     
+      - uses: sudovanilla.com/code/actions/checkout@v3 
