@@ -5,6 +5,8 @@ Download the DMG file: https://sudovanilla.com/distribute/applications/penpot-de
 Open the DMG file and drag the Penpot icon into the Application folder.
 
 ## First Launch
+> Update June 30th, 2023: In the latest update (v0.2.33), the files have been signed and the instruction below may no longer be needed to install Penpot Desktop.
+
 (This is a temporary work-around until the issue is resolved.)
 When you launch the Penpot desktop app for the first time, macOS (from approx. version 11 and higher) may not allow it [to launch for security reasons](https://support.apple.com/en-gb/guide/mac-help/mh40616/12.0/mac/12.0).
 
