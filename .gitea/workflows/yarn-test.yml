@@ -6,4 +6,7 @@ jobs:
   build:
     runs-on: mac
     steps:
-      - uses: actions/checkout@v3
+      - run: cd /Users/korbsstudio/Documents/gitea-actions/
+      - run: git clone https://sudovanilla.com/code/Korbs/Penpot-Desktop && cd Penpot-Desktop
+      - run: ls
+      - run: yarn
