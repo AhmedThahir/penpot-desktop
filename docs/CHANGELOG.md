@@ -1,5 +1,5 @@
 # Changelog
-## v0.2.3 Beta (In progress)
+## v0.2.3 Beta
  - Auto updating now available for macOS
  - ARM builds now available for macOS
  - Updated DMG background installer
