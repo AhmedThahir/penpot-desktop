@@ -1,20 +1,36 @@
-// import {darkmode} from "./theme-dark.js"
-// Instead of the tab name being "PROJECT_NAME_HERE - Penpot", this script will remove the " - Penpot" portion.
-function setTitle() {
-    document.title = document.querySelector("#workspace > header > div.left-area > div.menu-section > div.project-tree > span:nth-child(2)").innerText // Find the project name
+// Set the title of the tab name
+/// Instead of the tab name being "PAGE_NAME - Penpot", this script will remove the " - Penpot" portion.
+function setTitleDash() {document.title = "Penpot Dashboard"}
+function setTitle() {document.title = document.querySelector("#workspace > header > div.left-area > div.menu-section > div.project-tree > span:nth-child(2)").innerText}
+
+function titleModified() {
+    if (document.querySelector(".dashboard-layout") !== null) {
+        setTitleDash() // Set title to "Penpot Dashboard"
+    }
+    if (document.querySelector("#workspace") !== null) {
+        setTitle() // Set title to only project name
+    }
+    else {}
 }
 
-function ProjectNameCA() {
-    if (document.querySelector("#workspace > aside.left-toolbar > ul:nth-child(1) > li:nth-child(1) > button") !== null) {
-        setTitle() // Set title to only project name
-        setTimeout(() => { // Use setTimeout or it will result with maximum call stack size exceeded
-            ProjectNameCA() // Check again
-        }, 1000)
+
+/// Credit: https://stackoverflow.com/a/2499119/15103862
+window.onload = function() {
+    var titleEl = document.getElementsByTagName("title")[0]
+    var docEl = document.documentElement
+
+    if (docEl && docEl.addEventListener) {
+        docEl.addEventListener("DOMSubtreeModified", function(evt) {
+            var t = evt.target
+            if (t === titleEl || (t.parentNode && t.parentNode === titleEl)) {
+                titleModified()
+            }
+        }, false)
     } else {
-        setTimeout(() => { // Use setTimeout or it will result with maximum call stack size exceeded
-            ProjectNameCA() // Check again
-        }, 1000)
+        document.onpropertychange = function() {
+            if (window.event.propertyName == "title") {
+                titleModified()
+            }
+        }
     }
 }
-
-ProjectNameCA()

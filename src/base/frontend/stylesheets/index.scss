@@ -1,23 +1,25 @@
-@import url(https://fonts.bunny.net/css?family=poppins:100,300,700|source-sans-pro:300,400,600);
+@import url("https://fonts.bunny.net/css?family=source-sans-pro:300,400,600");
 
 body {
     overflow: hidden;
     font-family: 'Source Sans Pro', sans-serif;
     color: white;
     background: #1f1f1f;
+    transition: 1s background;
 }
 
-* {
-    outline: none;
-}
+* {outline: none}
 
 // Root
 $ActionBackgroundDark: #fff;
 $ActionBackgroundDark: #303236;
 
 :root {
-    --navBarWF: 70px;
+    --navBarWF: 100px;
     --navBarWS: 280px;
+    --ActiveColor: #00ff89;
+    --ActiveColor50: rgba(193, 255, 226, 0.5);
+    --ActiveColor25: rgba(193, 255, 226, 0.25);
 }
 
 // Animations
@@ -41,23 +43,35 @@ $ActionBackgroundDark: #303236;
     height: 100%;
 }
 
+tab-group {
+    opacity: 0;
+    transition: 2s opacity;
+}
+
 // Titlebar
 /// Actions
+.linux-setting {
+    display: none;
+}
 .actions {
     position: fixed;
     right: 0px;
-    z-index: 12;
+    z-index: 10;
     top: 0px;
     padding: 6px 6px 0px 0px;
     cursor: default;
     -webkit-app-region: no-drag;
+    .action-buttons {
+		display: flex;
+		align-items: center;
+    }
     button {
         background: transparent;
         color: white;
         border: none;
-        padding: 7px;
+        padding: 9px;
         border-radius: 4px;
-        width: 27px;
+        width: 32px;
         -webkit-app-region: no-drag;
         background: #1f1f1f;
     }
@@ -68,17 +82,73 @@ $ActionBackgroundDark: #303236;
         width: 270px;
         right: 0px;
         -webkit-app-region: no-drag;
-        input {
-            background: #3d3d3d;
+    }
+}
+
+.titlebar-dropdown-menu {
+    display: none;
+    .fa-caret-up {
+        position: fixed;
+        top: 35px;
+        right: 45px;
+        z-index: 10;
+        color: #1f1f1f;
+        font-size: 24px;
+    }
+    .tdm-content {
+        position: fixed;
+        z-index: 10;
+        right: 12px;
+        top: 50px;
+        background: #303236;
+        border-radius: 6px;
+        border: 1px #1f1f1f solid;
+        padding: 0px 12px 12px 12px;
+        p {cursor: default}
+        a {color: white}
+        button {
+            background: transparent;
             color: white;
             border: none;
+            padding: 9px;
+            border-radius: 4px;
+            width: 32px;
+            -webkit-app-region: no-drag;
+            background: #1f1f1f;
+        }
+        input {
+            box-sizing: border-box;
+            font-family: "worksans", sans-serif;
+            background-color: #3f4247;
+            border-radius: 2px;
+            border: 1px solid #b1b2b5;
+            color: white;
+            font-size: 0.875rem;
             height: 32px;
+            margin: 0;
+            padding: 14px 14px 0 14px;
+            padding-top: 0;
+            padding-right: 50px;
+        }
+        input#InstanceSaveButton {
+            background: white;
+            color: black;
             padding: 0px 12px;
-            margin-top: 4px;
-            border-radius: 6px;
         }
     }
 }
+
+.image-buttons-ts {
+    display: block;
+}
+.image-buttons-ts button {
+    width: inherit !important;
+    border: 1px #383838 solid !important;
+    padding: 0px !important;
+    background: #2a2a2a !important;
+    cursor: pointer;
+}
+
 button#restart-required {
     width: max-content;
     background: #00ff89;
@@ -86,37 +156,60 @@ button#restart-required {
     margin-right: 4px;
 }
 
-.linux-titlebar-buttons {
+.linux-custom-titlebar-buttons {
     position: fixed;
+    right: 4px;
+    top: 4px;
+    z-index: 10;
+    button {
+        background-color: transparent;
+        border: none;
+        border-radius: 50px;
+        margin-left: -5px;
+        img {
+            width: 24px;
+            height: 32px;
+        }
+    }
+}
+
+div#plasma {
+    position: fixed;
+    top: 8px;
     right: 12px;
-    top: 0px;
-    z-index: 50;
-}
-
-#gtk button {
-    -webkit-app-region: no-drag;
-    height: 40px;
-    width: 40px;
-    border: none;
-    font-size: 24px;
-    background: transparent;
-    color: #444444;
-    border-right: 1px #1f1f1f solid;
-    margin-right: -12px;
-}
-#gtk button:hover {
-    filter: brightness(1.4);
-}
-
-svg.svg-inline--fa.fa-circle-xmark path.fa-primary {
-    color: white;
+    width: max-content;
+    button[onclick="window.close()"] {
+        background: white;
+        color: black;
+    }
+    button#plasma-window-is-max svg {font-size: 10px}
+    button#plasma-window-is-max {display: none}
+    button#plasma-window-is-unmax {display: inherit}
+    button {
+        background: transparent;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        aspect-ratio: 1;
+        height: 18px;
+        width: 18px;
+        font-size: 12px;
+        padding: 0px;
+        margin-left: 2px;
+        transition: 0.2s background, 0.2s color;
+    }
+    button:hover {
+        background: white;
+        color: black;
+        transition: 0.2s background, 0.2s color;
+    }
 }
 
 // Splash
 splash {
-    background: #121212;
+    background: transparent;
     position: fixed;
-    z-index: 50;
+    z-index: 9;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -125,8 +218,39 @@ splash {
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    opacity: 1;
+    transition: 0.4s opacity;
     img {
-        width: 24px;
+        width: 64px;
         margin-right: 12px;
+    }
+}
+
+// No Tabs Exist
+.no-tabs-exist {
+    display: none;
+    position: fixed;
+    top: 40px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    .nte-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        p {
+            opacity: 0.5;
+        }
+        button {
+            background: var(--ActiveColor);
+            color: black;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
     }
 }

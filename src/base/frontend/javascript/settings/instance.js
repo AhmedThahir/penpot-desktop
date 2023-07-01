@@ -1,44 +1,22 @@
-function ShowModal_Instance() {
-  document.querySelector("#instance").style.display = 'inherit'
-  document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.width = 'calc(100% - var(--navBarWS))'
+function InstanceSave() { // If save button is clicked
+  let InstanceField = document.querySelector("input#InstanceField").value
+  localStorage.setItem('Instance', InstanceField)
+
+  document.querySelector("#InstanceSaveButton").style.backgroundColor = '#00ff89'
+  document.querySelector("#InstanceSaveButton").setAttribute('value', 'Saved!')
+  setTimeout(() => {
+    document.querySelector("#InstanceSaveButton").style.backgroundColor = 'white'
+    document.querySelector("#InstanceSaveButton").setAttribute('value', 'Save')
+  }, 1200)
 }
 
-function HideModal_Instance() {
-  document.querySelector("#instance").style.display = 'none'
-  document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.width = 'calc(100% - var(--navBarWF))'
+function InstanceGet() { // Runs on start
+  let InstanceStore = localStorage.getItem('Instance')
+  if(InstanceStore) {document.querySelector("input#InstanceField").value = InstanceStore}
 }
-
-setTimeout(() => {
-    const customHostname = document.querySelector("#hostField")
-    const textHN = document.querySelector("#instance > p")
-    const buttonHN = document.querySelector('#cswU');
-  
-    customHostname.addEventListener('input', name => {
-      textHN.textContent = name.target.value
-    })
-  
-    const saveToLocal = () => {
-      localStorage.setItem('customHostname', textHN.textContent)
-    }
-  
-    buttonHN.addEventListener('click', saveToLocal)
-  
-    const hostname = localStorage.getItem('customHostname')
-  
-    if (customHostname) {
-      textHN.textContent = hostname;
-    }
-    document.querySelector("#hostField").value = document.querySelector("#hostField").value + hostname
-}, 0500); // Wait a moment
 
 if(!localStorage.getItem("firstTime")){
-  localStorage.setItem('customHostname', 'https://design.penpot.app/') // If not set, by default on first launch, the app will be blank (to fix issue #3)
-  localStorage.setItem("firstTime","true");
-  setTimeout(() => {
-    welcome()
-  }, 1000);
+  localStorage.setItem('Instance', 'https://design.penpot.app/') // If not set, by default on first launch, the app will be blank (to fix issue #3)
+  localStorage.setItem("firstTime","true")
+  // setTimeout(() => {welcome()}, 2500)
 }else{}
-
-function InstanceSaved() {
-  document.querySelector("#restart-required").removeAttribute('hidden')
-}

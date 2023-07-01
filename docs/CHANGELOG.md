@@ -1,4 +1,28 @@
 # Changelog
+## v0.2.3 Beta
+ - Auto updating now available for macOS
+ - ARM builds now available for macOS
+ - Updated DMG background installer
+ - Updated keyboard shortcuts:
+   - `Ctrl` + `R` - Reload Tab
+   - `Ctrl` + `W` - Close Tab
+   - `Ctrl` + `Shift` + `W` - Close Window
+ - Added vibrancy for macOS
+ - Added new message if all tabs are closed
+ - Added DEB/RPM download links
+ - Fixed window dragging for Linux
+ - Fixed positioning issue when reloading app
+ - Removed pencil for macOS app icon
+ - Added Titlebar Theme Options for Linux
+
+## v0.2.2 Beta
+ - Added settings dropdown
+ - Updated tab style
+ - Updated title script for tabs
+ - Updated script for instance setting
+ - Removed unused code
+ - Bug fixes
+
 ## v0.2.0 Beta
  - Rewritten code
  - Updated Electron from `21.1.1` to `23.0.0`

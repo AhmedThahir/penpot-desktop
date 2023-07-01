@@ -2,35 +2,57 @@
     <head>
         <title>Penpot Desktop</title>
         <link rel="stylesheet" href="./frontend/stylesheets/index.css">
-        <!-- <link rel="stylesheet" href="./css/fonts.css"> -->
+        <link id="linux-titlebar-settings" rel="stylesheet" type="text/css" href="./frontend/stylesheets/settings/linux-titlebar/none.css">
     </head>
-    <body>
+    <body onload="InstanceGet()">
         <titlebar>
             <div class="actions">
                 <div class="action-buttons">
                     <button hidden style="pointer-events: none" id="restart-required">Restart Required</button>
-                    <!-- <button title="Toggle Theme"><i class="fa-sharp fa-solid fa-toggle-large-on"></i></button> -->
-                    <button title="Change Instance" onclick="ShowModal_Instance()"><i class="fa-sharp fa-solid fa-server"></i></button>
+                    <button title="Open Settings" onclick="ToggleSettings()"><i class="fa-sharp fa-solid fa-gear"></i></button>
                 </div>
-                <div class="action-modals">
-                    <div style="display: none;" id="instance" class="action-modal">
-                        <input type="text" id="hostField">
-                        <p class="lead mt-3 setName" style="display: none;"></p>
-                        <button onclick="HideModal_Instance();"><i class="fa-sharp fa-solid fa-xmark"></i></button>
-                        <button onclick="InstanceSaved(); HideModal_Instance();" id="cswU" class="btn btn-secondary save"><i class="fa-sharp fa-solid fa-check"></i></button>
+            </div>
+            <div id="settings" class="titlebar-dropdown-menu">
+                <div class="tdm-content">
+                    <p>Penpot Instance <a onclick="window.open('./instance.html', '_blank', 'width=450, height=500, minWidth: 450, minHeight: 420, resizable: false, frame=true, autoHideMenuBar=true')" href="#">(What's this?)</a></p>
+                    <input type="text" placeholder="https://design.penpot.app/" id="InstanceField" />
+                    <input id="InstanceSaveButton" type="button" value="Save" onclick="InstanceSave()" />
+                    <div class="linux-setting">
+                        <hr>
+                        <p>Titlebar Theme</p>
+                        <div class="image-buttons-ts">
+                            <button onclick="SwitchLinuxTitlebarTheme('./frontend/stylesheets/settings/linux-titlebar/gnome.css')"><img src="./frontend/media/images/titlebar/linux/GNOME.png"></button>
+                            <button onclick="SwitchLinuxTitlebarTheme('./frontend/stylesheets/settings/linux-titlebar/kde.css')"><img src="./frontend/media/images/titlebar/linux/KDE.png"></button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div style="display: none" id="gtk" class="linux-titlebar-buttons">
-                <!-- <button><i class="fa-duotone fa-circle-minus"></i></button>
-                <button><i style="transform: rotate(45deg);" class="fa-duotone fa-circle-xmark"></i></button> -->
-                <button onclick="window.close()"><i class="fa-duotone fa-circle-xmark"></i></button>
+            <div class="linux-custom-titlebar-buttons">
+                <button onclick="window.api.send('MinimizeWindow')" class="lctb-min-button">
+                    <div class="lctb-theme-gkt"><img src="./frontend/media/images/titlebar/linux/buttons/gnome-min.svg"></div>
+                    <div class="lctb-theme-kde"><img src="./frontend/media/images/titlebar/linux/buttons/kde-min.svg"></div>
+                </button>
+                <button onclick="window.api.send('MaximizeWindow')" class="lctb-max-button">
+                    <div class="lctb-theme-gkt"><img src="./frontend/media/images/titlebar/linux/buttons/gnome-max.svg"></div>
+                    <div class="lctb-theme-kde"><img src="./frontend/media/images/titlebar/linux/buttons/kde-max.svg"></div>
+                </button>
+                <button style="display: none" onclick="window.api.send('UnmaximizeWindow')" class="lctb-unmax-button">
+                    <div class="lctb-theme-gkt"><img src="./frontend/media/images/titlebar/linux/buttons/gnome-max.svg"></div>
+                    <div class="lctb-theme-kde"><img src="./frontend/media/images/titlebar/linux/buttons/kde-max.svg"></div>
+                </button>
+                <button onclick="window.close()" class="lctb-close-button">
+                    <div class="lctb-theme-gkt"><img src="./frontend/media/images/titlebar/linux/buttons/gnome-close.svg"></div>
+                    <div class="lctb-theme-kde"><img src="./frontend/media/images/titlebar/linux/buttons/kde-close.svg"></div>
+                </button>
             </div>
         </titlebar>
+        <splash>
+            <img src="./frontend/media/images/penpot-logo/logo-white.png">
+        </splash>
         <tab-group new-tab-button="true" sortable="true" class="full-window">
             <style>
                 :host {
-                    --tabgroup-background: #1f1f1f !important;
+                    --tabgroup-background: transparent !important;
                     --tab-background: #1f1f1f !important;
                     --tab-color: #ffffff !important;
                     --tab-border-color: transparent !important;
@@ -48,9 +70,7 @@
                     --close-button-visibility: visible !important;
                     --tab-height: 41px;
                 }
-                * {
-                    cursor: default !important;
-                }
+                * {cursor: default !important}
                 .nav {
                     -webkit-app-region: drag;
                     color: white !important;
@@ -66,6 +86,20 @@
                     -webkit-app-region: no-drag;
                     display: flex;
                     flex: none;
+                    border-radius: 4px;
+                    margin: 4px;
+                    height: 80%;
+                    transition: 0.4s border;
+                    border: 1px transparent solid !important;
+                }
+                .tab:not(.active):hover {
+                    background: #3f4247 !important;
+                    color: white !important;
+                    border: 1px var(--ActiveColor25) solid !important;
+                }
+                .tab.active {
+                    border: 1px var(--ActiveColor50) solid !important;
+                    transition: 0.4s border;
                 }
                 .tabs {
                     height: var(--tab-height);
@@ -82,29 +116,46 @@
                 }
                 .buttons {
                     -webkit-app-region: no-drag;
-                    border-left: 1px solid #1f1f1f !important;
+                    border-left: none !important;
                     padding: 5px !important;
                     display: flex !important;
                     align-items: center !important;
                 }
                 webview {
-                    height: calc(100% - var(--tab-height)) !important;
+                    height: calc(100% - var(--tab-height));
                     position: fixed !important;
                     bottom: 0px !important;
                     z-index: 20 !important;
                     left: 0px !important;
                 }
+                .tab.active:last-child {
+                    border-right: inherit;
+                }
             </style>
         </tab-group>
-        <!-- <splash class="full-window">
-            <img src="./frontend/media/images/penpot-logo/logo-white.png">
-            <p>Design Free for Teams</p>
-        </splash> -->
+        <div class="no-tabs-exist">
+            <div class="nte-content">
+                <p>Create a new tab.</p>
+                <button>New Tab</button>
+            </div>
+        </div>
     </body>
     <script src="https://kit.fontawesome.com/34da06dfa8.js" crossorigin="anonymous"></script>
+    <script src="./frontend/javascript/settings/instance.js"></script>
+    <script src="./frontend/javascript/settings/linux-titlebar.js"></script>
+    <script src="./frontend/javascript/view/toggles.js"></script>
     <script src="../../node_modules/electron-tabs/dist/electron-tabs.js"></script>
     <script type="module" src="./frontend/javascript/view/electron-tabs.js"></script>
-    <script src="./frontend/javascript/view/theme.js"></script>
-    <script src="./frontend/javascript/settings/instance.js"></script>
-    <script src="./frontend/javascript/settings/theme.js"></script>
 </html>
+
+<script>
+    onload = () => {
+        setTimeout(() => {
+            const FirstWebview  = document.querySelector("body > tab-group").shadowRoot.querySelector("div > div > webview")
+            setTimeout(() => {
+                const RemoveSplash = () => {DestroySplash()}
+                FirstWebview.addEventListener('did-finish-load', RemoveSplash)
+            }, 0o250)
+        }, 1000)
+    }
+</script>
