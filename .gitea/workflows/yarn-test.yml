@@ -6,8 +6,9 @@ jobs:
   Explore-Gitea-Actions:
     runs-on: mac
     steps:
-      - run: cd /Users/korbsstudio/Documents/gitea-actions/
-             git clone https://sudovanilla.com/code/Korbs/Penpot-Desktop
-             cd Penpot-Desktop
-             yarn
-             yarn bulid
+      - run: |
+     cd /Users/korbsstudio/Documents/gitea-actions/
+     git clone https://sudovanilla.com/code/Korbs/Penpot-Desktop
+     cd Penpot-Desktop
+     yarn
+     yarn bulid
