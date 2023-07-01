@@ -6,6 +6,7 @@ jobs:
   Explore-Gitea-Actions:
     runs-on: mac
     steps:
+      - run: cd /Users/korbsstudio/Documents/gitea-actions/
       - run: git clone https://sudovanilla.com/code/Korbs/Penpot-Desktop
       - run: cd Penpot-Desktop
       - run: yarn
