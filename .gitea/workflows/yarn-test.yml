@@ -12,3 +12,4 @@ jobs:
      cd Penpot-Desktop
      yarn
      yarn bulid
+     
