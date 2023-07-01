@@ -1,0 +1,10 @@
+name: Gitea Actions Demo
+run-name: ${{ gitea.actor }} is testing out Gitea Actions 🚀
+on: [push]
+
+jobs:
+  Explore-Gitea-Actions:
+    runs-on: mac
+    steps:
+      - run: ls / # Check perms
+      - run: yarn --help
