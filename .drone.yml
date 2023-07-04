@@ -13,6 +13,6 @@ platform:
 steps:
 - name: Build
   commands:
-   - ls # Check Default Checkout
-   - ls ../
-   - ls *
+   - node --version
+   - npm --version
+   - yarn --version
