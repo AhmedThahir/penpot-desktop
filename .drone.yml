@@ -1,7 +1,7 @@
 ---
 kind: pipeline
 type: exec
-name: bM2
+name: Build on Mac
 
 clone:
   retries: 3
@@ -56,9 +56,11 @@ platform:
   os: darwin
   arch: arm64
 
-- name: Publish
+steps:
+- name: Publish to Production
   commands:
     - echo "Hello world!"
-    
+
 depends_on:
-- bM2
+- Build on Mac
+- Build on Linux
