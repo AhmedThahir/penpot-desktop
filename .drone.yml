@@ -13,7 +13,7 @@ platform:
 steps:
 - name: Test
   commands:
-    - echo "Hello world!"
+    - echo "Hello world!
 
 ---
 kind: pipeline
@@ -31,3 +31,6 @@ steps:
 - name: Build
   commands:
     - echo "Hello world!"
+  when:
+    status:
+    - success
