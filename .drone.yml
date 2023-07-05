@@ -52,6 +52,13 @@ name: Publish
 depends_on:
 - Build on macOS (M2)
 
+clone:
+  retries: 3
+
+platform:
+  os: darwin
+  arch: arm64
+
 - name: Publish
   commands:
     - echo "Hello world!"
