@@ -30,4 +30,4 @@ platform:
 steps:
 - name: Build
   commands:
-    - echo "Hello world!
+    - echo "Hello world!"
