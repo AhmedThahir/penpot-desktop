@@ -13,7 +13,30 @@ platform:
 steps:
 - name: Test
   commands:
-    - echo "Hello world!""
+    - echo "Hello world!"
+
+- name: Build
+  commands:
+    - echo "Hello world!"
+  depends_on:
+  - Test
+
+---
+kind: pipeline
+type: exec
+name: Build on Linux
+
+clone:
+  retries: 3
+
+platform:
+  os: darwin
+  arch: arm64
+
+steps:
+- name: Test
+  commands:
+    - echo "Hello world!"
 
 - name: Build
   commands:
