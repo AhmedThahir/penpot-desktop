@@ -13,7 +13,7 @@ platform:
 steps:
 - name: Test
   commands:
-    - echo "Hello world!"
+    - echo "Hello world!
 
 - name: Build
   commands:
