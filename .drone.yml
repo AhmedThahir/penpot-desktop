@@ -1,7 +1,7 @@
 ---
 kind: pipeline
 type: exec
-name: Build on macOS (M2)
+name: bM2
 
 clone:
   retries: 3
@@ -48,6 +48,8 @@ steps:
 kind: pipeline
 type: exec
 name: Publish
+depends_on:
+- bM2
 
 clone:
   retries: 3
@@ -55,9 +57,6 @@ clone:
 platform:
   os: darwin
   arch: arm64
-
-depends_on:
-- Build on macOS (M2)
 
 - name: Publish
   commands:
