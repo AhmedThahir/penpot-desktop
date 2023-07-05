@@ -48,8 +48,6 @@ steps:
 kind: pipeline
 type: exec
 name: Publish
-depends_on:
-- bM2
 
 clone:
   retries: 3
@@ -61,3 +59,6 @@ platform:
 - name: Publish
   commands:
     - echo "Hello world!"
+    
+depends_on:
+- bM2
