@@ -1,6 +1,23 @@
 ---
 kind: pipeline
 type: exec
+name: Test on macOS (M2)
+
+clone:
+  retries: 3
+
+platform:
+  os: darwin
+  arch: arm64
+
+steps:
+- name: Test
+  commands:
+    - echo "Hello world!"
+
+---
+kind: pipeline
+type: exec
 name: Build on macOS (M2)
 
 clone:
@@ -13,6 +30,4 @@ platform:
 steps:
 - name: Build
   commands:
-   - node --version
-   - npm --version
-   - yarn --version
+    - echo "Hello world!
