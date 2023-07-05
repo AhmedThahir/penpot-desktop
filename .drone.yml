@@ -49,15 +49,15 @@ kind: pipeline
 type: exec
 name: Publish
 
-depends_on:
-- Build on macOS (M2)
-
 clone:
   retries: 3
 
 platform:
   os: darwin
   arch: arm64
+
+depends_on:
+- Build on macOS (M2)
 
 - name: Publish
   commands:
