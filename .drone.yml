@@ -51,3 +51,7 @@ name: Publish
 
 depends_on:
 - Build on macOS (M2)
+
+- name: Publish
+  commands:
+    - echo "Hello world!"
