@@ -1,7 +1,7 @@
 ---
 kind: pipeline
 type: exec
-name: Test on macOS (M2)
+name: Build on macOS (M2)
 
 clone:
   retries: 3
@@ -13,24 +13,10 @@ platform:
 steps:
 - name: Test
   commands:
-    - echo "Hello world!
+    - echo "Hello world!""
 
----
-kind: pipeline
-type: exec
-name: Build on macOS (M2)
-
-clone:
-  retries: 3
-
-platform:
-  os: darwin
-  arch: arm64
-
-steps:
 - name: Build
   commands:
     - echo "Hello world!"
-  when:
-    status:
-    - success
+  depends_on:
+  - Test
