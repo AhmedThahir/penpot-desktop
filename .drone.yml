@@ -43,3 +43,11 @@ steps:
     - echo "Hello world!"
   depends_on:
   - Test
+
+---
+kind: pipeline
+type: exec
+name: Publish
+
+depends_on:
+- Build on macOS (M2)
