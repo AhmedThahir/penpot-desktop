@@ -10,81 +10,10 @@ platform:
   os: darwin
   arch: arm64
 
-steps:
-- name: Test
-  commands:
-    - echo "Hello world!"
-
 - name: Build
   commands:
-    - echo "Hello world!"
-  depends_on:
-  - Test
+    - yarn
+    - yarn build
 
----
-kind: pipeline
-type: exec
-name: Build on Mac
-
-clone:
-  retries: 3
-
-platform:
-  os: darwin
-  arch: arm64
-
-steps:
-- name: Test
-  commands:
-    - echo "Hello world!"
-
-- name: Build
-  commands:
-    - echo "Hello world!"
-  depends_on:
-  - Test
-
----
-kind: pipeline
-type: exec
-name: Build on Linux
-
-clone:
-  retries: 3
-
-platform:
-  os: darwin
-  arch: arm64
-
-steps:
-- name: Test
-  commands:
-    - echo "Hello world!"
-
-- name: Build
-  commands:
-    - echo "Hello world!"
-  depends_on:
-  - Test
-
----
-kind: pipeline
-type: exec
-name: Publish
-
-clone:
-  retries: 3
-
-platform:
-  os: darwin
-  arch: arm64
-
-steps:
-- name: Publish to Production
-  commands:
-    - echo "Hello world!"
-
-depends_on:
-- Build on Windows
-- Build on Mac
-- Build on Linux
+    - mv dist/Penpot\ Desktop*.dmg dist/Penpot.dmg
+    - mv dist/Penpot\ Desktop*.zip dist/Penpot.zip
