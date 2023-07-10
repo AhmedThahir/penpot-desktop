@@ -10,7 +10,7 @@ platform:
   os: darwin
   arch: arm64
 
-  steps: 
+steps:
 - name: Build
   commands:
     - yarn
