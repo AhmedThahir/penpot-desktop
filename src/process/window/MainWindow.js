@@ -50,6 +50,7 @@ module.exports = {
     })
     ipcMain.on('MinimizeWindow', () => {mainWindow.minimize()})
     // Other Functions
+    ipcMain.on('ReloadApp', () => {mainWindow.reload(); Platform.CSS(); Platform.Extra()})
     AppMenu.MainMenu()
     Platform.CSS()
     Platform.Extra()
