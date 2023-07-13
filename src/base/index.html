@@ -25,6 +25,11 @@
                             <button onclick="SwitchLinuxTitlebarTheme('./frontend/stylesheets/settings/linux-titlebar/kde.css')"><img src="./frontend/media/images/titlebar/linux/KDE.png"></button>
                         </div>
                     </div>
+                    <div style="display: none" class="tdm-warnings">
+                        <div id="instance-not-set">
+                            <p>You don't have a Penpot instance set, please set one or <a style="cursor: pointer; text-decoration: underline;" onclick='document.querySelector("#settings > div > div.tdm-warnings").style.display = "none"; document.querySelector("#InstanceField").value = "https://design.penpot.app/"; setTimeout(() => {document.querySelector("#InstanceSaveButton").click()}, 0o500); setTimeout(() => {window.api.send("ReloadApp")}, 0o700);'>reset setting</a>.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="linux-custom-titlebar-buttons">
