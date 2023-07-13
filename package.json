@@ -1,6 +1,6 @@
 {
   "name": "penpot-desktop",
-  "version": "0.2.33",
+  "version": "0.2.34",
   "author": "SudoVanilla",
   "license": "MIT",
   "main": "src/process/index.js",
