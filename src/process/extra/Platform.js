@@ -9,12 +9,14 @@ module.exports = {
   },
   CSS: function () {
     if (process.platform === 'darwin') {setTimeout(() => {
+      mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-setting").style.display = 'none'`)
       mainWindow.webContents.executeJavaScript(`document.querySelector("body").style.backgroundColor = "rgb(31 31 31 / 25%)"`)
       mainWindow.webContents.executeJavaScript(`document.querySelector("body > tab-group").shadowRoot.querySelector("div > nav").style.left = '74px'`)
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWF', '140px')`)
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWS', '350px')`)
     }, 1500)}
     else if (process.platform === 'win32') {setTimeout(() => {
+      mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-setting").style.display = 'none'`)
       mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '144px'`)
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWF', '214px')`)
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWS', '400px')`)
