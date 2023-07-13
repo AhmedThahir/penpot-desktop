@@ -135,6 +135,18 @@ tab-group {
             color: black;
             padding: 0px 12px;
         }
+        .tdm-warnings {
+            background: #ff7482;
+            border: 1px white solid;
+            padding: 12px;
+            width: 270px;
+            margin: 20px -9px -82px -11px;
+            font-size: 14px;
+            color: black;
+            border-radius: 4px;
+            a {color: black}
+            p {margin: 0px}
+        }
     }
 }
 

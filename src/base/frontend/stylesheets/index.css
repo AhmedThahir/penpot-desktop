@@ -42,6 +42,10 @@ tab-group {
   transition: 2s opacity;
 }
 
+.linux-setting {
+  display: none;
+}
+
 .actions {
   position: fixed;
   right: 0px;
@@ -50,9 +54,6 @@ tab-group {
   padding: 6px 6px 0px 0px;
   cursor: default;
   -webkit-app-region: no-drag;
-}
-.actions .linux-setting {
-  display: none;
 }
 .actions .action-buttons {
   display: flex;
@@ -132,6 +133,22 @@ tab-group {
   background: white;
   color: black;
   padding: 0px 12px;
+}
+.titlebar-dropdown-menu .tdm-content .tdm-warnings {
+  background: #ff7482;
+  border: 1px white solid;
+  padding: 12px;
+  width: 270px;
+  margin: 20px -9px -82px -11px;
+  font-size: 14px;
+  color: black;
+  border-radius: 4px;
+}
+.titlebar-dropdown-menu .tdm-content .tdm-warnings a {
+  color: black;
+}
+.titlebar-dropdown-menu .tdm-content .tdm-warnings p {
+  margin: 0px;
 }
 
 .image-buttons-ts {
