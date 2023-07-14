@@ -1,5 +1,9 @@
 # Download and Install Penpot Desktop on macOS
-Download the DMG file: https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot.dmg
+Download the DMG file
+
+M1: https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot.dmg
+
+Intel: https://sudovanilla.com/distribute/applications/penpot-desktop/latest/intel-mac/Penpot.dmg
 
 ## Installation
 Open the DMG file and drag the Penpot icon into the Application folder.
