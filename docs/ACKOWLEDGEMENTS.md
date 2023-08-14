@@ -1,4 +1,3 @@
-
 # Acknowledgements
  - Creator/Developer: [SudoVanilla](https://sudovanilla.com/)
 

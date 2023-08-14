@@ -2,19 +2,25 @@
 If you had any issues with Penpot Desktop, please see the [support section](../../README.md#support) before choosing to uninstall.
 
 ## Repo:
-```
 # Uninstalling
 ## Debian
+```
 sudo apt remove penpot-desktop
+```
 
 ## Fedora/RHEL
+```
 sudo dnf remove penpot-desktop
+```
 
 ## Suse
+```
 sudo zypper remove penpot-desktop
+```
 
 # Removing Repo
 ## Debian
+```
 rm /etc/apt/sources.list.d/korbsstudio-penpot-desktop.list
 apt-get clean
 rm -rf /var/lib/apt/lists/*
@@ -23,8 +29,10 @@ apt-get update
 ## Fedora/RHEL
 rm /etc/yum.repos.d/korbsstudio-penpot-desktop.repo
 rm /etc/yum.repos.d/korbsstudio-penpot-desktop-source.repo
+```
 
 ## Suse
+```
 zypper rr korbsstudio-penpot-desktop
 zypper rr korbsstudio-penpot-desktop-source
 ```

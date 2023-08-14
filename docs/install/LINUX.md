@@ -3,8 +3,7 @@
  - [Repo (Terminal)](#repo)
  - [Snap](#snap)
  - [Arch](#arch)
- - Flatpak (In progress)
- - Flathub (Help wanted)
+ - Flathub ([In progress](https://github.com/flathub/flathub/pull/4409))
 
 ### Repo:
 ```
@@ -14,7 +13,7 @@ curl -1sLf \
   'https://dl.cloudsmith.io/public/korbsstudio/penpot-desktop/setup.deb.sh' \
   | sudo -E bash
 
-## Fedora/RHEL/Suse
+## Fedora
 curl -1sLf \
   'https://dl.cloudsmith.io/public/korbsstudio/penpot-desktop/setup.rpm.sh' \
   | sudo -E bash
@@ -42,7 +41,7 @@ sudo snap install penpot-desktop
 ___
 
 ### Arch:
-A script will be used to build the latest version of Penpot Desktop. This should work for all distros, but is targetted at Arch users.
+A script will be used to build the latest version of Penpot Desktop.
 
 The following packages are required:
  - `whiptail`
@@ -55,6 +54,8 @@ The following packages are required:
 ```
 bash <(wget -qO- https://sudovanilla.com/content/files/sh/penpot-desktop-install.sh)
 ```
+
+> If you are using a different distro, this may work for you as well, but I do highly recommend you use the other methods.
 
 ___
 

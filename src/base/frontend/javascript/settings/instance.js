@@ -29,6 +29,6 @@ setTimeout(() => {
     document.querySelector("body > titlebar > div.actions > div > button:nth-child(2)").click()
     document.querySelector(".tdm-warnings").style.display = 'inherit'
   } else {
-    console.log('Ready!')
+    console.log('An instance is set.')
   }
 }, 1500);
