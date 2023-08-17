@@ -21,7 +21,7 @@ win:
 
 nsis:
   shortcutName: "Penpot Desktop"
-  uninstallDisplayName: "Penpot Desktop"
+  uninstallDisplayName: "Penpot Desktop - Uninstall"
   artifactName: "Penpot Desktop - Setup.exe"
   oneClick: false
   displayLanguageSelector: true
