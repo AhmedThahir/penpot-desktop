@@ -3,6 +3,7 @@
  - [Repo (Terminal)](#repo)
  - [Snap](#snap)
  - [Arch](#arch)
+ - [FreeBSD](#freebsd)
  - Flathub ([In progress](https://github.com/flathub/flathub/pull/4409))
 
 ### Repo:
@@ -41,23 +42,25 @@ sudo snap install penpot-desktop
 ___
 
 ### Arch:
-A script will be used to build the latest version of Penpot Desktop.
 
-The following packages are required:
- - `whiptail`
- - `git`
- - `nodejs`
- - `yarn`
- - `wget`
- - `python` or `python3`
+> Auto update is not supported, you are required to update manually when a new release is available
 
+Download latest file: https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot-Desktop.pacman
+
+Then, install with the following command:
 ```
-bash <(wget -qO- https://sudovanilla.com/content/files/sh/penpot-desktop-install.sh)
+sudo pacman -U ~./Downloads/Penpot-Desktop.pacman
 ```
-
-> If you are using a different distro, this may work for you as well, but I do highly recommend you use the other methods.
 
 ___
+
+### FreeBSD
+
+> Auto update is not supported, you are required to update manually when a new release is available
+
+Download latest file: https://sudovanilla.com/distribute/applications/penpot-desktop/latest/Penpot-Desktop.freebsd
+
+I'm not experienced with FreeBSD, therefore I don't know the proper command line to install the .freebsd file. If you do, feel free to submit a PR.
 
 ## Troubleshooting
 ### Repo

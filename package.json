@@ -1,6 +1,6 @@
 {
   "name": "penpot-desktop",
-  "version": "0.2.34",
+  "version": "0.2.4",
   "author": "SudoVanilla",
   "license": "MIT",
   "main": "src/process/index.js",
@@ -28,7 +28,7 @@
   "scripts": {
     "start": "npm run dev",
     "build": "electron-builder --config build/electron-builder.yml",
-    "build:win": "electron-builder --config build/electron-builder.yml --win",
+    "build:arm": "electron-builder --config build/electron-builder.yml --arm64",
     "dev": "concurrently --kill-others \"npm run scss:app\" \"electron .\"",
     "scss:app": "sass --watch src/base/frontend/stylesheets/index.scss:src/base/frontend/stylesheets/index.css"
   },
@@ -43,6 +43,6 @@
   },
   "devDependencies": {
     "electron": "^25.2.0",
-    "electron-builder": "^24.4.0"
+    "electron-builder": "^24.6.3"
   }
 }

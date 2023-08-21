@@ -4,9 +4,6 @@
  - NodeJS 18 or up
  - Python 3.10 or up
  - g++ (Linux)
- - Visual Studio (Windows)
-  - Development with C++
- - Visual C++ Redistributable (Windows)
  - At least 4GB of storage available, recommended is 8GB (macOS/Linux)
  - At least 8GB of storage available, recommended is 16GB (Windows)
 

@@ -46,13 +46,3 @@ sudo snap remove penpot-desktop
 ```
 
 ___
-
-## Arch:
-```
-sudo rm /usr/local/bin/penpot-desktop.AppImage
-sudo rm /usr/share/icons/penpot-desktop.png
-sudo rm /usr/share/applications/penpot-desktop.desktop
-
-# Check if tmp still exist
-sudo rm -R /usr/share/sudovanilla/tmp/
-```
