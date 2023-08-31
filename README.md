@@ -32,7 +32,7 @@ ___
 # Support
 Reach out to the maintainer at one of the following places:
 
-- [Issues](https://sudovanilla.com/code/Korbs/Penpot-Desktop/-/issues)
+- [Issues](https://sudovanilla.com/code/Korbs/Penpot-Desktop/issues)
 - [Email](mailto:hello@sudovanilla.com)
 - [Penpot Forums](https://community.penpot.app/u/korbs/summary) (DM or mention me)
 - [Mastodon](https://fosstodon.org/@SudoVanilla)
