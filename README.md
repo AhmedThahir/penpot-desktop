@@ -1,8 +1,3 @@
-
-[Using Penpot Desktop? Please fill out a survey](https://9bldyiyo0bm.typeform.com/to/FOe49o0z).
-
-___
-
 ![Penpot Desktop](https://europe1.discourse-cdn.com/standard20/uploads/penpot/original/2X/b/bc6c290e4566bc12f8afa162bae80ffb20a7c7f5.jpeg)
 > This is unofficial software
 
