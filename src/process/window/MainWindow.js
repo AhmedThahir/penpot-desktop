@@ -1,14 +1,22 @@
 const {app, BrowserWindow, ipcMain, ipcRenderer} = require('electron')
+const windowStateKeeper = require('electron-window-state')
 const path = require('path')
 let AppMenu = require('../extra/Menu')
 let Platform = require('../extra/Platform')
 
+
+
+
+
 module.exports = {
   create: function () {
+    let mainWindowState = windowStateKeeper({defaultWidth: 1400,defaultHeight: 900})
     mainWindow = new BrowserWindow({
       // Size
-      width: 1400,
-      height: 900,
+      x: mainWindowState.x,
+      y: mainWindowState.y,
+      width: mainWindowState.width,
+      height: mainWindowState.height,
       minWidth: 1300,
       minHeight: 600,
       // Theme
@@ -50,6 +58,7 @@ module.exports = {
     })
     ipcMain.on('MinimizeWindow', () => {mainWindow.minimize()})
     // Other Functions
+    mainWindowState.manage(mainWindow)
     ipcMain.on('ReloadApp', () => {mainWindow.reload(); Platform.CSS(); Platform.Extra()})
     AppMenu.MainMenu()
     Platform.CSS()

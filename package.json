@@ -37,6 +37,7 @@
     "electron-tabs": "^1.0.1",
     "electron-titlebar-respect": "^1.1.1",
     "electron-updater": "^6.1.1",
+    "electron-window-state": "^5.0.3",
     "sass": "^1.63.6"
   },
   "devDependencies": {
