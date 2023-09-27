@@ -10,6 +10,3 @@ ___
 ## Electron (App)
  - Remember window size and posiiton
  - Deep link(sign in to Penpot via browser) (Help Wanted)
- - Improve performance
-    - Startup time
-    - Loading time

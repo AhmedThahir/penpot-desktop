@@ -24,7 +24,6 @@ module.exports = {
     else if (process.platform === 'linux') {setTimeout(() => {
       mainWindow.webContents.executeJavaScript(`if (SetLTTheme == null){SwitchLinuxTitlebarTheme('./frontend/stylesheets/settings/linux-titlebar/gnome.css')}else{SwitchLinuxTitlebarTheme(SetLTTheme)}`)
       mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-setting").style.display = 'inherit'`)
-      mainWindow.webContents.executeJavaScript(`document.querySelector(".linux-titlebar-buttons").style.display = 'inherit'`)
       mainWindow.webContents.executeJavaScript(`document.querySelector(".actions").style.right = '102px'`)
       mainWindow.webContents.executeJavaScript(`document.documentElement.style.setProperty('--navBarWF', '144px')`)
     }, 1500)}

@@ -13,7 +13,7 @@ module.exports = {
       minHeight: 600,
       // Theme
       darkTheme: true,
-      transparent: global.transparent, // Only enable for macOS to get Vibrancy effect
+      transparent: global.transparent,
       vibrancy: "sidebar",
       // Titlebar
       titleBarStyle: 'hidden',
@@ -29,7 +29,7 @@ module.exports = {
       icon: global.AppIcon,
       webPreferences: {
         preload: path.join(app.getAppPath(), '/src/process/preload.js'),
-        sandbox: false, // Doesn't work with Preload API
+        sandbox: false, // App doens't load properly if enabled
         webviewTag: true
       }
     })
