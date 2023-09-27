@@ -8,5 +8,4 @@ For those who prefer offline usage without Penpot Desktop connecting to any serv
 ___
 
 ## Electron (App)
- - Remember window size and posiiton
  - Deep link(sign in to Penpot via browser) (Help Wanted)
