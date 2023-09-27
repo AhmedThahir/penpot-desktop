@@ -49,4 +49,5 @@ function ATWC() {
 function DestroySplash() {
     document.querySelector('splash').style.opacity = '0'
     document.querySelector('tab-group').style.opacity = '1'
+    setTimeout(() => {document.querySelector('splash').remove()}, 2000)
 }

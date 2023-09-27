@@ -1,7 +1,5 @@
-@import url("https://fonts.bunny.net/css?family=source-sans-pro:300,400,600");
 body {
   overflow: hidden;
-  font-family: "Source Sans Pro", sans-serif;
   color: white;
   background: #1f1f1f;
   transition: 1s background;
@@ -9,6 +7,11 @@ body {
 
 * {
   outline: none;
+}
+
+::selection {
+  color: inherit;
+  background: inherit;
 }
 
 :root {
