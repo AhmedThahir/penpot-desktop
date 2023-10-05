@@ -102,6 +102,13 @@ tab-group {
         border-radius: 6px;
         border: 1px #1f1f1f solid;
         padding: 0px 12px 12px 12px;
+        h2 {
+            font-size: 16px;
+            font-weight: normal;
+            background: #1f1f1f;
+            margin: 0px -12px;
+            padding: 12px;
+        }
         p {cursor: default}
         a {color: white}
         button {
@@ -123,7 +130,7 @@ tab-group {
             color: white;
             font-size: 0.875rem;
             height: 32px;
-            margin: 0;
+            margin: 12px 0px;
             padding: 14px 14px 0 14px;
             padding-top: 0;
             padding-right: 50px;
@@ -150,6 +157,7 @@ tab-group {
 
 .image-buttons-ts {
     display: block;
+    margin: 12px 0px;
 }
 .image-buttons-ts button {
     width: inherit !important;

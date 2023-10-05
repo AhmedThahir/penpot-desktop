@@ -17,8 +17,8 @@ module.exports = {
       y: mainWindowState.y,
       width: mainWindowState.width,
       height: mainWindowState.height,
-      minWidth: 1300,
-      minHeight: 600,
+      minWidth: 1000,
+      minHeight: 400,
       // Theme
       darkTheme: true,
       transparent: global.transparent,
