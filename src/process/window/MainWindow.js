@@ -4,10 +4,6 @@ const path = require('path')
 let AppMenu = require('../extra/Menu')
 let Platform = require('../extra/Platform')
 
-
-
-
-
 module.exports = {
   create: function () {
     let mainWindowState = windowStateKeeper({defaultWidth: 1400,defaultHeight: 900})
