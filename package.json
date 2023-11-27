@@ -3,7 +3,9 @@
   "version": "0.3.0",
   "author": "SudoVanilla",
   "license": "AGPL-3.0-or-later",
-  "trustedDependencies": ["electron"],
+  "trustedDependencies": [
+    "electron"
+  ],
   "main": "src/process/index.js",
   "homepage": "https://sudovanilla.com/code/Korbs/Penpot-Desktop/",
   "keywords": [
@@ -39,7 +41,7 @@
     "sass": "^1.63.6"
   },
   "devDependencies": {
-    "electron": "^25.2.0",
-    "electron-builder": "^24.6.3"
+    "electron": "^27.1.2",
+    "electron-builder": "^24.9.1"
   }
 }

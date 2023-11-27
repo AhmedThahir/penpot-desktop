@@ -13,8 +13,8 @@ platform:
 steps:
 - name: Build
   commands:
-    - npm i
-    - npm run build
+    - yarn install
+    - yarn run build
 
     - mv dist/Penpot\ Desktop*.dmg dist/Penpot.dmg
     - mv dist/Penpot\ Desktop*.zip dist/Penpot.zip
