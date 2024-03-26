@@ -15,6 +15,15 @@ Endusers:
  - [System Requirements](https://sudovanilla.org/docs/penpot-desktop/install/INSTALL.md#system-requirements)
  - [Changelog](https://sudovanilla.org/docs/penpot-desktop/CHANGELOG.md)
 
+## Setup
+Clone this repo
+Run npm install
+Run npm run dev
+
+## Build
+
+Run npm run build
+
 Developers:
  - [FAQ for Developers](https://sudovanilla.org/docs/penpot-desktop/FAQ-for-developers.md)
  - [Build Instructions](https://sudovanilla.org/docs/penpot-desktop/BUILD.md)
